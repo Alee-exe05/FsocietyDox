@@ -15,8 +15,11 @@ export function FsocietyLogo() {
         strokeLinejoin="round"
         className="text-primary"
       >
-        <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 9.8c0 7.3-8 11.8-8 11.8z" />
-        <path d="m9.09 9 1.82 3.2-1.82 3.2M14.91 9l-1.82 3.2 1.82 3.2" />
+        <path d="M15.5 8.5c.3-1 .5-2.2.5-3.5A6 6 0 0 0 4 6c0 1.3.2 2.5.5 3.5" />
+        <path d="M4 14.5c0 1.3.2 2.5.5 3.5A6 6 0 0 0 16 22c1.3 0 2.5-.2 3.5-.5" />
+        <path d="M18 2c-1.3 0-2.5.2-3.5.5" />
+        <path d="M16 16a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" />
+        <path d="m4.5 8.5 15 15" />
       </svg>
       <span>FSociety Dox</span>
     </div>
