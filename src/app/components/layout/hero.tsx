@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <div className="relative h-[400px] w-full flex items-center justify-center text-white overflow-hidden">
       <Image
-        src="https://images.unsplash.com/photo-1618362361133-d1d3bdd41418?q=80&w=2070"
+        src="https://images.unsplash.com/photo-1509840298319-3c72c1537217?q=80&w=2070"
         alt="fsociety mask"
         fill
         className="object-cover"
