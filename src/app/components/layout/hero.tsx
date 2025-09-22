@@ -4,7 +4,7 @@ export function Hero() {
   return (
     <div className="relative h-[400px] w-full flex items-center justify-center text-white overflow-hidden">
       <Image
-        src="https://images.unsplash.com/photo-1593481499343-8b5527da26e4?q=80&w=1200"
+        src="https://picsum.photos/seed/fsociety-hero/1200/400"
         alt="Fsociety hacker"
         fill
         className="object-cover object-top"
