@@ -1,0 +1,134 @@
+"use client";
+
+import React, { useState, useRef } from 'react';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Upload } from 'lucide-react';
+import { modules as initialModules, Module, UserRole } from '@/lib/data';
+import { cn } from '@/lib/utils';
+import { useLanguage } from '@/contexts/language-context';
+import { useToast } from '@/hooks/use-toast';
+
+const getRoleClass = (role: UserRole) => {
+  switch (role) {
+    case 'CEO':
+      return 'text-red-500 font-bold';
+    case 'Admin':
+      return 'text-violet-400 animate-glitter font-bold';
+    case 'VIP':
+      return 'text-yellow-400 animate-glitter font-bold';
+    default:
+      return 'text-foreground';
+  }
+};
+
+export function ModulesTable() {
+  const [modules, setModules] = useState<Module[]>(initialModules);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const { dictionary } = useLanguage();
+  const { toast } = useToast();
+
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file && file.type === 'text/plain') {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const newModule: Module = {
+          id: `mod-${modules.length + 1}`,
+          filename: file.name,
+          uploadDate: new Date().toLocaleDateString(),
+          content: e.target?.result as string,
+          uploader: {
+            name: 'Elliot Alderson',
+            role: 'Normal',
+          },
+        };
+        setModules([newModule, ...modules]);
+        toast({
+          title: dictionary.modules.uploadSuccess.title,
+          description: `${file.name} ${dictionary.modules.uploadSuccess.description}`,
+        });
+      };
+      reader.readAsText(file);
+    } else {
+        toast({
+            title: dictionary.modules.uploadError.title,
+            description: dictionary.modules.uploadError.description,
+            variant: "destructive",
+        })
+    }
+    // Reset file input
+    if(event.target) event.target.value = '';
+  };
+
+  const triggerFileUpload = () => {
+    fileInputRef.current?.click();
+  };
+
+  return (
+    <Card>
+      <CardHeader className="flex flex-row items-center justify-between">
+        <div className="space-y-1.5">
+          <CardTitle className="font-headline">{dictionary.modules.title}</CardTitle>
+          <CardDescription>{dictionary.modules.description}</CardDescription>
+        </div>
+        <div>
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleFileUpload}
+            accept=".txt"
+            className="hidden"
+          />
+          <Button onClick={triggerFileUpload}>
+            <Upload className="mr-2 h-4 w-4" />
+            {dictionary.modules.uploadButton}
+          </Button>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>{dictionary.modules.table.filename}</TableHead>
+              <TableHead>{dictionary.modules.table.uploader}</TableHead>
+              <TableHead>{dictionary.modules.table.role}</TableHead>
+              <TableHead className="text-right">{dictionary.modules.table.uploadDate}</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {modules.map((module) => (
+              <TableRow key={module.id} className="transition-colors hover:bg-secondary/50">
+                <TableCell className="font-medium">{module.filename}</TableCell>
+                <TableCell>{module.uploader.name}</TableCell>
+                <TableCell>
+                    <Badge variant="outline" className={cn('border-none', getRoleClass(module.uploader.role))}>
+                        {module.uploader.role}
+                    </Badge>
+                </TableCell>
+                <TableCell className="text-right text-muted-foreground">
+                  {module.uploadDate}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
+  );
+}
