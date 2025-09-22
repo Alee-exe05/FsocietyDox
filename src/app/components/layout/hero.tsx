@@ -14,12 +14,15 @@ export function Hero() {
           strokeLinejoin="round"
           className="text-primary drop-shadow-[0_0_10px_hsl(var(--primary))]"
         >
-          <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 9.8c0 7.3-8 11.8-8 11.8z" />
-          <path d="m9.09 9 1.82 3.2-1.82 3.2M14.91 9l-1.82 3.2 1.82 3.2" />
+          <circle cx="12" cy="12" r="10" />
+          <circle cx="12" cy="12" r="2" />
+          <line x1="12" y1="2" x2="12" y2="6" />
+          <line x1="12" y1="18" x2="12" y2="22" />
+          <line x1="6" y1="12" x2="2" y2="12" />
+          <line x1="22" y1="12" x2="18" y2="12" />
         </svg>
         <span className="font-headline text-7xl font-bold">FSociety Dox</span>
       </div>
-      <div className="absolute inset-0 bg-black/50 z-10" />
     </div>
   );
 }
