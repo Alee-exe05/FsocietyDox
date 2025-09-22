@@ -33,6 +33,10 @@ export const fr: Dictionary = {
     uploadError: {
         title: 'Échec du Téléchargement',
         description: 'Veuillez sélectionner un fichier .txt valide.',
+    },
+    noModules: {
+        title: 'Aucun Module Trouvé',
+        description: 'Allez à la page "Ajouter Paste" pour télécharger un nouveau module.',
     }
   },
   users: {
@@ -66,4 +70,14 @@ export const fr: Dictionary = {
         description: 'Saisissez du texte et cliquez sur "Modérer le Texte" pour commencer l\'analyse.',
     }
   },
+  addPaste: {
+    title: 'Ajouter un Nouveau Paste',
+    description: 'Téléchargez un module .txt à ajouter au système.',
+    upload: {
+        title: 'Télécharger un fichier',
+        description: 'Glissez-déposez ou cliquez pour télécharger un fichier .txt.',
+    },
+    submitButton: 'Soumettre le Paste',
+    cancelButton: 'Annuler'
+  }
 };

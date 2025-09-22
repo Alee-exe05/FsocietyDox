@@ -33,6 +33,10 @@ export const it: Dictionary = {
     uploadError: {
         title: 'Caricamento Fallito',
         description: 'Seleziona un file .txt valido.',
+    },
+    noModules: {
+        title: 'Nessun Modulo Trovato',
+        description: 'Vai alla pagina "Aggiungi Paste" per caricare un nuovo modulo.',
     }
   },
   users: {
@@ -66,4 +70,14 @@ export const it: Dictionary = {
         description: 'Inserisci del testo e clicca su "Modera Testo" per iniziare l\'analisi.',
     }
   },
+  addPaste: {
+    title: 'Aggiungi Nuovo Paste',
+    description: 'Carica un modulo .txt da aggiungere al sistema.',
+    upload: {
+        title: 'Carica un file',
+        description: 'Trascina e rilascia o clicca per caricare un file .txt.',
+    },
+    submitButton: 'Invia Paste',
+    cancelButton: 'Annulla'
+  }
 };

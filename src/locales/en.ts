@@ -31,6 +31,10 @@ export const en = {
     uploadError: {
         title: 'Upload Failed',
         description: 'Please select a valid .txt file.',
+    },
+    noModules: {
+      title: 'No Modules Found',
+      description: 'Go to the "Add Paste" page to upload a new module.',
     }
   },
   users: {
@@ -64,4 +68,14 @@ export const en = {
         description: 'Enter some text and click "Moderate Text" to begin analysis.',
     }
   },
+  addPaste: {
+    title: 'Add New Paste',
+    description: 'Upload a .txt module to be added to the system.',
+    upload: {
+        title: 'Upload a file',
+        description: 'Drag and drop or click to upload a .txt file.',
+    },
+    submitButton: 'Submit Paste',
+    cancelButton: 'Cancel'
+  }
 };
