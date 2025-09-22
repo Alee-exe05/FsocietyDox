@@ -37,6 +37,12 @@ const getRoleClass = (role: UserRole) => {
   }
 };
 
+const getRowClass = (index: number) => {
+    if (index === 1 || index === 2) return 'table-row-red';
+    if (index === 0) return 'table-row-blue';
+    return ''
+}
+
 export function ModulesTable() {
   const [modules, setModules] = useState<Module[]>(initialModules);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -81,7 +87,7 @@ export function ModulesTable() {
   };
 
   return (
-    <Card>
+    <Card className="bg-transparent border-none shadow-none">
       <CardHeader className="flex flex-row items-center justify-between">
         <div className="space-y-1.5">
           <CardTitle className="font-headline">{dictionary.modules.title}</CardTitle>
@@ -104,7 +110,7 @@ export function ModulesTable() {
       <CardContent>
         <Table>
           <TableHeader>
-            <TableRow>
+            <TableRow className="hover:bg-transparent">
               <TableHead>{dictionary.modules.table.filename}</TableHead>
               <TableHead>{dictionary.modules.table.uploader}</TableHead>
               <TableHead>{dictionary.modules.table.role}</TableHead>
@@ -112,8 +118,8 @@ export function ModulesTable() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {modules.map((module) => (
-              <TableRow key={module.id} className="transition-colors hover:bg-secondary/50">
+            {modules.map((module, index) => (
+              <TableRow key={module.id} className={cn("transition-colors hover:bg-secondary/50", getRowClass(index))}>
                 <TableCell className="font-medium">{module.filename}</TableCell>
                 <TableCell>{module.uploader.name}</TableCell>
                 <TableCell>

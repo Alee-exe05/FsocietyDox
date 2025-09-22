@@ -8,38 +8,38 @@ body {
 
 @layer base {
   :root {
-    --background: 0 0% 0%; /* Black */
-    --foreground: 0 0% 98%; /* Almost white */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
 
-    --card: 240 4% 10%;
+    --card: 0 0% 8%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 240 4% 8%;
+    --popover: 0 0% 4%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 240 65% 50%; /* Dark Blue */
+    --primary: 210 40% 50%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 240 4% 15%;
+    --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 240 4% 15%;
+    --muted: 0 0% 15%;
     --muted-foreground: 0 0% 63.9%;
 
-    --accent: 0 0% 83%; /* Light Gray */
-    --accent-foreground: 0 0% 9%; /* Dark text for accent */
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 63% 31%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 4% 20%;
-    --input: 240 4% 15%;
-    --ring: 240 65% 55%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 210 40% 50%;
 
     --radius: 0.5rem;
 
-    --chart-1: 240 70% 60%;
-    --chart-2: 180 60% 45%;
+    --chart-1: 210 40% 50%;
+    --chart-2: 0 63% 31%;
     --chart-3: 300 80% 55%;
     --chart-4: 120 65% 60%;
     --chart-5: 60 75% 55%;
@@ -55,33 +55,33 @@ body {
   }
 
   .dark {
-    --background: 0 0% 0%; /* Black */
-    --foreground: 0 0% 98%; /* Almost white */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
 
-    --card: 240 4% 10%;
+    --card: 0 0% 8%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 240 4% 8%;
+    --popover: 0 0% 4%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 240 65% 50%; /* Dark Blue */
+    --primary: 210 40% 50%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 240 4% 15%;
+    --secondary: 0 0% 15%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 240 4% 15%;
+    --muted: 0 0% 15%;
     --muted-foreground: 0 0% 63.9%;
 
-    --accent: 0 0% 83%; /* Light Gray */
-    --accent-foreground: 0 0% 9%; /* Dark text for accent */
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 63% 31%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 4% 20%;
-    --input: 240 4% 15%;
-    --ring: 240 65% 55%;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 210 40% 50%;
   }
 }
 
@@ -92,4 +92,13 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer components {
+    .table-row-red {
+        @apply border-l-2 border-red-500;
+    }
+    .table-row-blue {
+        @apply border-l-2 border-blue-500;
+    }
 }
