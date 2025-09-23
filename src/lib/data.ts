@@ -1,4 +1,4 @@
-export type UserRole = 'CEO' | 'Admin' | 'VIP' | 'Normal';
+export type UserRole = 'CEO' | 'Admin' | 'VIP' | 'Criminal';
 
 export interface User {
   name: string;
@@ -7,20 +7,12 @@ export interface User {
   isOnline?: boolean;
 }
 
-export interface Module {
-  id: string;
-  filename: string;
-  uploadDate: string;
-  content: string;
-  uploader: User;
-}
-
 export const users: User[] = [
   { name: 'Tyrell Wellick', role: 'CEO', avatar: 'https://picsum.photos/seed/tyrell/100/100' },
   { name: 'Darlene Alderson', role: 'Admin', avatar: 'https://picsum.photos/seed/darlene/100/100' },
   { name: 'Angela Moss', role: 'VIP', avatar: 'https://picsum.photos/seed/angela/100/100' },
   { name: 'Phillip Price', role: 'CEO', avatar: 'https://picsum.photos/seed/price/100/100' },
-  { name: 'Whiterose', role: 'Admin', avatar: 'https://picsum.photos/seed/whiterose/100/100' },
+  { name: 'Whiterose', role: 'Criminal', avatar: 'https://picsum.photos/seed/whiterose/100/100' },
 ];
 
 export const modules: Module[] = [
