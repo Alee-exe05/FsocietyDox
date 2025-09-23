@@ -4,6 +4,13 @@ export const fr: Dictionary = {
   page: {
     title: 'Tableau de Bord',
   },
+  navigation: {
+    home: 'Accueil',
+    addPaste: 'Ajouter Paste',
+    users: 'Utilisateurs',
+    infoUsers: 'Info Utilisateurs',
+    support: 'Support',
+  },
   dashboard: {
     stats: {
       modules: 'Modules Totaux',
@@ -44,6 +51,8 @@ export const fr: Dictionary = {
     description: '',
   },
   infoUsers: {
+    title: "Informations Utilisateurs",
+    description: "Aperçu des statistiques des utilisateurs sur la plateforme.",
     stats: {
       totalUsers: {
         title: 'Utilisateurs Totaux',
@@ -122,7 +131,7 @@ export const fr: Dictionary = {
       },
       {
         title: "5. Exactitude des matériaux",
-        content: "Les matériaux apparaissant sur FSociety Dox peuvent contenir des erreurs techniques, typographiques ou photographiques. Nous ne garantissons pas que les matériaux sur son site Web sont exacts, complets ou à jour. Nous pouvons apporter des modifications aux matériaux contenus sur son site Web à tout moment et sans préavis."
+        content: "Les matériaux apparaissant sur FSociety Dox могут contenir des erreurs techniques, typographiques ou photographiques. Nous ne garantissons pas que les matériaux sur son site Web sont exacts, complets ou à jour. Nous pouvons apporter des modifications aux matériaux contenus sur son site Web à tout moment et sans préavis."
       }
     ],
     privacy: [

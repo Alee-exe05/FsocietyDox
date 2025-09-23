@@ -4,6 +4,13 @@ export const it: Dictionary = {
   page: {
     title: 'Dashboard',
   },
+  navigation: {
+    home: 'Home',
+    addPaste: 'Aggiungi Paste',
+    users: 'Utenti',
+    infoUsers: 'Info Utenti',
+    support: 'Supporto',
+  },
   dashboard: {
     stats: {
       modules: 'Moduli Totali',
@@ -44,6 +51,8 @@ export const it: Dictionary = {
     description: '',
   },
   infoUsers: {
+    title: "Informazioni Utenti",
+    description: "Panoramica delle statistiche degli utenti sulla piattaforma.",
     stats: {
       totalUsers: {
         title: 'Utenti Totali',

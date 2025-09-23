@@ -2,6 +2,13 @@ export const en = {
   page: {
     title: 'Dashboard',
   },
+  navigation: {
+    home: 'Home',
+    addPaste: 'Add Paste',
+    users: 'Users',
+    infoUsers: 'Info Users',
+    support: 'Support',
+  },
   dashboard: {
     stats: {
       modules: 'Total Modules',
@@ -42,6 +49,8 @@ export const en = {
     description: '',
   },
   infoUsers: {
+    title: "User Information",
+    description: "Overview of user statistics on the platform.",
     stats: {
       totalUsers: {
         title: 'Total Users',

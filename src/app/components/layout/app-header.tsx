@@ -5,15 +5,18 @@ import { Button } from '@/components/ui/button';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { LanguageSwitcher } from './language-switcher';
+import { useLanguage } from '@/contexts/language-context';
 
 export function AppHeader() {
   const pathname = usePathname();
+  const { dictionary } = useLanguage();
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/add-paste', label: 'Add Paste' },
-    { href: '/users', label: 'Users' },
-    { href: '/support', label: 'Support' },
+    { href: '/', label: dictionary.navigation.home },
+    { href: '/add-paste', label: dictionary.navigation.addPaste },
+    { href: '/users', label: dictionary.navigation.users },
+    { href: '/info-users', label: dictionary.navigation.infoUsers },
+    { href: '/support', label: dictionary.navigation.support },
   ];
 
   return (
