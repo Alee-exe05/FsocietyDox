@@ -11,18 +11,7 @@ export interface User {
   joined: string;
 }
 
-export const users: User[] = [
-  {
-    id: 1,
-    name: 'yAle01_',
-    role: 'CEO',
-    avatar: 'https://picsum.photos/seed/yale/100/100',
-    isOnline: true,
-    pastes: 0,
-    comments: 0,
-    joined: '29/07/2024',
-  },
-];
+export const users: User[] = [];
 
 export interface Module {
   id: string;
