@@ -49,7 +49,7 @@ export function ModulesTable() {
         {modules.length > 0 ? (
             <Table>
             <TableHeader>
-                <TableRow className="hover:bg-transparent">
+                <TableRow className="hover:bg-card bg-card border-b border-border">
                 <TableHead>{dictionary.modules.table.filename}</TableHead>
                 <TableHead>{dictionary.modules.table.uploader}</TableHead>
                 <TableHead>{dictionary.modules.table.role}</TableHead>

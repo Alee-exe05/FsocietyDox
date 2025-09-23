@@ -86,7 +86,7 @@ export function UserList() {
                 <h3 className="font-headline text-xl font-bold mb-2 text-foreground">{formatRoleDisplay(role)}</h3>
                 <Table>
                 <TableHeader>
-                    <TableRow className="hover:bg-transparent border-b border-primary/20">
+                    <TableRow className="hover:bg-card bg-card border-b border-border">
                     <TableHead className="text-foreground text-left">ID</TableHead>
                     <TableHead className="text-foreground text-left">Username</TableHead>
                     <TableHead className="text-foreground text-left">Pastes</TableHead>
