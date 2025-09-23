@@ -45,13 +45,6 @@ export const modules: Module[] = [
     content: 'Client PII...',
     uploader: users[2],
   },
-  {
-    id: 'mod-4',
-    filename: 'fsociety_manifesto.txt',
-    uploadDate: '2023-10-22',
-    content: 'Our mission statement.',
-    uploader: { name: 'Mr. Robot', role: 'Admin', avatar: '' },
-  },
 ];
 
 export const chartConfig = {

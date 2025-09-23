@@ -44,7 +44,7 @@ export function UserList() {
   }
 
   return (
-    <Card>
+    <Card className="border-2 border-primary/50">
       <CardHeader>
         <CardTitle className="font-headline">{dictionary.users.title}</CardTitle>
         <CardDescription>{dictionary.users.description}</CardDescription>
