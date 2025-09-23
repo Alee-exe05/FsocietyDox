@@ -41,7 +41,7 @@ export const it: Dictionary = {
   },
   users: {
     title: 'Users',
-    description: 'Lista degli utenti attualmente attivi.',
+    description: '',
     online: 'Online',
     offline: 'Offline',
   },

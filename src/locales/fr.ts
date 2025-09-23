@@ -41,7 +41,7 @@ export const fr: Dictionary = {
   },
   users: {
     title: 'Users',
-    description: 'Liste des utilisateurs currently active.',
+    description: '',
     online: 'En ligne',
     offline: 'Hors ligne',
   },
