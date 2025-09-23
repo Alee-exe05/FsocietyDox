@@ -15,7 +15,6 @@ export function AppHeader() {
     { href: '/', label: dictionary.navigation.home },
     { href: '/add-paste', label: dictionary.navigation.addPaste },
     { href: '/users', label: dictionary.navigation.users },
-    { href: '/info-users', label: dictionary.navigation.infoUsers },
     { href: '/support', label: dictionary.navigation.support },
   ];
 

@@ -8,7 +8,6 @@ export const it: Dictionary = {
     home: 'Home',
     addPaste: 'Aggiungi Paste',
     users: 'Users',
-    infoUsers: 'Info Utenti',
     support: 'Supporto',
   },
   dashboard: {
@@ -49,51 +48,6 @@ export const it: Dictionary = {
   users: {
     title: 'Users',
     description: '',
-  },
-  infoUsers: {
-    title: "Informazioni Utenti",
-    description: "Panoramica delle statistiche degli utenti sulla piattaforma.",
-    stats: {
-      totalUsers: {
-        title: 'Utenti Totali',
-        description: 'Numero totale di utenti registrati nel sistema.',
-        trend: '+15% dal mese scorso',
-      },
-      onlineUsers: {
-        title: 'Utenti Online',
-        description: 'Numero di utenti attualmente attivi sulla piattaforma.',
-        trend: '+5% da ieri',
-      },
-      newUsers: {
-        title: 'Nuovi Utenti',
-        description: 'Utenti che si sono registrati nelle ultime 24 ore.',
-        trend: '+20% questa settimana',
-      },
-      bannedUsers: {
-        title: 'Utenti Bannati',
-        description: 'Utenti che sono stati bannati dalla piattaforma.',
-        trend: 'Nessuna variazione',
-      },
-    },
-    activityChart: {
-        title: 'Attività degli Utenti',
-        description: 'Una rappresentazione visiva dell\'coinvolgimento degli utenti nel tempo.',
-    },
-    recentActivity: {
-        title: 'Attività Recente',
-        description: 'Un registro delle azioni recenti degli utenti.',
-        table: {
-            user: 'Utente',
-            action: 'Azione',
-            date: 'Data',
-        },
-        actions: {
-            login: 'ha effettuato l\'accesso',
-            logout: 'ha effettuato il logout',
-            upload: 'ha caricato un file',
-            comment: 'ha pubblicato un commento',
-        }
-    }
   },
   moderation: {
     title: 'Strumento di Moderazione PII',
