@@ -6,6 +6,7 @@ export const en = {
     home: 'Home',
     addPaste: 'Add Paste',
     users: 'Users',
+    info_users: 'Info Users',
     support: 'Support',
   },
   dashboard: {
@@ -46,6 +47,28 @@ export const en = {
   users: {
     title: 'Users',
     description: '',
+  },
+  info_users: {
+    title: 'Users Information',
+    description: 'Overview of user statistics and activity.',
+    stats: {
+      total_users: 'Total Users',
+      total_users_desc: 'The total number of registered users.',
+      online_users: 'Online Users',
+      online_users_desc: 'Users currently active on the platform.',
+      new_users: 'New Users (24h)',
+      new_users_desc: 'New users in the last 24 hours.',
+      banned_users: 'Banned Users',
+      banned_users_desc: 'Users who have been banned from the platform.',
+    },
+    chart: {
+      title: 'User Activity',
+      description: 'Monthly user registration trends.',
+      legend: 'Users'
+    },
+    recent_activity: {
+      title: 'Recent Activity'
+    }
   },
   moderation: {
     title: 'PII Moderation Tool',
