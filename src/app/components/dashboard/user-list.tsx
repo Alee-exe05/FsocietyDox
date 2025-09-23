@@ -25,7 +25,7 @@ const getRoleClass = (role: UserRole) => {
       case 'Admin':
         return 'text-violet-400 font-bold animate-glitter';
       case 'VIP':
-        return 'text-yellow-400 font-bold animate-glitter';
+        return 'text-yellow-400 font-bold';
       default:
         return 'text-foreground';
     }
@@ -47,24 +47,30 @@ export function UserList() {
     return acc;
   }, {} as Record<UserRole, User[]>);
 
+  const formatRoleDisplay = (role: string) => {
+    return role.charAt(0).toUpperCase() + role.slice(1).toLowerCase();
+  }
+
   return (
     <div className="space-y-8">
         <Card className="bg-transparent border-none shadow-none text-center">
             <CardHeader className="p-0">
-                <CardTitle className="font-headline text-3xl">{dictionary.users.title}</CardTitle>
-                <CardDescription>{dictionary.users.description}</CardDescription>
-                <div className="flex justify-center pt-4">
-                    <div className="relative w-full max-w-sm">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                        <Input 
-                            placeholder="Search users..."
-                            className="pl-10"
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
-                         <div className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted-foreground flex items-center gap-1">
-                            <Users className="h-4 w-4" />
-                            {filteredUsers.length}
+                <div className="flex justify-center">
+                    <div className="w-full max-w-4xl flex flex-col items-center">
+                        <CardTitle className="font-headline text-3xl">{dictionary.users.title}</CardTitle>
+                        <CardDescription>{dictionary.users.description}</CardDescription>
+                        <div className="relative w-full max-w-sm mt-4">
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                            <Input 
+                                placeholder="Search users..."
+                                className="pl-10"
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted-foreground flex items-center gap-1">
+                                <Users className="h-4 w-4" />
+                                {filteredUsers.length}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -73,7 +79,7 @@ export function UserList() {
         {Object.keys(groupedUsers).length > 0 ? (
             Object.entries(groupedUsers).map(([role, users]) => (
             <div key={role}>
-                <h3 className="font-headline text-xl font-bold mb-2 text-foreground">{role}</h3>
+                <h3 className="font-headline text-xl font-bold mb-2 text-foreground">{formatRoleDisplay(role)}</h3>
                 <Table>
                 <TableHeader>
                     <TableRow className="hover:bg-transparent border-b border-primary/20">
