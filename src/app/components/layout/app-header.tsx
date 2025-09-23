@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -25,7 +26,8 @@ export function AppHeader() {
         {navLinks.map((link) => (
           <Link 
             key={link.href} 
-            href={link.href} 
+            href={link.href}
+            prefetch={true}
             className={cn(
               "transition-colors hover:text-foreground",
               pathname === link.href ? "text-foreground" : "text-muted-foreground"
@@ -41,10 +43,10 @@ export function AppHeader() {
                 <LanguageSwitcher />
             </div>
             <Button asChild variant="ghost">
-                <Link href="/login">Login</Link>
+                <Link href="/login" prefetch={true}>Login</Link>
             </Button>
             <Button asChild variant="ghost">
-                <Link href="/register">Register</Link>
+                <Link href="/register" prefetch={true}>Register</Link>
             </Button>
           </div>
       </div>
