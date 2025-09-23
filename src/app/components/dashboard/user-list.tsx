@@ -25,7 +25,7 @@ const roleOrder: UserRole[] = ['CEO', 'Admin', 'VIP', 'Criminal'];
 const getRoleClass = (role: UserRole) => {
     switch (role) {
       case 'CEO':
-        return 'text-red-500 font-bold';
+        return 'text-red-500 animate-glitter font-bold';
       case 'Admin':
         return 'text-violet-400 animate-glitter font-bold';
       case 'VIP':
@@ -47,7 +47,7 @@ export function UserList() {
   }, {} as Record<UserRole, User[]>);
 
   return (
-    <Card className="border-none shadow-none bg-transparent">
+    <Card className="border-2 border-primary/50 bg-transparent">
         <CardHeader>
             <CardTitle className="font-headline">{dictionary.users.title}</CardTitle>
             <CardDescription>{dictionary.users.description}</CardDescription>
