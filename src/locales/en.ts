@@ -4,7 +4,7 @@ export const en = {
   },
   navigation: {
     home: 'Home',
-    addPaste: 'Add Paste',
+    addPaste: 'Add a new Paste',
     users: 'Users',
     info_users: 'Info Users',
     support: 'Support',
