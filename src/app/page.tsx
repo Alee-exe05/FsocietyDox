@@ -13,7 +13,7 @@ export default function Home() {
       <AppHeader />
       <main className="flex-1">
         <Hero />
-        <div className="p-4 md:p-10 space-y-8">
+        <div className="px-4 md:px-10 pb-4 md:pb-10 space-y-8">
             <ModulesTable />
         </div>
       </main>
