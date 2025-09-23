@@ -88,37 +88,37 @@ export const it: Dictionary = {
     terms: [
         {
             title: "1. Accettazione dei Termini",
-            content: "Accedendo e utilizzando FSociety Dox, accetti di essere vincolato dai termini e dalle disposizioni del presente accordo."
+            content: "Accedendo e utilizzando FSociety Dox, accetti di essere vincolato dai termini e dalle disposizioni di questo accordo. Questa è una piattaforma per l'informazione e, partecipando, ti allinei alla nostra missione."
         },
         {
             title: "2. Licenza d'Uso",
-            content: "È concesso il permesso di accedere temporaneamente a FSociety Dox solo per una visualizzazione transitoria personale e non commerciale."
+            content: "È concesso il permesso di accedere temporaneamente a FSociety Dox solo per una visualizzazione transitoria personale e non commerciale. Questa licenza non ti concede alcun diritto sul codice o sull'infrastruttura sottostante."
         },
         {
             title: "3. Dichiarazione di non responsabilità",
-            content: "I materiali su FSociety Dox sono forniti 'così come sono'. FSociety Dox non offre alcuna garanzia, espressa o implicita."
+            content: "I materiali e i dati su FSociety Dox sono forniti 'così come sono'. Non offriamo alcuna garanzia, espressa o implicita, e con la presente decliniamo ogni altra garanzia. L'informazione è potere; usala con saggezza."
         },
         {
             title: "4. Limitazioni",
-            content: "In nessun caso FSociety Dox sarà responsabile per eventuali danni derivanti dall'uso o dall'impossibilità di utilizzare i materiali."
+            content: "In nessun caso FSociety Dox o i suoi fornitori saranno responsabili per eventuali danni (inclusi, senza limitazione, danni per perdita di dati o profitto, o dovuti a interruzione dell'attività) derivanti dall'uso o dall'impossibilità di utilizzare i materiali su FSociety Dox."
         },
         {
             title: "5. Accuratezza dei materiali",
-            content: "I materiali che appaiono su FSociety Dox potrebbero includere errori tecnici, tipografici o fotografici."
+            content: "I materiali che appaiono su FSociety Dox potrebbero includere errori tecnici, tipografici o fotografici. Non garantiamo che nessuno dei materiali sul suo sito web sia accurato, completo o attuale. Possiamo apportare modifiche ai materiali contenuti nel suo sito web in qualsiasi momento e senza preavviso."
         }
     ],
     privacy: [
         {
-            title: "Informazioni che Raccogliamo",
-            content: "Potremmo raccogliere informazioni personali che ci fornisci volontariamente quando ti registri su FSociety Dox, esprimi interesse a ottenere informazioni su di noi o sui nostri prodotti и servizi, quando partecipi ad attività su FSociety Dox o altrimenti quando ci contatti."
+            title: "Informazioni che 'Raccogliamo'",
+            content: "Siamo una società che valorizza la privacy. Le uniche informazioni personali che conserviamo sono quelle che fornisci volontariamente al momento della registrazione: un nome utente e una data di iscrizione. Non tracciamo il tuo indirizzo IP o altri metadati non necessari."
         },
         {
-            title: "Come Usiamo le Tue Informazioni",
-            content: "Utilizziamo le informazioni personali raccolte tramite il nostro FSociety Dox per una serie di scopi aziendali descritti di seguito. Elaboriamo le tue informazioni personali per questi scopi in base ai nostri legittimi interessi aziendali, al fine di stipulare o eseguire un contratto сon te, con il tuo consenso e/o per la conformità ai nostri obblighi legali."
+            title: "Come 'Usiamo' le Tue Informazioni",
+            content: "Le informazioni che fornisci vengono utilizzate esclusivamente per identificarti all'interno del nostro sistema, attribuire i tuoi contributi (paste) e visualizzare il tuo ruolo. Non utilizziamo i tuoi dati per marketing, analisi o qualsiasi altro scopo diverso dalla funzionalità principale della piattaforma."
         },
         {
-            title: "Le Tue Informazioni Saranno Condivise?",
-            content: "Condividiamo le informazioni solo con il tuo consenso, per rispettare le leggi, per fornirti servizi, per proteggere i tuoi diritti o per adempiere a obblighi aziendali."
+            title: "Le Tue Informazioni Saranno 'Condivise'?",
+            content: "Non condividiamo le tue informazioni con terze parti. I tuoi dati (nome utente e contenuti) sono visibili agli altri utenti sulla piattaforma come parte dell'esperienza. Operiamo nell'ombra per proteggere la tua privacy dal mondo esterno."
         }
     ]
   }

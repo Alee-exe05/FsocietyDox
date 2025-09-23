@@ -86,37 +86,37 @@ export const en = {
     terms: [
       {
         title: "1. Acceptance of Terms",
-        content: "By accessing and using FSociety Dox, you accept and agree to be bound by the terms and provision of this agreement."
+        content: "By accessing and using FSociety Dox, you accept and agree to be bound by the terms and provision of this agreement. This is a platform for information, and by participating, you align with our mission."
       },
       {
         title: "2. Use License",
-        content: "Permission is granted to temporarily access FSociety Dox for personal, non-commercial transitory viewing only."
+        content: "Permission is granted to temporarily access FSociety Dox for personal, non-commercial transitory viewing only. This license does not grant you any rights to the underlying code or infrastructure."
       },
       {
         title: "3. Disclaimer",
-        content: "The materials on FSociety Dox are provided on an 'as is' basis. FSociety Dox makes no warranties, expressed or implied."
+        content: "The materials and data on FSociety Dox are provided 'as is'. We make no warranties, expressed or implied, and hereby disclaim all other warranties. Information is power; use it wisely."
       },
       {
         title: "4. Limitations",
-        content: "In no event shall FSociety Dox be liable for any damages arising out of the use or inability to use the materials."
+        content: "In no event shall FSociety Dox or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on FSociety Dox."
       },
       {
         title: "5. Accuracy of materials",
-        content: "The materials appearing on FSociety Dox could include technical, typographical, or photographic errors."
+        content: "The materials appearing on FSociety Dox could include technical, typographical, or photographic errors. We do not warrant that any of the materials on its website are accurate, complete or current. We may make changes to the materials contained on its website at any time without notice."
       }
     ],
     privacy: [
       {
-        title: "Information We Collect",
-        content: "We may collect personal information that you voluntarily provide to us when you register on the FSociety Dox, express an interest in obtaining information about us or our products and services, when you participate in activities on the FSociety Dox or otherwise when you contact us."
+        title: "Information We 'Collect'",
+        content: "We are a society that values privacy. The only personal information we store is what you voluntarily provide upon registration: a username and a join date. We do not track your IP address or other unnecessary metadata."
       },
       {
-        title: "How We Use Your Information",
-        content: "We use personal information collected via our FSociety Dox for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests, in order to enter into or perform a contract with you, with your consent, and/or for compliance with our legal obligations."
+        title: "How We 'Use' Your Information",
+        content: "The information you provide is used solely to identify you within our system, attribute your contributions (pastes), and display your role. We do not use your data for marketing, analytics, or any purpose other than the core functionality of the platform."
       },
       {
-        title: "Will Your Information Be Shared?",
-        content: "We only share information with your consent, to comply with laws, to provide you with services, to protect your rights, or to fulfill business obligations."
+        title: "Will Your Information Be 'Shared'?",
+        content: "We do not share your information with any third party. Your data (username and content) is visible to other users on the platform as part of the experience. We operate in the shadows to protect your privacy from the outside world."
       }
     ]
   }
