@@ -92,12 +92,10 @@ export default {
           '0%, 100%': {
             opacity: '1',
             textShadow: '0 0 4px currentColor, 0 0 4px currentColor',
-            transform: 'translateY(0)',
           },
           '50%': {
             opacity: '0.8',
             textShadow: '0 0 8px currentColor, 0 0 12px currentColor',
-            transform: 'translateY(-2px)',
           },
         },
       },
