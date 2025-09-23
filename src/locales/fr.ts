@@ -79,5 +79,47 @@ export const fr: Dictionary = {
     },
     submitButton: 'Soumettre le Paste',
     cancelButton: 'Annuler'
+  },
+  support: {
+    title: 'Support',
+    description: 'Bienvenue sur la page de support. Vous trouverez ici nos conditions d\'utilisation et notre politique de confidentialité.',
+    terms_title: 'Conditions d\'Utilisation',
+    privacy_title: 'Politique de Confidentialité',
+    terms: [
+      {
+        title: "1. Acceptation des conditions",
+        content: "En accédant et en utilisant FSociety Dox, vous acceptez d'être lié par les termes et dispositions de cet accord."
+      },
+      {
+        title: "2. Licence d'utilisation",
+        content: "L'autorisation est accordée d'accéder temporairement à FSociety Dox pour un visionnage transitoire personnel et non commercial uniquement."
+      },
+      {
+        title: "3. Clause de non-responsabilité",
+        content: "Les matériaux sur FSociety Dox sont fournis 'tels quels'. FSociety Dox ne donne aucune garantie, expresse ou implicite."
+      },
+      {
+        title: "4. Limitations",
+        content: "En aucun cas, FSociety Dox ne pourra être tenu responsable des dommages résultant de l'utilisation ou de l'impossibilité d'utiliser les matériaux."
+      },
+      {
+        title: "5. Exactitude des matériaux",
+        content: "Les matériaux apparaissant sur FSociety Dox peuvent contenir des erreurs techniques, typographiques ou photographiques."
+      }
+    ],
+    privacy: [
+      {
+        title: "Informations que nous collectons",
+        content: "Nous pouvons collecter des informations personnelles que vous nous fournissez volontairement lorsque vous vous inscrivez sur FSociety Dox, que vous manifestez votre intérêt à obtenir des informations sur nous ou nos produits et services, lorsque vous participez à des activités sur FSociety Dox ou que vous nous contactez."
+      },
+      {
+        title: "Comment nous utilisons vos informations",
+        content: "Nous utilisons les informations personnelles collectées via notre FSociety Dox à diverses fins commerciales décrites ci-dessous. Nous traitons vos informations personnelles à ces fins en nous fondant sur nos intérêts commerciaux légitimes, afin de conclure ou d'exécuter un contrat avec vous, avec votre consentement et/ou pour nous conformer à nos obligations légales."
+      },
+      {
+        title: "Vos informations seront-elles partagées ?",
+        content: "Nous ne partageons les informations qu'avec votre consentement, pour nous conformer aux lois, pour vous fournir des services, pour protéger vos droits ou pour remplir nos obligations commerciales."
+      }
+    ]
   }
 };
