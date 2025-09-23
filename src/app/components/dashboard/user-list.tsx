@@ -59,11 +59,11 @@ export function UserList() {
                 <Table>
                 <TableHeader>
                     <TableRow className="hover:bg-transparent border-b border-primary/20">
-                    <TableHead>ID</TableHead>
-                    <TableHead>Username</TableHead>
-                    <TableHead>Pastes</TableHead>
-                    <TableHead>Comments</TableHead>
-                    <TableHead className="text-right">Joined</TableHead>
+                    <TableHead className="text-foreground">ID</TableHead>
+                    <TableHead className="text-foreground">Username</TableHead>
+                    <TableHead className="text-foreground">Pastes</TableHead>
+                    <TableHead className="text-foreground">Comments</TableHead>
+                    <TableHead className="text-right text-foreground">Joined</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
