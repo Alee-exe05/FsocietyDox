@@ -17,7 +17,7 @@ body {
     --popover: 0 0% 4%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 240 79% 40%;
+    --primary: 226 80% 40%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 0 0% 15%;
@@ -34,11 +34,11 @@ body {
 
     --border: 0 0% 20%;
     --input: 0 0% 15%;
-    --ring: 240 79% 40%;
+    --ring: 226 80% 40%;
 
     --radius: 0.5rem;
 
-    --chart-1: 240 80% 50%;
+    --chart-1: 226 80% 50%;
     --chart-2: 0 63% 31%;
     --chart-3: 300 80% 55%;
     --chart-4: 120 65% 60%;
@@ -46,12 +46,12 @@ body {
 
     --sidebar-background: 240 4% 6%;
     --sidebar-foreground: 0 0% 95.9%;
-    --sidebar-primary: 240 80% 50%;
+    --sidebar-primary: 226 80% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 4% 12%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 240 4% 15%;
-    --sidebar-ring: 240 80% 55%;
+    --sidebar-ring: 226 80% 55%;
   }
 
   .dark {
@@ -64,7 +64,7 @@ body {
     --popover: 0 0% 4%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 240 79% 40%;
+    --primary: 226 80% 40%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 0 0% 15%;
@@ -81,7 +81,7 @@ body {
 
     --border: 0 0% 20%;
     --input: 0 0% 15%;
-    --ring: 240 79% 40%;
+    --ring: 226 80% 40%;
   }
 }
 
@@ -100,5 +100,8 @@ body {
     }
     .table-row-blue {
         @apply border-l-2 border-primary;
+    }
+    .table-header-dark {
+      @apply bg-neutral-800 text-white;
     }
 }
