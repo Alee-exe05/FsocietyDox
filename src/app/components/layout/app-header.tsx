@@ -13,9 +13,9 @@ export function AppHeader() {
 
   const navLinks = [
     { href: '/', label: dictionary.navigation.home },
-    { href: '/add-paste', label: dictionary.navigation.addPaste },
+    { href: '/add-paste', label: "Add a new Paste" },
     { href: '/users', label: dictionary.navigation.users },
-    { href: '/info-users', label: dictionary.navigation.info_users },
+    { href: '/info-users', label: "Info Users" },
     { href: '/support', label: dictionary.navigation.support },
   ];
 
@@ -40,11 +40,11 @@ export function AppHeader() {
             <div className="w-[180px]">
                 <LanguageSwitcher />
             </div>
-            <Button asChild variant="ghost" disabled>
-                <Link href="#">Login</Link>
+            <Button asChild variant="outline">
+                <Link href="/login">Login</Link>
             </Button>
-            <Button asChild variant="ghost" disabled>
-                <Link href="#">Register</Link>
+            <Button asChild>
+                <Link href="/register">Register</Link>
             </Button>
           </div>
       </div>
