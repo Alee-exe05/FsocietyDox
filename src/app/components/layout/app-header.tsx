@@ -18,6 +18,7 @@ export function AppHeader() {
     { href: '/users', label: dictionary.navigation.users },
     { href: '/info-users', label: "Info Users" },
     { href: '/support', label: dictionary.navigation.support },
+    { href: '/profile', label: 'Profile' },
   ];
 
   return (
