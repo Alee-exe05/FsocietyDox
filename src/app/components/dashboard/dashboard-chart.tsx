@@ -5,9 +5,6 @@ import { Bar, BarChart, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
 } from '@/components/ui/card';
 import {
   ChartContainer,
@@ -31,12 +28,8 @@ export function DashboardChart() {
   if (isLoading) {
     return (
       <Card className="h-[400px]">
-        <CardHeader>
-          <Skeleton className="h-6 w-3/4" />
-          <Skeleton className="h-4 w-1/2" />
-        </CardHeader>
-        <CardContent>
-          <Skeleton className="h-[280px] w-full" />
+        <CardContent className="pt-6">
+          <Skeleton className="h-[340px] w-full" />
         </CardContent>
       </Card>
     );
@@ -44,13 +37,7 @@ export function DashboardChart() {
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle className="font-headline">{dictionary.dashboard.chart.title}</CardTitle>
-        <CardDescription>
-          {dictionary.dashboard.chart.description}
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
+      <CardContent className="pt-6">
         <ChartContainer config={chartConfig} className="h-[280px] w-full">
           <BarChart data={chartData} accessibilityLayer>
             <CartesianGrid vertical={false} />
