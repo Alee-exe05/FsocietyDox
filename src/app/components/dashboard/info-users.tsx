@@ -15,18 +15,18 @@ export function InfoUsers() {
     const stats = [
         {
             title: info_users.stats.total_users,
-            value: '1',
+            value: '0',
             description: info_users.stats.total_users_desc,
-            progress: 10,
+            progress: 0,
             Icon: Users,
             color: 'text-primary',
             progressColor: 'bg-primary'
         },
         {
             title: info_users.stats.online_users,
-            value: '1',
+            value: '0',
             description: info_users.stats.online_users_desc,
-            progress: 85,
+            progress: 0,
             Icon: Wifi,
             color: 'text-green-500',
             progressColor: 'bg-green-500'
