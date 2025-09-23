@@ -55,7 +55,7 @@ export function UserList() {
         <CardContent className="space-y-8">
             {Object.entries(groupedUsers).map(([role, users]) => (
             <div key={role}>
-                <h3 className="font-headline text-xl font-bold mb-2 text-primary">{role}</h3>
+                <h3 className="font-headline text-xl font-bold mb-2 text-foreground">{role}</h3>
                 <Table>
                 <TableHeader>
                     <TableRow className="hover:bg-transparent border-b border-primary/20">
