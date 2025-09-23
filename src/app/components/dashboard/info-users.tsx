@@ -2,36 +2,36 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { FileText, ShieldCheck, Users, Percent } from 'lucide-react';
+import { Users, UserCheck, UserPlus, UserX } from 'lucide-react';
 import { useLanguage } from '@/contexts/language-context';
 
-export function StatsCards() {
+export function InfoUsers() {
   const { dictionary } = useLanguage();
 
   const stats = [
     {
-      title: dictionary.dashboard.stats.modules,
-      value: '1,284',
-      icon: <FileText className="h-6 w-6 text-primary" />,
-      change: '+20.1% from last month',
-    },
-    {
-      title: dictionary.dashboard.stats.moderated,
-      value: '97.2%',
-      icon: <ShieldCheck className="h-6 w-6 text-primary" />,
-      change: '+180.1% from last month',
-    },
-    {
-      title: dictionary.dashboard.stats.users,
-      value: '237',
+      title: dictionary.infoUsers.stats.totalUsers.title,
+      value: '238',
       icon: <Users className="h-6 w-6 text-primary" />,
-      change: '+2 from last hour',
+      change: dictionary.infoUsers.stats.totalUsers.description,
     },
     {
-      title: dictionary.dashboard.stats.flagged,
-      value: '3.4%',
-      icon: <Percent className="h-6 w-6 text-primary" />,
-      change: '-0.2% from yesterday',
+      title: dictionary.infoUsers.stats.onlineUsers.title,
+      value: '1',
+      icon: <UserCheck className="h-6 w-6 text-primary" />,
+      change: dictionary.infoUsers.stats.onlineUsers.description,
+    },
+    {
+      title: dictionary.infoUsers.stats.newUsers.title,
+      value: '3',
+      icon: <UserPlus className="h-6 w-6 text-primary" />,
+      change: dictionary.infoUsers.stats.newUsers.description,
+    },
+    {
+      title: dictionary.infoUsers.stats.bannedUsers.title,
+      value: '0',
+      icon: <UserX className="h-6 w-6 text-primary" />,
+      change: dictionary.infoUsers.stats.bannedUsers.description,
     },
   ];
 

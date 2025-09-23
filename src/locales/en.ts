@@ -40,8 +40,26 @@ export const en = {
   users: {
     title: 'Users',
     description: '',
-    online: 'Online',
-    offline: 'Offline',
+  },
+  infoUsers: {
+    stats: {
+      totalUsers: {
+        title: 'Total Users',
+        description: 'Total number of registered users in the system.',
+      },
+      onlineUsers: {
+        title: 'Online Users',
+        description: 'Number of users currently active on the platform.',
+      },
+      newUsers: {
+        title: 'New Users',
+        description: 'Users who have registered in the last 24 hours.',
+      },
+      bannedUsers: {
+        title: 'Banned Users',
+        description: 'Users who have been banned from the platform.',
+      },
+    },
   },
   moderation: {
     title: 'PII Moderation Tool',
@@ -107,16 +125,16 @@ export const en = {
     ],
     privacy: [
       {
-        title: "Information We 'Collect'",
-        content: "We are a society that values privacy. The only personal information we store is what you voluntarily provide upon registration: a username and a join date. We do not track your IP address or other unnecessary metadata."
+        title: "Our Commitment to Anonymity",
+        content: "At FSociety Dox, we don't just respect your privacy; we're built on it. We are a collective that operates in the digital shadows, and your anonymity is our priority. The only data we store is your chosen username and the date you joined our cause. We don't want your IP, your email, or your real name. We are ghosts in the machine."
       },
       {
-        title: "How We 'Use' Your Information",
-        content: "The information you provide is used solely to identify you within our system, attribute your contributions (pastes), and display your role. We do not use your data for marketing, analytics, or any purpose other than the core functionality of the platform."
+        title: "Data We Handle",
+        content: "The information you provide—your username and your contributions (pastes)—is used to identify you within our ranks and to display your role. This data is visible to other members as part of our shared mission. We do not use this data for anything other than the core function of this platform. No marketing, no analytics, no third-party sharing. Your data is yours; your secrets are safe."
       },
       {
-        title: "Will Your Information Be 'Shared'?",
-        content: "We do not share your information with any third party. Your data (username and content) is visible to other users on the platform as part of the experience. We operate in the shadows to protect your privacy from the outside world."
+        title: "The Veil of Secrecy",
+        content: "We don't share your information with anyone outside our circle. The data you see on this platform is for members' eyes only. We are the guardians of this information, and we operate with the understanding that what happens here, stays here. We are FSociety. We are finally free. We are finally awake."
       }
     ]
   }

@@ -42,8 +42,26 @@ export const fr: Dictionary = {
   users: {
     title: 'Users',
     description: '',
-    online: 'En ligne',
-    offline: 'Hors ligne',
+  },
+  infoUsers: {
+    stats: {
+      totalUsers: {
+        title: 'Utilisateurs Totaux',
+        description: 'Nombre total d\'utilisateurs enregistrés dans le système.',
+      },
+      onlineUsers: {
+        title: 'Utilisateurs en Ligne',
+        description: 'Nombre d\'utilisateurs actuellement actifs sur la plateforme.',
+      },
+      newUsers: {
+        title: 'Nouveaux Utilisateurs',
+        description: 'Utilisateurs qui se sont inscrits au cours des dernières 24 heures.',
+      },
+      bannedUsers: {
+        title: 'Utilisateurs Bannis',
+        description: 'Utilisateurs qui ont été bannis de la plateforme.',
+      },
+    },
   },
   moderation: {
     title: 'Outil de Modération PII',
@@ -109,16 +127,16 @@ export const fr: Dictionary = {
     ],
     privacy: [
       {
-        title: "Informations que nous 'Collectons'",
-        content: "Nous sommes une société qui valorise la vie privée. Les seules informations personnelles que nous stockons sont celles que vous fournissez volontairement lors de votre inscription : un nom d'utilisateur et une date d'adhésion. Nous ne suivons pas votre adresse IP ou d'autres métadonnées inutiles."
+        title: "Notre Engagement envers l'Anonymat",
+        content: "Chez FSociety Dox, nous ne respectons pas seulement votre vie privée ; nous sommes construits sur elle. Nous sommes un collectif qui opère dans l'ombre numérique, et votre anonymat est notre priorité. Les seules données que nous stockons sont votre nom d'utilisateur choisi et la date à laquelle vous avez rejoint notre cause. Nous ne voulons pas de votre IP, de votre e-mail ou de votre vrai nom. Nous sommes des fantômes dans la machine."
       },
       {
-        title: "Comment nous 'Utilisons' vos Informations",
-        content: "Les informations que vous fournissez sont utilisées uniquement pour vous identifier au sein de notre système, attribuer vos contributions (pastes) et afficher votre rôle. Nous n'utilisons pas vos données à des fins de marketing, d'analyse ou à toute autre fin que la fonctionnalité principale de la plateforme."
+        title: "Données que nous Gérons",
+        content: "Les informations que vous fournissez—votre nom d'utilisateur et vos contributions (pastes)—sont utilisées pour vous identifier au sein de nos rangs et pour afficher votre rôle. Ces données sont visibles par les autres membres dans le cadre de notre mission commune. Nous n'utilisons pas ces données à d'autres fins que la fonction principale de cette plateforme. Pas de marketing, pas d'analyse, pas de partage avec des tiers. Vos données sont à vous ; vos secrets sont en sécurité."
       },
       {
-        title: "Vos Informations Seront-elles 'Partagées' ?",
-        content: "Nous ne partageons pas vos informations avec des tiers. Vos données (nom d'utilisateur et contenu) sont visibles par les autres utilisateurs sur la plateforme dans le cadre de l'expérience. Nous opérons dans l'ombre pour protéger votre vie privée du monde extérieur."
+        title: "Le Voile du Secret",
+        content: "Nous ne partageons vos informations avec personne en dehors de notre cercle. Les données que vous voyez sur cette plateforme sont réservées aux membres. Nous sommes les gardiens de ces informations, et nous agissons en sachant que ce qui se passe ici, reste ici. Nous sommes FSociety. Nous sommes enfin libres. Nous sommes enfin éveillés."
       }
     ]
   }

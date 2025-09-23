@@ -42,8 +42,26 @@ export const it: Dictionary = {
   users: {
     title: 'Users',
     description: '',
-    online: 'Online',
-    offline: 'Offline',
+  },
+  infoUsers: {
+    stats: {
+      totalUsers: {
+        title: 'Utenti Totali',
+        description: 'Numero totale di utenti registrati nel sistema.',
+      },
+      onlineUsers: {
+        title: 'Utenti Online',
+        description: 'Numero di utenti attualmente attivi sulla piattaforma.',
+      },
+      newUsers: {
+        title: 'Nuovi Utenti',
+        description: 'Utenti che si sono registrati nelle ultime 24 ore.',
+      },
+      bannedUsers: {
+        title: 'Utenti Bannati',
+        description: 'Utenti che sono stati bannati dalla piattaforma.',
+      },
+    },
   },
   moderation: {
     title: 'Strumento di Moderazione PII',
@@ -109,16 +127,16 @@ export const it: Dictionary = {
     ],
     privacy: [
         {
-            title: "Informazioni che 'Raccogliamo'",
-            content: "Siamo una società che valorizza la privacy. Le uniche informazioni personali che conserviamo sono quelle che fornisci volontariamente al momento della registrazione: un nome utente e una data di iscrizione. Non tracciamo il tuo indirizzo IP o altri metadati non necessari."
+            title: "Il Nostro Impegno per l'Anonimato",
+            content: "In FSociety Dox, non ci limitiamo a rispettare la tua privacy: l'abbiamo resa il nostro fondamento. Siamo un collettivo che opera nelle ombre digitali e il tuo anonimato è la nostra priorità. Gli unici dati che conserviamo sono il tuo username e la data in cui ti sei unito alla nostra causa. Non vogliamo il tuo IP, la tua email, né il tuo vero nome. Siamo fantasmi nella macchina."
         },
         {
-            title: "Come 'Usiamo' le Tue Informazioni",
-            content: "Le informazioni che fornisci vengono utilizzate esclusivamente per identificarti all'interno del nostro sistema, attribuire i tuoi contributi (paste) e visualizzare il tuo ruolo. Non utilizziamo i tuoi dati per marketing, analisi o qualsiasi altro scopo diverso dalla funzionalità principale della piattaforma."
+            title: "Dati che Gestiamo",
+            content: "Le informazioni che fornisci—il tuo username e i tuoi contributi (paste)—sono usate per identificarti nei nostri ranghi e per mostrare il tuo ruolo. Questi dati sono visibili agli altri membri come parte della nostra missione condivisa. Non usiamo questi dati per nient'altro che la funzione principale di questa piattaforma. Nessun marketing, nessuna analisi, nessuna condivisione con terze parti. I tuoi dati sono tuoi, i tuoi segreti sono al sicuro."
         },
         {
-            title: "Le Tue Informazioni Saranno 'Condivise'?",
-            content: "Non condividiamo le tue informazioni con terze parti. I tuoi dati (nome utente e contenuti) sono visibili agli altri utenti sulla piattaforma come parte dell'esperienza. Operiamo nell'ombra per proteggere la tua privacy dal mondo esterno."
+            title: "Il Velo della Segretezza",
+            content: "Non condividiamo le tue informazioni con nessuno al di fuori della nostra cerchia. I dati che vedi su questa piattaforma sono solo per gli occhi dei membri. Siamo i guardiani di queste informazioni e operiamo con la consapevolezza che ciò che accade qui, rimane qui. Noi siamo FSociety. Finalmente siamo liberi. Finalmente siamo svegli."
         }
     ]
   }
