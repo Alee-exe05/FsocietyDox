@@ -7,6 +7,7 @@ import { Users, Wifi, UserPlus, Ban } from 'lucide-react';
 import { useLanguage } from '@/contexts/language-context';
 import { UserActivityChart } from './user-activity-chart';
 import { RecentActivity } from './recent-activity';
+import { users as allUsers } from '@/lib/data';
 
 type Stat = {
     title: string;
@@ -22,41 +23,23 @@ export function InfoUsers() {
     const { dictionary } = useLanguage();
     const { info_users } = dictionary;
     const [stats, setStats] = useState<Stat[]>([]);
-    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        setIsMounted(true);
-    }, []);
-
-    useEffect(() => {
-        if (!isMounted) return;
+        const totalUsers = allUsers.length;
+        const onlineUsers = allUsers.filter(u => u.isOnline).length;
+        // The following are placeholders for now
+        const newUsers = 0;
+        const bannedUsers = 0;
 
         const initialStats = [
-            { title: info_users.stats.total_users, value: '0', description: info_users.stats.total_users_desc, progress: 0, Icon: Users, color: 'text-primary', progressColor: 'bg-primary' },
-            { title: info_users.stats.online_users, value: '0', description: info_users.stats.online_users_desc, progress: 0, Icon: Wifi, color: 'text-green-500', progressColor: 'bg-green-500' },
-            { title: info_users.stats.new_users, value: '0', description: info_users.stats.new_users_desc, progress: 0, Icon: UserPlus, color: 'text-yellow-500', progressColor: 'bg-yellow-500' },
-            { title: info_users.stats.banned_users, value: '0', description: info_users.stats.banned_users_desc, progress: 0, Icon: Ban, color: 'text-red-500', progressColor: 'bg-red-500' }
+            { title: info_users.stats.total_users, value: totalUsers.toLocaleString(), description: info_users.stats.total_users_desc, progress: totalUsers > 0 ? 100 : 0, Icon: Users, color: 'text-primary', progressColor: 'bg-primary' },
+            { title: info_users.stats.online_users, value: onlineUsers.toLocaleString(), description: info_users.stats.online_users_desc, progress: totalUsers > 0 ? (onlineUsers / totalUsers) * 100 : 0, Icon: Wifi, color: 'text-green-500', progressColor: 'bg-green-500' },
+            { title: info_users.stats.new_users, value: newUsers.toLocaleString(), description: info_users.stats.new_users_desc, progress: (newUsers / (newUsers > 0 ? 50 : 1)) * 100, Icon: UserPlus, color: 'text-yellow-500', progressColor: 'bg-yellow-500' },
+            { title: info_users.stats.banned_users, value: bannedUsers.toLocaleString(), description: info_users.stats.banned_users_desc, progress: (bannedUsers / (bannedUsers > 0 ? 20 : 1)) * 100, Icon: Ban, color: 'text-red-500', progressColor: 'bg-red-500' }
         ];
         setStats(initialStats);
         
-        const interval = setInterval(() => {
-            setStats(prevStats => {
-                const totalUsers = Math.floor(Math.random() * 1000) + 500;
-                const onlineUsers = Math.floor(Math.random() * (totalUsers * 0.8));
-                const newUsers = Math.floor(Math.random() * 50);
-                const bannedUsers = Math.floor(Math.random() * 20);
-
-                return [
-                    { ...prevStats[0], value: totalUsers.toLocaleString(), progress: 100 },
-                    { ...prevStats[1], value: onlineUsers.toLocaleString(), progress: (onlineUsers / totalUsers) * 100 },
-                    { ...prevStats[2], value: newUsers.toLocaleString(), progress: (newUsers / 100) * 100 },
-                    { ...prevStats[3], value: bannedUsers.toLocaleString(), progress: (bannedUsers / 50) * 100 }
-                ];
-            });
-        }, 3000);
-
-        return () => clearInterval(interval);
-    }, [isMounted, info_users.stats]);
+    }, [info_users.stats]);
 
 
     return (

@@ -11,14 +11,7 @@ export interface User {
   joined: string;
 }
 
-export const users: User[] = [
-    { id: 1, name: 'mr.robot', role: 'CEO', avatar: '/avatars/1.png', isOnline: true, pastes: 12, comments: 45, joined: '2023-01-15' },
-    { id: 2, name: 'darlene', role: 'Admin', avatar: '/avatars/2.png', isOnline: true, pastes: 8, comments: 23, joined: '2023-02-20' },
-    { id: 3, name: 'elliot', role: 'VIP', avatar: '/avatars/3.png', isOnline: false, pastes: 5, comments: 15, joined: '2023-03-10' },
-    { id: 4, name: 'tyrell', role: 'VIP', avatar: '/avatars/4.png', isOnline: true, pastes: 3, comments: 8, joined: '2023-05-22' },
-    { id: 5, name: 'angela', role: 'Criminal', avatar: '/avatars/5.png', isOnline: false, pastes: 1, comments: 2, joined: '2023-06-01' },
-    { id: 6, name: 'whiterose', role: 'Admin', avatar: '/avatars/6.png', isOnline: true, pastes: 20, comments: 100, joined: '2022-12-01' },
-];
+export const users: User[] = [];
 
 export interface Module {
   id: string;

@@ -19,26 +19,12 @@ const generateInitialData = () => {
 export function UserActivityChart() {
     const { dictionary } = useLanguage();
     const { chart } = dictionary.info_users;
-    const [data, setData] = useState(generateInitialData());
+    const [data] = useState(generateInitialData());
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
         setIsMounted(true);
     }, []);
-
-    useEffect(() => {
-        if (isMounted) {
-            const interval = setInterval(() => {
-                const generatedData = monthNames.map(month => ({
-                    name: month,
-                    users: Math.floor(Math.random() * 50) + 10
-                }));
-                setData(generatedData);
-            }, 5000); // Update every 5 seconds
-
-            return () => clearInterval(interval);
-        }
-    }, [isMounted]);
 
     if (!isMounted) {
         return (
