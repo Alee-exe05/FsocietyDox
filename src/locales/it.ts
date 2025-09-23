@@ -1,3 +1,4 @@
+
 import { Dictionary } from "@/lib/i18n";
 
 export const it: Dictionary = {
@@ -10,6 +11,7 @@ export const it: Dictionary = {
     users: 'Users',
     info_users: 'Info Utenti',
     support: 'Supporto',
+    admin: 'Admin'
   },
   dashboard: {
     stats: {

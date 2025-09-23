@@ -1,3 +1,4 @@
+
 export const en = {
   page: {
     title: 'Dashboard',
@@ -8,6 +9,7 @@ export const en = {
     users: 'Users',
     info_users: 'Info Users',
     support: 'Support',
+    admin: 'Admin'
   },
   dashboard: {
     stats: {
@@ -107,7 +109,7 @@ export const en = {
   },
   support: {
     title: 'Support',
-    description: 'Welcome to the support page. Here you can find our Terms of Service and Privacy Policy.',
+    description: 'Welcome to the support page. Here you can find our Terms of Service and our Privacy Policy.',
     terms_title: 'Terms of Service',
     privacy_title: 'Privacy Policy',
     terms: [

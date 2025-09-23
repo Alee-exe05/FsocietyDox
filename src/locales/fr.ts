@@ -1,3 +1,4 @@
+
 import { Dictionary } from "@/lib/i18n";
 
 export const fr: Dictionary = {
@@ -10,6 +11,7 @@ export const fr: Dictionary = {
     users: 'Users',
     info_users: 'Info Users',
     support: 'Support',
+    admin: 'Admin'
   },
   dashboard: {
     stats: {
