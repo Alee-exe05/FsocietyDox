@@ -48,7 +48,7 @@ export default function SupportPage() {
             <AppHeader />
             <main className="flex-1 p-4 md:p-10 flex justify-center">
                 <div className="w-full max-w-4xl space-y-8">
-                    <Card className="border-primary/50">
+                    <Card className="border-2 border-primary/50">
                         <CardHeader>
                             <CardTitle className="font-headline text-3xl">Support</CardTitle>
                         </CardHeader>
@@ -59,14 +59,14 @@ export default function SupportPage() {
                         </CardContent>
                     </Card>
 
-                    <Card className="border-primary/50">
+                    <Card className="border-2 border-primary/50">
                         <CardHeader>
                             <CardTitle className="font-headline">Terms of Service</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <Accordion type="single" collapsible className="w-full">
                                 {terms.map((term, index) => (
-                                    <AccordionItem value={`item-${index}`} key={index} className="border-primary/30">
+                                    <AccordionItem value={`item-${index}`} key={index} className="border-b-2 border-primary/30">
                                         <AccordionTrigger className="font-semibold">{term.title}</AccordionTrigger>
                                         <AccordionContent className="text-muted-foreground">
                                             {term.content}
@@ -77,14 +77,14 @@ export default function SupportPage() {
                         </CardContent>
                     </Card>
 
-                    <Card className="border-primary/50">
+                    <Card className="border-2 border-primary/50">
                         <CardHeader>
                             <CardTitle className="font-headline">Privacy Policy</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <Accordion type="single" collapsible className="w-full">
                                 {privacy.map((policy, index) => (
-                                    <AccordionItem value={`item-${index}`} key={index} className="border-primary/30">
+                                    <AccordionItem value={`item-${index}`} key={index} className="border-b-2 border-primary/30">
                                         <AccordionTrigger className="font-semibold">{policy.title}</AccordionTrigger>
                                         <AccordionContent className="text-muted-foreground">
                                             {policy.content}
