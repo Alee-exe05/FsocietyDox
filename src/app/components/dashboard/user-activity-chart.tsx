@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useState, useEffect } from "react"
@@ -78,6 +79,7 @@ export function UserActivityChart() {
                             tickFormatter={(value) => `${value}`}
                         />
                         <Tooltip
+                            cursor={false}
                             contentStyle={{
                                 background: "hsl(var(--background))",
                                 border: "1px solid hsl(var(--border))",
