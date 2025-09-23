@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -7,7 +8,7 @@ import { Users, Wifi, UserPlus, Ban } from 'lucide-react';
 import { useLanguage } from '@/contexts/language-context';
 import { UserActivityChart } from './user-activity-chart';
 import { RecentActivity } from './recent-activity';
-import { users as allUsers } from '@/lib/data';
+import { users as allUsers } from '@/lib/data/users';
 
 type Stat = {
     title: string;

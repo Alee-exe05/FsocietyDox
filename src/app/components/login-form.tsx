@@ -11,7 +11,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -30,7 +29,6 @@ import { useToast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { LoaderCircle } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
 
 const GoogleIcon = () => (
     <svg className="h-5 w-5" viewBox="0 0 24 24">
@@ -63,10 +61,10 @@ export function LoginForm() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
+  const [isProcessingRedirect, setIsProcessingRedirect] = useState(true);
 
   useEffect(() => {
     const handleRedirectResult = async () => {
-        setIsGoogleLoading(true);
         try {
             const result = await getRedirectResult(auth);
             if (result) {
@@ -84,7 +82,7 @@ export function LoginForm() {
                 variant: "destructive",
             });
         } finally {
-            setIsGoogleLoading(false);
+            setIsProcessingRedirect(false);
         }
     };
     handleRedirectResult();
@@ -147,6 +145,14 @@ export function LoginForm() {
         });
         setIsGoogleLoading(false);
     }
+  }
+
+  if (isProcessingRedirect) {
+    return (
+        <div className="flex justify-center items-center h-screen">
+            <LoaderCircle className="h-8 w-8 animate-spin" />
+        </div>
+    );
   }
 
   return (

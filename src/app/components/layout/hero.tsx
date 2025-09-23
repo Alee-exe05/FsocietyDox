@@ -20,7 +20,7 @@ export function Hero() {
             <path d="M4 17l6-6-6-6"/>
             <line x1="12" y1="19" x2="20" y2="19"/>
           </svg>
-          <span className="font-headline text-3xl font-bold animate-glitter">FSociety Dox</span>
+          <span className="font-headline text-3xl font-bold">FSociety Dox</span>
         </div>
       </Card>
     </div>

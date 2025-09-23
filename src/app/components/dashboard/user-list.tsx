@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from 'react';
@@ -9,7 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { users as initialUsers, User, UserRole } from '@/lib/data';
+import { users as initialUsers, User, UserRole } from '@/lib/data/users';
 import { useLanguage } from '@/contexts/language-context';
 import { cn } from '@/lib/utils';
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -21,13 +22,13 @@ const roleOrder: UserRole[] = ['CEO', 'Admin', 'VIP', 'Criminal'];
 const getRoleClass = (role: UserRole) => {
     switch (role) {
       case 'CEO':
-        return 'text-red-500 font-bold animate-glitter';
+        return 'text-red-500 font-bold';
       case 'Admin':
-        return 'text-violet-400 font-bold animate-glitter';
+        return 'text-violet-400 font-bold';
       case 'VIP':
         return 'text-yellow-400 font-bold';
       case 'Criminal':
-        return 'text-foreground font-bold animate-glitter';
+        return 'text-foreground font-bold';
       default:
         return 'text-foreground';
     }
