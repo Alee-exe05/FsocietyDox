@@ -6,13 +6,13 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Send, MessageSquare } from 'lucide-react';
+import { Send, MessageCircle } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { users, User } from '@/lib/data/users';
 import { cn } from '@/lib/utils';
 
-const staffMembers = users.filter(u => u.role === 'Admin' || u.role === 'CEO' || u.role === 'VIP');
-const currentUser = staffMembers.find(u => u.name === 'Elliot Alderson');
+const adminMembers = users.filter(u => u.role === 'Admin' || u.role === 'CEO');
+const currentUser = adminMembers.find(u => u.name === 'Elliot Alderson');
 
 interface Message {
     id: number;
@@ -21,7 +21,7 @@ interface Message {
     time: string;
 }
 
-export function StaffChat() {
+export function AdminChat() {
     const [messages, setMessages] = useState<Message[]>([]);
     const [newMessage, setNewMessage] = useState('');
     const scrollAreaRef = useRef<HTMLDivElement>(null);
@@ -40,7 +40,7 @@ export function StaffChat() {
         }
     }
 
-    useEffect(() => {
+     useEffect(() => {
         // Auto-scroll to the bottom
         if (scrollAreaRef.current) {
             const scrollableView = scrollAreaRef.current.querySelector('div[data-radix-scroll-area-viewport]');
@@ -55,50 +55,49 @@ export function StaffChat() {
         <Card className="h-full flex flex-col">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2 font-headline">
-                    <MessageSquare />
-                    Staff Chat
+                    <MessageCircle />
+                    Admin Chat
                 </CardTitle>
-                <CardDescription>Real-time communication channel for all staff members.</CardDescription>
+                <CardDescription>Private communication for Admins and CEO.</CardDescription>
             </CardHeader>
             <CardContent className="flex-1 flex flex-col gap-4 overflow-hidden">
                 <ScrollArea className="flex-1 pr-4" ref={scrollAreaRef}>
                     <div className="space-y-4">
                         {messages.length === 0 ? (
                             <div className="flex flex-col items-center justify-center h-full text-muted-foreground text-center p-8">
-                                <MessageSquare className="w-12 h-12 mb-4" />
-                                <h3 className="font-semibold">Chat is empty</h3>
-                                <p className="text-sm">Be the first to send a message!</p>
+                                <MessageCircle className="w-12 h-12 mb-4" />
+                                <h3 className="font-semibold">Admin chat is empty</h3>
+                                <p className="text-sm">Send a message to start a private conversation.</p>
                             </div>
                         ) : (
                             messages.map((msg) => (
-                                <div key={msg.id} className={cn("flex items-end gap-2", msg.user?.id === currentUser?.id ? "justify-end" : "justify-start")}>
-                                    {msg.user?.id !== currentUser?.id && (
-                                        <Avatar className="h-8 w-8">
-                                            <AvatarImage src={msg.user?.avatar} />
-                                            <AvatarFallback>{msg.user?.name.substring(0, 2)}</AvatarFallback>
-                                        </Avatar>
-                                    )}
-                                    <div className={cn("max-w-xs md:max-w-md lg:max-w-lg rounded-lg px-3 py-2",
-                                        msg.user?.id === currentUser?.id ? "bg-primary text-primary-foreground" : "bg-muted"
-                                    )}>
-                                        <p className="text-sm">{msg.text}</p>
-                                        <p className={cn("text-xs mt-1", msg.user?.id === currentUser?.id ? "text-primary-foreground/70" : "text-muted-foreground")}>{msg.time}</p>
-                                    </div>
-                                    {msg.user?.id === currentUser?.id && (
-                                        <Avatar className="h-8 w-8">
-                                            <AvatarImage src={msg.user?.avatar} />
-                                            <AvatarFallback>{msg.user?.name.substring(0, 2)}</AvatarFallback>
-                                        </Avatar>
-                                    )}
+                            <div key={msg.id} className={cn("flex items-end gap-2", msg.user?.id === currentUser?.id ? "justify-end" : "justify-start")}>
+                                {msg.user?.id !== currentUser?.id && (
+                                    <Avatar className="h-8 w-8">
+                                        <AvatarImage src={msg.user?.avatar} />
+                                        <AvatarFallback>{msg.user?.name.substring(0, 2)}</AvatarFallback>
+                                    </Avatar>
+                                )}
+                                <div className={cn("max-w-xs md:max-w-md lg:max-w-lg rounded-lg px-3 py-2",
+                                    msg.user?.id === currentUser?.id ? "bg-primary text-primary-foreground" : "bg-muted"
+                                )}>
+                                    <p className="text-sm">{msg.text}</p>
+                                    <p className={cn("text-xs mt-1", msg.user?.id === currentUser?.id ? "text-primary-foreground/70" : "text-muted-foreground")}>{msg.time}</p>
                                 </div>
-                            ))
-                        )}
+                                {msg.user?.id === currentUser?.id && (
+                                     <Avatar className="h-8 w-8">
+                                        <AvatarImage src={msg.user?.avatar} />
+                                        <AvatarFallback>{msg.user?.name.substring(0, 2)}</AvatarFallback>
+                                    </Avatar>
+                                )}
+                            </div>
+                        )))}
                     </div>
                 </ScrollArea>
                 <form onSubmit={handleSendMessage} className="flex w-full items-center space-x-2">
                     <Input
                         type="text"
-                        placeholder="Type a message..."
+                        placeholder="Type a private message..."
                         value={newMessage}
                         onChange={(e) => setNewMessage(e.target.value)}
                         className="flex-1"
@@ -112,3 +111,4 @@ export function StaffChat() {
         </Card>
     );
 }
+

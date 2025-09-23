@@ -18,21 +18,29 @@ import {
   Settings,
   LogOut,
   Shield,
+  MessageCircle,
 } from 'lucide-react';
 import { FsocietyLogo } from '@/app/components/FsocietyLogo';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { users } from '@/lib/data/users';
 
 const navLinks = [
-    { href: '/admin', label: 'Dashboard', icon: Home },
-    { href: '/admin/user-management', label: 'User Management', icon: Users },
-    { href: '/admin/chat', label: 'Staff Chat', icon: MessageSquare },
-    { href: '/admin/moderation', label: 'Moderation', icon: Shield },
+    { href: '/admin', label: 'Dashboard', icon: Home, roles: ['Admin', 'CEO'] },
+    { href: '/admin/user-management', label: 'User Management', icon: Users, roles: ['Admin', 'CEO'] },
+    { href: '/admin/chat', label: 'Staff Chat', icon: MessageSquare, roles: ['Admin', 'CEO', 'VIP'] },
+    { href: '/admin/admin-chat', label: 'Admin Chat', icon: MessageCircle, roles: ['Admin', 'CEO'] },
+    { href: '/admin/moderation', label: 'Moderation', icon: Shield, roles: ['Admin', 'CEO', 'VIP'] },
 ];
+
+const currentUser = users.find(u => u.name === 'Elliot Alderson');
 
 export function AdminSidebar() {
     const pathname = usePathname();
+
+    if (!currentUser) return null;
+
   return (
     <>
       <SidebarHeader>
@@ -40,7 +48,7 @@ export function AdminSidebar() {
       </SidebarHeader>
       <SidebarContent className="p-2">
         <SidebarMenu>
-            {navLinks.map(link => (
+            {navLinks.filter(link => link.roles.includes(currentUser.role)).map(link => (
                 <SidebarMenuItem key={link.href}>
                     <SidebarMenuButton 
                         asChild
@@ -63,8 +71,8 @@ export function AdminSidebar() {
                 <AvatarFallback>EA</AvatarFallback>
             </Avatar>
             <div className="flex-1 overflow-hidden">
-                <p className="truncate font-semibold">Elliot Alderson</p>
-                <p className="truncate text-sm text-muted-foreground">elliot@fsociety.com</p>
+                <p className="truncate font-semibold">{currentUser.name}</p>
+                <p className="truncate text-sm text-muted-foreground">{currentUser.email}</p>
             </div>
             <SidebarMenuButton asChild variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">
                 <Link href="#" aria-label="Log Out">
