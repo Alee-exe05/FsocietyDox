@@ -75,7 +75,7 @@ export const en = {
     },
     activityChart: {
       title: 'User Activity',
-      description: 'Number of active users per day.',
+      description: 'A visual representation of user engagement over time.',
     },
     recentActivity: {
       title: 'Recent Activity',

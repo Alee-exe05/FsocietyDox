@@ -77,7 +77,7 @@ export const fr: Dictionary = {
     },
     activityChart: {
       title: 'Activité des Utilisateurs',
-      description: 'Nombre d\'utilisateurs actifs par jour.',
+      description: 'Une représentation visuelle de l\'engagement des utilisateurs au fil du temps.',
     },
     recentActivity: {
       title: 'Activité Récente',

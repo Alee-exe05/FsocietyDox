@@ -37,10 +37,8 @@ export function UserActivityChart() {
                     <CardTitle>{activityChart.title}</CardTitle>
                     <CardDescription>{activityChart.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
-                    <div className="flex justify-center items-center h-[350px]">
-                        <p>Loading chart data...</p>
-                    </div>
+                <CardContent className="h-[350px] flex justify-center items-center">
+                    <p>Loading chart data...</p>
                 </CardContent>
             </Card>
         )
