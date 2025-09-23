@@ -1,7 +1,9 @@
+
+"use client";
 import { AppHeader } from "@/app/components/layout/app-header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Separator } from "@/components/ui/separator";
+import { useLanguage } from "@/contexts/language-context";
 
 const terms = [
     {
@@ -43,6 +45,7 @@ const privacy = [
 
 
 export default function SupportPage() {
+    const { dictionary } = useLanguage();
     return (
         <div className="flex min-h-screen w-full flex-col">
             <AppHeader />

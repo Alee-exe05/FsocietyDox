@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
+import { LanguageSwitcher } from './language-switcher';
 
 export function AppHeader() {
   const pathname = usePathname();
@@ -32,8 +33,10 @@ export function AppHeader() {
         ))}
       </nav>
       <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
-        <div className="ml-auto flex-1 sm:flex-initial">
-          <div className="flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-2">
+            <div className="w-[180px]">
+                <LanguageSwitcher />
+            </div>
             <Button asChild variant="ghost" disabled>
                 <Link href="#">Login</Link>
             </Button>
@@ -41,7 +44,6 @@ export function AppHeader() {
                 <Link href="#">Register</Link>
             </Button>
           </div>
-        </div>
       </div>
     </header>
   );

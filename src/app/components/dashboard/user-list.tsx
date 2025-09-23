@@ -25,7 +25,7 @@ const getRoleClass = (role: UserRole) => {
       case 'Admin':
         return 'text-violet-400 font-bold animate-glitter';
       case 'VIP':
-        return 'text-yellow-400 font-bold animate-glitter';
+        return 'text-yellow-400 font-bold';
       case 'Criminal':
         return 'text-foreground font-bold animate-glitter';
       default:

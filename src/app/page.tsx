@@ -7,8 +7,10 @@ import { ModulesTable } from '@/app/components/dashboard/modules-table';
 import { ModerationTool } from '@/app/components/dashboard/moderation-tool';
 import { Hero } from '@/app/components/layout/hero';
 import { StatsCards } from './components/dashboard/stats-cards';
+import { useLanguage } from '@/contexts/language-context';
 
 export default function Home() {
+  const { dictionary } = useLanguage();
   return (
     <div className="flex min-h-screen w-full flex-col">
       <AppHeader />

@@ -1,7 +1,11 @@
+
+"use client";
 import { AppHeader } from "@/app/components/layout/app-header";
 import { AddPasteForm } from "@/app/components/add-paste-form";
+import { useLanguage } from "@/contexts/language-context";
 
 export default function AddPastePage() {
+    const { dictionary } = useLanguage();
     return (
         <div className="flex min-h-screen w-full flex-col">
             <AppHeader />

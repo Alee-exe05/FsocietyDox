@@ -29,7 +29,7 @@ const getRoleClass = (role: UserRole) => {
     case 'Admin':
       return 'text-violet-400 animate-glitter font-bold';
     case 'VIP':
-      return 'text-yellow-400 animate-glitter font-bold';
+      return 'text-yellow-400 font-bold';
     default:
       return 'text-foreground';
   }
