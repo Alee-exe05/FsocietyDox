@@ -40,8 +40,8 @@ export const fr: Dictionary = {
     }
   },
   users: {
-    title: 'Utilisateurs en Ligne',
-    description: 'Liste des utilisateurs actuellement actifs.',
+    title: 'Users',
+    description: 'Liste des utilisateurs currently active.',
     online: 'En ligne',
     offline: 'Hors ligne',
   },

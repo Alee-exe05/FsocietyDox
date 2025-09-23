@@ -38,7 +38,7 @@ export const en = {
     }
   },
   users: {
-    title: 'Online Users',
+    title: 'Users',
     description: 'List of users currently active.',
     online: 'Online',
     offline: 'Offline',

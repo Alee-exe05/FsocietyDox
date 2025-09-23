@@ -40,7 +40,7 @@ export const it: Dictionary = {
     }
   },
   users: {
-    title: 'Utenti Online',
+    title: 'Users',
     description: 'Lista degli utenti attualmente attivi.',
     online: 'Online',
     offline: 'Offline',
