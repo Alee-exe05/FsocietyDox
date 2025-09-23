@@ -13,7 +13,7 @@ export function AppHeader() {
 
   const navLinks = [
     { href: '/', label: dictionary.navigation.home },
-    { href: '/add-paste', label: "Add a new Paste" },
+    { href: '/add-paste', label: dictionary.navigation.addPaste },
     { href: '/users', label: dictionary.navigation.users },
     { href: '/info-users', label: "Info Users" },
     { href: '/support', label: dictionary.navigation.support },
