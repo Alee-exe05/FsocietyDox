@@ -11,13 +11,7 @@ export interface User {
   joined: string;
 }
 
-export const users: User[] = [
-  { id: 1, name: 'Tyrell Wellick', role: 'CEO', avatar: 'https://picsum.photos/seed/tyrell/100/100', pastes: 5, comments: 12, joined: '2022-01-15' },
-  { id: 2, name: 'Darlene Alderson', role: 'Admin', avatar: 'https://picsum.photos/seed/darlene/100/100', pastes: 23, comments: 88, joined: '2021-11-30' },
-  { id: 3, name: 'Angela Moss', role: 'VIP', avatar: 'https://picsum.photos/seed/angela/100/100', pastes: 2, comments: 5, joined: '2022-03-10' },
-  { id: 4, name: 'Phillip Price', role: 'CEO', avatar: 'https://picsum.photos/seed/price/100/100', pastes: 1, comments: 3, joined: '2020-05-20' },
-  { id: 5, name: 'Whiterose', role: 'Criminal', avatar: 'https://picsum.photos/seed/whiterose/100/100', pastes: 50, comments: 0, joined: '2019-01-01' },
-];
+export const users: User[] = [];
 
 export interface Module {
   id: string;
