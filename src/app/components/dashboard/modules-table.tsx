@@ -4,9 +4,6 @@ import React, { useState } from 'react';
 import {
   Card,
   CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
 } from '@/components/ui/card';
 import {
   Table,
@@ -48,12 +45,6 @@ export function ModulesTable() {
 
   return (
     <Card className="bg-transparent border-none shadow-none">
-      <CardHeader>
-        <div className="space-y-1.5">
-          <CardTitle className="font-headline">{dictionary.modules.title}</CardTitle>
-          <CardDescription>{dictionary.modules.description}</CardDescription>
-        </div>
-      </CardHeader>
       <CardContent>
         {modules.length > 0 ? (
             <Table>
