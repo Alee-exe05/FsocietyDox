@@ -1,43 +1,33 @@
 export type UserRole = 'CEO' | 'Admin' | 'VIP' | 'Criminal';
 
 export interface User {
+  id: number;
   name: string;
   role: UserRole;
   avatar: string;
   isOnline?: boolean;
+  pastes: number;
+  comments: number;
+  joined: string;
 }
 
 export const users: User[] = [
-  { name: 'Tyrell Wellick', role: 'CEO', avatar: 'https://picsum.photos/seed/tyrell/100/100' },
-  { name: 'Darlene Alderson', role: 'Admin', avatar: 'https://picsum.photos/seed/darlene/100/100' },
-  { name: 'Angela Moss', role: 'VIP', avatar: 'https://picsum.photos/seed/angela/100/100' },
-  { name: 'Phillip Price', role: 'CEO', avatar: 'https://picsum.photos/seed/price/100/100' },
-  { name: 'Whiterose', role: 'Criminal', avatar: 'https://picsum.photos/seed/whiterose/100/100' },
+  { id: 1, name: 'Tyrell Wellick', role: 'CEO', avatar: 'https://picsum.photos/seed/tyrell/100/100', pastes: 5, comments: 12, joined: '2022-01-15' },
+  { id: 2, name: 'Darlene Alderson', role: 'Admin', avatar: 'https://picsum.photos/seed/darlene/100/100', pastes: 23, comments: 88, joined: '2021-11-30' },
+  { id: 3, name: 'Angela Moss', role: 'VIP', avatar: 'https://picsum.photos/seed/angela/100/100', pastes: 2, comments: 5, joined: '2022-03-10' },
+  { id: 4, name: 'Phillip Price', role: 'CEO', avatar: 'https://picsum.photos/seed/price/100/100', pastes: 1, comments: 3, joined: '2020-05-20' },
+  { id: 5, name: 'Whiterose', role: 'Criminal', avatar: 'https://picsum.photos/seed/whiterose/100/100', pastes: 50, comments: 0, joined: '2019-01-01' },
 ];
 
-export const modules: Module[] = [
-  {
-    id: 'mod-1',
-    filename: 'E-Corp_Financials_Q3.txt',
-    uploadDate: '2023-10-28',
-    content: 'Sensitive financial data...',
-    uploader: users[0],
-  },
-  {
-    id: 'mod-2',
-    filename: 'Dark_Army_Op_Manual.txt',
-    uploadDate: '2023-10-27',
-    content: 'Tactical information...',
-    uploader: users[4],
-  },
-  {
-    id: 'mod-3',
-    filename: 'AllSafe_Client_List.txt',
-    uploadDate: '2023-10-25',
-    content: 'Client PII...',
-    uploader: users[2],
-  },
-];
+export interface Module {
+  id: string;
+  filename: string;
+  uploadDate: string;
+  content: string;
+  uploader: User;
+}
+
+export const modules: Module[] = [];
 
 export const chartConfig = {
   uploads: {
