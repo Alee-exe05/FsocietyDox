@@ -43,7 +43,7 @@ export function AppHeader() {
             <Button asChild variant="ghost" disabled>
                 <Link href="#">Login</Link>
             </Button>
-            <Button asChild disabled>
+            <Button asChild variant="ghost" disabled>
                 <Link href="#">Register</Link>
             </Button>
           </div>
