@@ -6,7 +6,7 @@ export const fr: Dictionary = {
   },
   navigation: {
     home: 'Accueil',
-    addPaste: 'Ajouter un nouveau Paste',
+    addPaste: 'Ajouter Paste',
     users: 'Users',
     info_users: 'Info Users',
     support: 'Support',
