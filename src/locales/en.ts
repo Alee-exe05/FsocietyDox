@@ -55,20 +55,43 @@ export const en = {
       totalUsers: {
         title: 'Total Users',
         description: 'Total number of registered users in the system.',
+        trend: '+15% from last month',
       },
       onlineUsers: {
         title: 'Online Users',
         description: 'Number of users currently active on the platform.',
+        trend: '+5% from yesterday',
       },
       newUsers: {
         title: 'New Users',
         description: 'Users who have registered in the last 24 hours.',
+        trend: '+20% this week',
       },
       bannedUsers: {
         title: 'Banned Users',
         description: 'Users who have been banned from the platform.',
+        trend: 'No change',
       },
     },
+    activityChart: {
+      title: 'User Activity',
+      description: 'Number of active users per day.',
+    },
+    recentActivity: {
+      title: 'Recent Activity',
+      description: 'A log of recent user actions.',
+      table: {
+        user: 'User',
+        action: 'Action',
+        date: 'Date',
+      },
+      actions: {
+        login: 'logged in',
+        logout: 'logged out',
+        upload: 'uploaded a file',
+        comment: 'posted a comment',
+      }
+    }
   },
   moderation: {
     title: 'PII Moderation Tool',

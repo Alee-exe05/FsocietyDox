@@ -7,7 +7,7 @@ export const fr: Dictionary = {
   navigation: {
     home: 'Accueil',
     addPaste: 'Ajouter Paste',
-    users: 'Utilisateurs',
+    users: 'Users',
     infoUsers: 'Info Utilisateurs',
     support: 'Support',
   },
@@ -57,20 +57,43 @@ export const fr: Dictionary = {
       totalUsers: {
         title: 'Utilisateurs Totaux',
         description: 'Nombre total d\'utilisateurs enregistrés dans le système.',
+        trend: '+15% par rapport au mois dernier',
       },
       onlineUsers: {
         title: 'Utilisateurs en Ligne',
         description: 'Nombre d\'utilisateurs actuellement actifs sur la plateforme.',
+        trend: '+5% par rapport à hier',
       },
       newUsers: {
         title: 'Nouveaux Utilisateurs',
         description: 'Utilisateurs qui se sont inscrits au cours des dernières 24 heures.',
+        trend: '+20% cette semaine',
       },
       bannedUsers: {
         title: 'Utilisateurs Bannis',
         description: 'Utilisateurs qui ont été bannis de la plateforme.',
+        trend: 'Aucun changement',
       },
     },
+    activityChart: {
+      title: 'Activité des Utilisateurs',
+      description: 'Nombre d\'utilisateurs actifs par jour.',
+    },
+    recentActivity: {
+      title: 'Activité Récente',
+      description: 'Un journal des actions récentes des utilisateurs.',
+      table: {
+        user: 'Utilisateur',
+        action: 'Action',
+        date: 'Date',
+      },
+      actions: {
+        login: 's\'est connecté',
+        logout: 's\'est déconnecté',
+        upload: 'a téléchargé un fichier',
+        comment: 'a posté un commentaire',
+      }
+    }
   },
   moderation: {
     title: 'Outil de Modération PII',

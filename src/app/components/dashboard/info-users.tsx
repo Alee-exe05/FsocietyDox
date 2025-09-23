@@ -4,6 +4,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Users, UserCheck, UserPlus, UserX } from 'lucide-react';
 import { useLanguage } from '@/contexts/language-context';
+import { Progress } from '@/components/ui/progress';
 
 export function InfoUsers() {
   const { dictionary } = useLanguage();
@@ -13,25 +14,33 @@ export function InfoUsers() {
       title: dictionary.infoUsers.stats.totalUsers.title,
       value: '238',
       icon: <Users className="h-6 w-6 text-primary" />,
-      change: dictionary.infoUsers.stats.totalUsers.description,
+      description: dictionary.infoUsers.stats.totalUsers.description,
+      progress: 85,
+      trend: dictionary.infoUsers.stats.totalUsers.trend,
     },
     {
       title: dictionary.infoUsers.stats.onlineUsers.title,
       value: '1',
       icon: <UserCheck className="h-6 w-6 text-primary" />,
-      change: dictionary.infoUsers.stats.onlineUsers.description,
+      description: dictionary.infoUsers.stats.onlineUsers.description,
+      progress: 5,
+      trend: dictionary.infoUsers.stats.onlineUsers.trend,
     },
     {
       title: dictionary.infoUsers.stats.newUsers.title,
       value: '3',
       icon: <UserPlus className="h-6 w-6 text-primary" />,
-      change: dictionary.infoUsers.stats.newUsers.description,
+      description: dictionary.infoUsers.stats.newUsers.description,
+      progress: 20,
+      trend: dictionary.infoUsers.stats.newUsers.trend,
     },
     {
       title: dictionary.infoUsers.stats.bannedUsers.title,
       value: '0',
       icon: <UserX className="h-6 w-6 text-primary" />,
-      change: dictionary.infoUsers.stats.bannedUsers.description,
+      description: dictionary.infoUsers.stats.bannedUsers.description,
+      progress: 0,
+      trend: dictionary.infoUsers.stats.bannedUsers.trend,
     },
   ];
 
@@ -45,9 +54,11 @@ export function InfoUsers() {
             </CardTitle>
             {stat.icon}
           </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-3">
             <div className="text-3xl font-bold font-headline">{stat.value}</div>
-            <p className="text-xs text-muted-foreground">{stat.change}</p>
+            <p className="text-xs text-muted-foreground">{stat.description}</p>
+            <Progress value={stat.progress} aria-label={stat.trend} />
+            <p className="text-xs text-muted-foreground">{stat.trend}</p>
           </CardContent>
         </Card>
       ))}
