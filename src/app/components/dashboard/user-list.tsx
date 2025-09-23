@@ -25,7 +25,9 @@ const getRoleClass = (role: UserRole) => {
       case 'Admin':
         return 'text-violet-400 font-bold animate-glitter';
       case 'VIP':
-        return 'text-yellow-400 font-bold';
+        return 'text-yellow-400 font-bold animate-glitter';
+      case 'Criminal':
+        return 'text-foreground font-bold animate-glitter';
       default:
         return 'text-foreground';
     }
@@ -48,6 +50,8 @@ export function UserList() {
   }, {} as Record<UserRole, User[]>);
 
   const formatRoleDisplay = (role: string) => {
+    if (role.toLowerCase() === 'ceo') return 'Ceo';
+    if (role.toLowerCase() === 'vip') return 'Vip';
     return role.charAt(0).toUpperCase() + role.slice(1).toLowerCase();
   }
 
