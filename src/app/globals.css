@@ -17,7 +17,7 @@ body {
     --popover: 0 0% 4%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 240 80% 50%;
+    --primary: 240 79% 40%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 0 0% 15%;
@@ -34,7 +34,7 @@ body {
 
     --border: 0 0% 20%;
     --input: 0 0% 15%;
-    --ring: 240 80% 50%;
+    --ring: 240 79% 40%;
 
     --radius: 0.5rem;
 
@@ -64,7 +64,7 @@ body {
     --popover: 0 0% 4%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 240 80% 50%;
+    --primary: 240 79% 40%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 0 0% 15%;
@@ -81,7 +81,7 @@ body {
 
     --border: 0 0% 20%;
     --input: 0 0% 15%;
-    --ring: 240 80% 50%;
+    --ring: 240 79% 40%;
   }
 }
 
@@ -99,6 +99,6 @@ body {
         @apply border-l-2 border-red-500;
     }
     .table-row-blue {
-        @apply border-l-2 border-blue-500;
+        @apply border-l-2 border-primary;
     }
 }
