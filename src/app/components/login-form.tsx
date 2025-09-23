@@ -25,10 +25,10 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { auth } from "@/lib/firebase/config";
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "firebase/auth";
 import { useToast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { LoaderCircle } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
@@ -63,6 +63,33 @@ export function LoginForm() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
+
+  useEffect(() => {
+    const handleRedirectResult = async () => {
+        setIsGoogleLoading(true);
+        try {
+            const result = await getRedirectResult(auth);
+            if (result) {
+                toast({
+                    title: "Login Successful",
+                    description: "You have been successfully logged in with Google.",
+                });
+                router.push("/");
+            }
+        } catch (error: any) {
+            console.error("Google Sign-In Redirect Error:", error);
+            toast({
+                title: "Google Sign-In Failed",
+                description: error.message || "An unexpected error occurred.",
+                variant: "destructive",
+            });
+        } finally {
+            setIsGoogleLoading(false);
+        }
+    };
+    handleRedirectResult();
+  }, [router, toast]);
+
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -110,12 +137,7 @@ export function LoginForm() {
     setIsGoogleLoading(true);
     const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
-      toast({
-        title: "Login Successful",
-        description: "You have been successfully logged in with Google.",
-      });
-      router.push("/");
+      await signInWithRedirect(auth, provider);
     } catch (error: any) {
         console.error("Google Sign-In Error:", error);
         toast({
@@ -123,7 +145,6 @@ export function LoginForm() {
             description: error.message || "An unexpected error occurred.",
             variant: "destructive",
         });
-    } finally {
         setIsGoogleLoading(false);
     }
   }

@@ -24,10 +24,10 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { auth } from "@/lib/firebase/config";
-import { createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "firebase/auth";
 import { useToast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { LoaderCircle } from "lucide-react";
 
 const GoogleIcon = () => (
@@ -62,6 +62,33 @@ export function RegisterForm() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
+
+  useEffect(() => {
+    const handleRedirectResult = async () => {
+        setIsGoogleLoading(true);
+        try {
+            const result = await getRedirectResult(auth);
+            if (result) {
+                toast({
+                    title: "Registration Successful",
+                    description: "You have been successfully registered with Google.",
+                });
+                router.push("/");
+            }
+        } catch (error: any) {
+            console.error("Google Sign-In Redirect Error:", error);
+            toast({
+                title: "Google Sign-In Failed",
+                description: error.message || "An unexpected error occurred.",
+                variant: "destructive",
+            });
+        } finally {
+            setIsGoogleLoading(false);
+        }
+    };
+    handleRedirectResult();
+  }, [router, toast]);
+
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -103,12 +130,7 @@ export function RegisterForm() {
     setIsGoogleLoading(true);
     const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
-      toast({
-        title: "Registration Successful",
-        description: "You have been successfully registered with Google.",
-      });
-      router.push("/");
+      await signInWithRedirect(auth, provider);
     } catch (error: any) {
         console.error("Google Sign-In Error:", error);
         toast({
@@ -116,7 +138,6 @@ export function RegisterForm() {
             description: error.message || "An unexpected error occurred.",
             variant: "destructive",
         });
-    } finally {
         setIsGoogleLoading(false);
     }
   }
