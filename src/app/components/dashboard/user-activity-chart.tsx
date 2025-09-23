@@ -6,25 +6,20 @@ import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend } fro
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { useLanguage } from "@/contexts/language-context"
 
-const initialData = [
-    { name: "Jan", users: 0 },
-    { name: "Feb", users: 0 },
-    { name: "Mar", users: 0 },
-    { name: "Apr", users: 0 },
-    { name: "May", users: 0 },
-    { name: "Jun", users: 0 },
-    { name: "Jul", users: 0 },
-    { name: "Aug", users: 0 },
-    { name: "Sep", users: 0 },
-    { name: "Oct", users: 0 },
-    { name: "Nov", users: 0 },
-    { name: "Dec", users: 0 },
-];
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+const generateInitialData = () => {
+    return monthNames.map(month => ({
+        name: month,
+        users: 0
+    }));
+};
+
 
 export function UserActivityChart() {
     const { dictionary } = useLanguage();
     const { chart } = dictionary.info_users;
-    const [data, setData] = useState(initialData);
+    const [data, setData] = useState(generateInitialData());
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
@@ -33,11 +28,15 @@ export function UserActivityChart() {
 
     useEffect(() => {
         if (isMounted) {
-            const generatedData = initialData.map(item => ({
-                ...item,
-                users: Math.floor(Math.random() * 50) + 10
-            }));
-            setData(generatedData);
+            const interval = setInterval(() => {
+                const generatedData = monthNames.map(month => ({
+                    name: month,
+                    users: Math.floor(Math.random() * 50) + 10
+                }));
+                setData(generatedData);
+            }, 5000); // Update every 5 seconds
+
+            return () => clearInterval(interval);
         }
     }, [isMounted]);
 
@@ -79,7 +78,7 @@ export function UserActivityChart() {
                             tickFormatter={(value) => `${value}`}
                         />
                         <Tooltip
-                            cursor={false}
+                            cursor={{ fill: 'transparent' }}
                             contentStyle={{
                                 background: "hsl(var(--background))",
                                 border: "1px solid hsl(var(--border))",
