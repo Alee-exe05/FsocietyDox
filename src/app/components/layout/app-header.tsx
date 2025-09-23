@@ -40,10 +40,10 @@ export function AppHeader() {
             <div className="w-[180px]">
                 <LanguageSwitcher />
             </div>
-            <Button asChild variant="outline">
+            <Button asChild variant="ghost">
                 <Link href="/login">Login</Link>
             </Button>
-            <Button asChild>
+            <Button asChild variant="ghost">
                 <Link href="/register">Register</Link>
             </Button>
           </div>
