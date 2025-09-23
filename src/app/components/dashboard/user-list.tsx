@@ -12,7 +12,7 @@ import {
 import { users as initialUsers, User, UserRole } from '@/lib/data';
 import { useLanguage } from '@/contexts/language-context';
 import { cn } from '@/lib/utils';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 const roleOrder: UserRole[] = ['CEO', 'Admin', 'VIP', 'Criminal'];
 
