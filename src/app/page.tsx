@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { AppHeader } from '@/app/components/layout/app-header';
-import { DashboardChart } from '@/app/components/dashboard/dashboard-chart';
 import { ModulesTable } from '@/app/components/dashboard/modules-table';
 import { ModerationTool } from '@/app/components/dashboard/moderation-tool';
 import { Hero } from '@/app/components/layout/hero';
@@ -20,10 +19,10 @@ export default function Home() {
             <StatsCards />
             <div className="grid gap-4 md:gap-8 lg:grid-cols-2 xl:grid-cols-3">
                 <div className="xl:col-span-2">
-                    <DashboardChart />
+                    <ModerationTool />
                 </div>
                 <div>
-                    <ModerationTool />
+                    
                 </div>
             </div>
             <ModulesTable />
