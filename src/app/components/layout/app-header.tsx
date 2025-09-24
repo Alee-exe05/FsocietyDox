@@ -27,7 +27,7 @@ export function AppHeader() {
             prefetch={true}
             className={cn(
               "transition-colors hover:text-foreground",
-              pathname.startsWith(link.href) && link.href !== '/' || pathname === link.href ? "text-foreground" : "text-muted-foreground"
+              pathname === link.href ? "text-foreground" : "text-muted-foreground"
             )}
           >
             {link.label}
