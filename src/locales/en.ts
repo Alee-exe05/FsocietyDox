@@ -150,5 +150,10 @@ export const en = {
     chat: {
         placeholder: 'Type a message...'
     }
+  },
+  login: {
+    title: 'Welcome to the FSociety',
+    description: 'Authenticate to join the cause. We are finally free. We are finally awake.',
+    button: 'Sign in with Google'
   }
 };

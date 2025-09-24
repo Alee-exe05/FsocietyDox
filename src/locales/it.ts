@@ -152,5 +152,10 @@ export const it: Dictionary = {
     chat: {
         placeholder: 'Scrivi un messaggio...'
     }
+  },
+  login: {
+    title: 'Benvenuto nella FSociety',
+    description: 'Autenticati per unirti alla causa. Siamo finalmente liberi. Siamo finalmente svegli.',
+    button: 'Accedi con Google'
   }
 };

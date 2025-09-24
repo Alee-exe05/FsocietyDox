@@ -8,12 +8,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { useAuth, useUser } from '@/firebase/auth/use-user';
 import { FsocietyLogo } from '../components/FsocietyLogo';
 import { Chrome } from 'lucide-react';
+import { useLanguage } from '@/contexts/language-context';
 
 
 export default function LoginPage() {
   const { signInWithGoogle } = useAuth();
   const { user, loading } = useUser();
   const router = useRouter();
+  const { dictionary } = useLanguage();
 
   useEffect(() => {
     if (!loading && user) {
@@ -32,15 +34,15 @@ export default function LoginPage() {
             <div className="flex justify-center">
                 <FsocietyLogo />
             </div>
-          <CardTitle className="text-2xl font-headline">Welcome to the FSociety</CardTitle>
+          <CardTitle className="text-2xl font-headline">{dictionary.login.title}</CardTitle>
           <CardDescription>
-            Authenticate to join the cause. We are finally free. We are finally awake.
+            {dictionary.login.description}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Button className="w-full" onClick={handleSignIn} disabled={loading}>
             <Chrome className="mr-2 h-4 w-4" />
-            Sign in with Google
+            {dictionary.login.button}
           </Button>
         </CardContent>
       </Card>
