@@ -19,6 +19,7 @@ export function AppHeader() {
     { href: '/info-users', label: "Info Users" },
     { href: '/support', label: dictionary.navigation.support },
     { href: '/profile', label: 'Profile' },
+    { href: '/admin', label: dictionary.navigation.admin },
   ];
 
   return (
@@ -31,7 +32,7 @@ export function AppHeader() {
             prefetch={true}
             className={cn(
               "transition-colors hover:text-foreground",
-              pathname === link.href ? "text-foreground" : "text-muted-foreground"
+              pathname.startsWith(link.href) && link.href !== '/' || pathname === link.href ? "text-foreground" : "text-muted-foreground"
             )}
           >
             {link.label}
