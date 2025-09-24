@@ -10,56 +10,7 @@ export interface Module {
   uploader: User;
 }
 
-export const modules: Module[] = [
-    {
-        id: '1',
-        filename: 'pl_20231026_1.txt',
-        uploadDate: '2023-10-26',
-        content: 'Leaked E-Corp presentation on Project Berenstain.',
-        uploader: {
-            id: 4,
-            name: 'Tyrell Wellick',
-            email: 'tyrell.w@e-corp.com',
-            role: 'VIP',
-            avatar: 'https://picsum.photos/seed/user4/100/100',
-            pastes: 21,
-            comments: 34,
-            joined: '2023-03-10'
-        },
-    },
-    {
-        id: '2',
-        filename: 'da_manifesto.txt',
-        uploadDate: '2023-10-25',
-        content: 'Internal manifesto of the Dark Army.',
-        uploader: {
-            id: 6,
-            name: 'Whiterose',
-            email: 'whiterose@darkarmy.com',
-            role: 'Criminal',
-            avatar: 'https://picsum.photos/seed/user6/100/100',
-            pastes: 99,
-            comments: 0,
-            joined: '2023-06-06'
-        },
-    },
-    {
-        id: '3',
-        filename: 'fsoc_init.txt',
-        uploadDate: '2023-10-24',
-        content: 'Initial communication logs for fsociety.',
-        uploader: {
-            id: 1,
-            name: 'Elliot Alderson',
-            email: 'elliot.a@protonmail.com',
-            role: 'Admin',
-            avatar: 'https://picsum.photos/seed/user1/100/100',
-            pastes: 12,
-            comments: 140,
-            joined: '2023-01-15'
-        },
-    }
-];
+export const modules: Module[] = [];
 
 export const chartConfig = {
   uploads: {
