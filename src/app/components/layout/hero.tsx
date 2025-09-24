@@ -7,8 +7,8 @@ export function Hero() {
         <div className="z-20 flex items-center gap-2 text-primary-foreground">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            height="25"
+            width="28"
+            height="28"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
