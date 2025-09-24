@@ -7,7 +7,7 @@ import { useLanguage } from '@/contexts/language-context';
 import { PinInput } from './pin-input';
 
 
-const ADMIN_PIN = "fsociety-admin-access";
+const ADMIN_PIN = "fsociety-admin-access-!@#$";
 
 export function AdminChat() {
     const { dictionary } = useLanguage();
