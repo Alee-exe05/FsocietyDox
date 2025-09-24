@@ -44,7 +44,7 @@ export default function StaffPage() {
                             <StaffChat />
                             <AdminChat />
                         </div>
-                        <div className="block lg:hidden">
+                        <div className="lg:hidden">
                             <Tabs defaultValue="staff" className="w-full">
                                 <TabsList className="grid w-full grid-cols-2">
                                     <TabsTrigger value="staff">Staff Chat</TabsTrigger>
