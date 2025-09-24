@@ -136,7 +136,7 @@ export const it: Dictionary = {
     },
     adminPin: {
       title: 'Verifica Canale Admin',
-      description: 'È richiesto un PIN dinamico per questo canale sicuro. Trascrivi il codice qui sotto per procedere.'
+      description: 'È richiesto un PIN sicuro per accedere a questo canale.'
     },
     staffChat: {
         title: 'Chat Staff',

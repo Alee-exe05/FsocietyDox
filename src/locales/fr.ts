@@ -108,7 +108,7 @@ export const fr: Dictionary = {
       },
       {
         title: "5. Exactitude des matériaux",
-        content: "Les matériaux apparaissant sur FSociety Dox peuvent contenir des erreurs techniques, typographiques ou photographiques. Nous ne garantissons pas que les matériaux sur son site Web sont exacts, complets ou à jour. Nous pouvons apporter des modifications aux matériaux contenus sur son site Web à tout moment et sans préavis."
+        content: "Les matériaux apparaissant sur FSociety Dox могут contenir des erreurs techniques, typographiques ou photographiques. Nous ne garantissons pas que les matériaux sur son site Web sont exacts, complets ou à jour. Nous pouvons apporter des modifications aux matériaux contenus sur son site Web à tout moment et sans préavis."
       }
     ],
     privacy: [
@@ -136,7 +136,7 @@ export const fr: Dictionary = {
     },
     adminPin: {
       title: 'Vérification du Canal Admin',
-      description: 'Un PIN dynamique est requis pour ce canal sécurisé. Transcrivez le code ci-dessous pour continuer.'
+      description: 'Un PIN sécurisé est requis pour accéder à ce canal.'
     },
     staffChat: {
         title: 'Chat du Staff',

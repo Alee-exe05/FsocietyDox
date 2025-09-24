@@ -3,10 +3,11 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Avatar } from '@/components/ui/avatar';
-import { PinGenerator } from './pin-generator';
 import { useLanguage } from '@/contexts/language-context';
+import { PinInput } from './pin-input';
 
+
+const ADMIN_PIN = "fsociety-admin-access";
 
 export function AdminChat() {
     const { dictionary } = useLanguage();
@@ -24,9 +25,10 @@ export function AdminChat() {
             </CardHeader>
             <CardContent className="flex-1 flex flex-col justify-center items-center">
                 {!isUnlocked ? (
-                     <PinGenerator
+                     <PinInput
                         title={dictionary.staff.adminPin.title}
                         description={dictionary.staff.adminPin.description}
+                        correctPin={ADMIN_PIN}
                         onSuccess={handlePinSuccess}
                      />
                 ) : (

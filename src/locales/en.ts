@@ -134,7 +134,7 @@ export const en = {
     },
     adminPin: {
       title: 'Admin Channel Verification',
-      description: 'A dynamic PIN is required for this secure channel. Transcribe the code below to proceed.'
+      description: 'A secure PIN is required to access this channel.'
     },
     staffChat: {
       title: 'Staff Chat',
