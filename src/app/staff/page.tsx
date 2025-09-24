@@ -51,7 +51,7 @@ export default function StaffPage() {
             </Sidebar>
             <SidebarInset>
                 <main className="flex-1 p-4 md:p-10">
-                     <div className="absolute top-4 left-4">
+                     <div className="absolute top-4 left-4 z-20">
                         <SidebarTrigger />
                     </div>
                     <div className="text-center mb-8">

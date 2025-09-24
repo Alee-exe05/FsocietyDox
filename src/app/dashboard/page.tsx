@@ -60,7 +60,7 @@ export default function DashboardPage() {
         </Sidebar>
         <SidebarInset>
             <main className="flex-1 p-4 md:p-10 space-y-8">
-                <div className="absolute top-4 left-4">
+                <div className="absolute top-4 left-4 z-20">
                     <SidebarTrigger />
                 </div>
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

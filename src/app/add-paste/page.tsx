@@ -33,7 +33,7 @@ export default function AddPastePage() {
             </Sidebar>
             <SidebarInset>
                 <main className="flex-1 flex flex-col items-center justify-center p-4">
-                     <div className="absolute top-4 left-4">
+                     <div className="absolute top-4 left-4 z-20">
                         <SidebarTrigger />
                     </div>
                     <div className="text-center">

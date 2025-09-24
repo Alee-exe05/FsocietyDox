@@ -33,7 +33,7 @@ export default function Home() {
       </Sidebar>
       <SidebarInset>
           <main className="flex-1">
-              <div className="absolute top-4 left-4">
+              <div className="absolute top-4 left-4 z-20">
                   <SidebarTrigger />
               </div>
               <Hero />
