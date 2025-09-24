@@ -7,6 +7,8 @@ import { PinInput } from '@/app/components/staff/pin-input';
 import { StaffChat } from '@/app/components/staff/staff-chat';
 import { AdminChat } from '@/app/components/staff/admin-chat';
 import { useLanguage } from '@/contexts/language-context';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 
 const STAFF_PIN = "666";
 
@@ -37,10 +39,26 @@ export default function StaffPage() {
                         />
                     </div>
                 ) : (
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-                        <StaffChat />
-                        <AdminChat />
-                    </div>
+                    <>
+                        <div className="hidden lg:grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+                            <StaffChat />
+                            <AdminChat />
+                        </div>
+                        <div className="block lg:hidden">
+                            <Tabs defaultValue="staff" className="w-full">
+                                <TabsList className="grid w-full grid-cols-2">
+                                    <TabsTrigger value="staff">Staff Chat</TabsTrigger>
+                                    <TabsTrigger value="admin">Admin Chat</TabsTrigger>
+                                </TabsList>
+                                <TabsContent value="staff">
+                                    <StaffChat />
+                                </TabsContent>
+                                <TabsContent value="admin">
+                                    <AdminChat />
+                                </TabsContent>
+                            </Tabs>
+                        </div>
+                    </>
                 )}
             </main>
         </div>
