@@ -26,8 +26,7 @@ function AuthProviderContent({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
-      if (firebaseUser) {
-        // User is signed in, get their profile
+      if (firebaseUser && db) { // Ensure db is initialized
         setUser(firebaseUser);
         try {
           const userRef = doc(db, `users/${firebaseUser.uid}`);
@@ -43,7 +42,6 @@ function AuthProviderContent({ children }: { children: ReactNode }) {
           setUserProfile(null);
         }
       } else {
-        // User is signed out
         setUser(null);
         setUserProfile(null);
       }
