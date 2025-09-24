@@ -2,11 +2,11 @@ import React from 'react';
 
 export function FsocietyLogo() {
   return (
-    <div className="flex items-center gap-2 font-headline text-2xl font-bold text-primary-foreground">
+    <div className="flex items-center gap-2 font-headline text-xl font-bold text-primary-foreground">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="28"
-        height="28"
+        width="24"
+        height="24"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"

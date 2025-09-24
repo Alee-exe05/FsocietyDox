@@ -7,8 +7,8 @@ export function Hero() {
         <div className="z-20 flex items-center gap-3 text-primary-foreground">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="36"
-            height="36"
+            width="32"
+            height="32"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -20,7 +20,7 @@ export function Hero() {
             <path d="M4 17l6-6-6-6"/>
             <line x1="12" y1="19" x2="20" y2="19"/>
           </svg>
-          <span className="font-headline text-4xl font-bold">FSociety Dox</span>
+          <span className="font-headline text-3xl font-bold">FSociety Dox</span>
         </div>
       </Card>
     </div>
