@@ -109,6 +109,19 @@ body {
   .animate-glitter {
     animation: glitter 2s ease-in-out infinite;
   }
+
+  @keyframes border-glitter {
+    0%, 100% {
+      box-shadow: 0 0 2px hsl(var(--foreground)), 0 0 5px hsl(var(--foreground)), 0 0 8px hsl(var(--primary));
+    }
+    50% {
+      box-shadow: 0 0 1px hsl(var(--foreground)), 0 0 2px hsl(var(--foreground)), 0 0 4px hsl(var(--primary));
+    }
+  }
+
+  .animate-border-glitter {
+    animation: border-glitter 2.5s ease-in-out infinite;
+  }
 }
 
 

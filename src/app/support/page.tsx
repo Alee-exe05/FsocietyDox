@@ -13,7 +13,7 @@ export default function SupportPage() {
             <AppHeader />
             <main className="flex-1 p-4 md:p-10 flex justify-center">
                 <div className="w-full max-w-4xl space-y-8">
-                    <Card className="border-2 border-foreground/50">
+                    <Card className="border-2 border-foreground/50 animate-border-glitter">
                         <CardHeader>
                             <CardTitle className="font-headline text-3xl">{support.title}</CardTitle>
                         </CardHeader>
@@ -24,7 +24,7 @@ export default function SupportPage() {
                         </CardContent>
                     </Card>
 
-                    <Card className="border-2 border-foreground/50">
+                    <Card className="border-2 border-foreground/50 animate-border-glitter">
                         <CardHeader>
                             <CardTitle className="font-headline">{support.terms_title}</CardTitle>
                         </CardHeader>
@@ -42,7 +42,7 @@ export default function SupportPage() {
                         </CardContent>
                     </Card>
 
-                    <Card className="border-2 border-foreground/50">
+                    <Card className="border-2 border-foreground/50 animate-border-glitter">
                         <CardHeader>
                             <CardTitle className="font-headline">{support.privacy_title}</CardTitle>
                         </CardHeader>

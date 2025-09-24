@@ -14,9 +14,9 @@ export function AppHeader() {
 
   const navLinks = [
     { href: '/', label: dictionary.navigation.home },
-    { href: '/dashboard', label: dictionary.navigation.dashboard },
     { href: '/add-paste', label: dictionary.navigation.addPaste },
     { href: '/support', label: dictionary.navigation.support },
+    { href: '/dashboard', label: dictionary.navigation.dashboard },
   ];
 
   return (
