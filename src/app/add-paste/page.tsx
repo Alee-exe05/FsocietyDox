@@ -31,11 +31,11 @@ export default function AddPastePage() {
             <Sidebar>
                 <AppSidebar />
             </Sidebar>
+            <div className="lg:hidden absolute top-4 left-4 z-20">
+                <SidebarTrigger />
+            </div>
             <SidebarInset>
                 <main className="flex-1 flex flex-col items-center justify-center p-4">
-                     <div className="absolute top-4 left-4 z-20">
-                        <SidebarTrigger />
-                    </div>
                     <div className="text-center">
                         <h1 className="text-4xl font-bold font-headline mb-4">Add a New Paste</h1>
                         <p className="text-muted-foreground mb-8">Click the button to open the paste editor.</p>

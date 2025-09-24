@@ -58,11 +58,11 @@ export default function DashboardPage() {
         <Sidebar>
             <AppSidebar />
         </Sidebar>
+        <div className="lg:hidden absolute top-4 left-4 z-20">
+            <SidebarTrigger />
+        </div>
         <SidebarInset>
             <main className="flex-1 p-4 md:p-10 space-y-8">
-                <div className="absolute top-4 left-4 z-20">
-                    <SidebarTrigger />
-                </div>
                 <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                     <StatCard title={dictionary.dashboard.stats.modules} value={stats.totalModules} icon={FileText} />
                     <StatCard title={dictionary.dashboard.stats.moderated} value={stats.moderated} icon={ShieldCheck} />

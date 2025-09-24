@@ -31,11 +31,11 @@ export default function Home() {
       <Sidebar>
           <AppSidebar />
       </Sidebar>
+      <div className="lg:hidden absolute top-4 left-4 z-20">
+          <SidebarTrigger />
+      </div>
       <SidebarInset>
           <main className="flex-1">
-              <div className="absolute top-4 left-4 z-20">
-                  <SidebarTrigger />
-              </div>
               <Hero />
               <div className="px-4 md:px-10 pb-4 md:pb-10 space-y-8">
                 <Card>

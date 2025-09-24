@@ -31,11 +31,11 @@ export default function SupportPage() {
             <Sidebar>
                 <AppSidebar />
             </Sidebar>
+            <div className="lg:hidden absolute top-4 left-4 z-20">
+                <SidebarTrigger />
+            </div>
             <SidebarInset>
                 <main className="flex-1 p-4 md:p-10 flex justify-center">
-                    <div className="absolute top-4 left-4 z-20">
-                        <SidebarTrigger />
-                    </div>
                     <div className="w-full max-w-4xl space-y-8">
                         <Card className="border-2 border-foreground/50 animate-border-glitter">
                             <CardHeader>

@@ -49,11 +49,11 @@ export default function StaffPage() {
             <Sidebar>
                 <AppSidebar />
             </Sidebar>
+            <div className="lg:hidden absolute top-4 left-4 z-20">
+                <SidebarTrigger />
+            </div>
             <SidebarInset>
                 <main className="flex-1 p-4 md:p-10">
-                     <div className="absolute top-4 left-4 z-20">
-                        <SidebarTrigger />
-                    </div>
                     <div className="text-center mb-8">
                         <div className="flex items-center justify-center gap-3">
                             <Shield className="h-10 w-10 text-primary drop-shadow-[0_0_8px_hsl(var(--primary))]" />
