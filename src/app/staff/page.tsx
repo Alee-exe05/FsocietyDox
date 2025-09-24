@@ -14,7 +14,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { MoreVertical } from "lucide-react"
+import { MoreVertical, Shield } from "lucide-react"
 
 
 const STAFF_PIN = "666";
@@ -33,8 +33,11 @@ export default function StaffPage() {
             <AppHeader />
             <main className="flex-1 p-4 md:p-10">
                 <div className="text-center mb-8">
-                    <h1 className="text-4xl font-bold font-headline">{dictionary.staff.title}</h1>
-                    <p className="text-muted-foreground">{dictionary.staff.description}</p>
+                    <div className="flex items-center justify-center gap-3">
+                        <Shield className="h-10 w-10 text-primary drop-shadow-[0_0_8px_hsl(var(--primary))]" />
+                        <h1 className="text-4xl font-bold font-headline">{dictionary.staff.title}</h1>
+                    </div>
+                    <p className="text-muted-foreground mt-2">{dictionary.staff.description}</p>
                 </div>
 
                 {!isAuthenticated ? (
