@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import {
   Table,
   TableBody,
@@ -38,17 +38,17 @@ export function UserList() {
   const { dictionary } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredUsers = initialUsers.filter(user =>
+  const filteredUsers = useMemo(() => initialUsers.filter(user =>
     user.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  ), [searchTerm]);
 
-  const groupedUsers = roleOrder.reduce((acc, role) => {
+  const groupedUsers = useMemo(() => roleOrder.reduce((acc, role) => {
     const usersInRole = filteredUsers.filter(user => user.role === role);
     if (usersInRole.length > 0) {
       acc[role] = usersInRole;
     }
     return acc;
-  }, {} as Record<UserRole, User[]>);
+  }, {} as Record<UserRole, User[]>), [filteredUsers]);
 
   const formatRoleDisplay = (role: string) => {
     if (role.toLowerCase() === 'ceo') return 'Ceo';
