@@ -3,7 +3,7 @@
 import { AddPasteForm } from "@/app/components/add-paste-form";
 import { AppHeader } from "@/app/components/layout/app-header";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from "@/components/ui/sheet";
 import { useLanguage } from "@/contexts/language-context";
 
 
@@ -21,6 +21,10 @@ export default function AddPastePage() {
                             <Button size="lg">{dictionary.navigation.addPaste}</Button>
                         </SheetTrigger>
                         <SheetContent className="w-full md:w-[450px] lg:w-[500px] p-0 border-l border-border flex-shrink-0">
+                            <SheetHeader className="sr-only">
+                                <SheetTitle>{dictionary.addPaste.title}</SheetTitle>
+                                <SheetDescription>{dictionary.addPaste.description}</SheetDescription>
+                            </SheetHeader>
                             <AddPasteForm />
                         </SheetContent>
                     </Sheet>
