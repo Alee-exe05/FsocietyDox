@@ -21,31 +21,36 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
-      if (firebaseUser) {
-        setUser(firebaseUser);
-        const userRef = doc(db, `users/${firebaseUser.uid}`);
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      if (user) {
+        const userRef = doc(db, `users/${user.uid}`);
         try {
           const snapshot = await getDoc(userRef);
           if (snapshot.exists()) {
             setUserProfile(snapshot.data());
           } else {
             setUserProfile(null);
-            console.warn(`No profile found for user ${firebaseUser.uid}`);
+            console.warn(`No profile found for user ${user.uid}`);
           }
         } catch (error) {
           console.error("Error fetching user profile:", error);
           setUserProfile(null);
         }
       } else {
-        setUser(null);
         setUserProfile(null);
       }
       setLoading(false);
-    });
+    };
 
-    return () => unsubscribe();
-  }, []);
+    fetchUserProfile();
+  }, [user]);
 
   const value = { user, userProfile, loading };
 
