@@ -8,8 +8,6 @@ import { useLanguage } from '@/contexts/language-context';
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-import { ChevronsUpDown } from 'lucide-react';
 
 const FsocietyAsciiArt = () => (
     <pre className="text-xs text-primary font-mono whitespace-pre-wrap break-words">
@@ -58,19 +56,9 @@ export function AddPasteForm() {
 
     return (
         <div className="h-full flex flex-col p-4 md:p-6 space-y-6 bg-card">
-            <Collapsible>
-                <CollapsibleTrigger asChild>
-                    <Button variant="ghost" size="sm" className="w-full justify-center">
-                        <ChevronsUpDown className="h-4 w-4" />
-                        <span className="sr-only">Toggle ASCII Art</span>
-                    </Button>
-                </CollapsibleTrigger>
-                <CollapsibleContent>
-                    <div className="text-center py-4">
-                        <FsocietyAsciiArt />
-                    </div>
-                </CollapsibleContent>
-            </Collapsible>
+            <div className="text-center py-4">
+                <FsocietyAsciiArt />
+            </div>
             
             <div className="flex-1 flex flex-col space-y-4">
                 <div className="space-y-2">
