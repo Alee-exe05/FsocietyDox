@@ -21,31 +21,46 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
-      if (firebaseUser) {
-        setUser(firebaseUser);
-        const userRef = doc(db, `users/${firebaseUser.uid}`);
-        const snapshot = await getDoc(userRef);
-        if (snapshot.exists()) {
-          setUserProfile(snapshot.data());
-        } else {
-            // This can happen if the user document hasn't been created yet
-            // or if there's a delay. For now, we'll just set it to null.
-            setUserProfile(null);
-        }
-      } else {
-        setUser(null);
-        setUserProfile(null);
-      }
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser);
       setLoading(false);
     });
 
     return () => unsubscribe();
   }, []);
 
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      if (user) {
+        setLoading(true);
+        const userRef = doc(db, `users/${user.uid}`);
+        try {
+          const snapshot = await getDoc(userRef);
+          if (snapshot.exists()) {
+            setUserProfile(snapshot.data());
+          } else {
+            // This can happen if the user document hasn't been created yet
+            // or if there's a delay. For now, we'll just set it to null.
+            setUserProfile(null);
+            console.warn(`No profile found for user ${user.uid}`);
+          }
+        } catch (error) {
+          console.error("Error fetching user profile:", error);
+          setUserProfile(null);
+        } finally {
+          setLoading(false);
+        }
+      } else {
+        setUserProfile(null);
+      }
+    };
+
+    fetchUserProfile();
+  }, [user]);
+
   const value = { user, userProfile, loading };
 
-  if (loading) {
+  if (loading && user === null) { // Only show global loader on initial app load
     return (
         <div className="flex min-h-screen w-full flex-col items-center justify-center">
             <LoaderCircle className="h-12 w-12 animate-spin text-primary" />
