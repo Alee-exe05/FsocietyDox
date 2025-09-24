@@ -20,7 +20,7 @@ export default function AddPastePage() {
                         <SheetTrigger asChild>
                             <Button size="lg">{dictionary.navigation.addPaste}</Button>
                         </SheetTrigger>
-                        <SheetContent className="w-full md:w-[450px] lg:w-[500px] p-0 border-l border-border flex-shrink-0">
+                        <SheetContent className="w-full md:w-1/2 p-0 border-l border-border flex-shrink-0">
                             <SheetHeader className="sr-only">
                                 <SheetTitle>{dictionary.addPaste.title}</SheetTitle>
                                 <SheetDescription>{dictionary.addPaste.description}</SheetDescription>
