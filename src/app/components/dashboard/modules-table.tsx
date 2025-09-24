@@ -15,12 +15,12 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { modules as initialModules, Module, UserRole } from '@/lib/data/modules';
+import { modules as initialModules, Module } from '@/lib/data/modules';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/language-context';
 import { FileWarning } from 'lucide-react';
 
-const getRoleClass = (role: UserRole) => {
+const getRoleClass = (role: string) => {
   switch (role) {
     case 'CEO':
       return 'text-red-500 font-bold';

@@ -1,14 +1,10 @@
 
-import { users, User } from './users';
-
-export type UserRole = 'CEO' | 'Admin' | 'VIP' | 'Criminal';
-
 export interface Module {
   id: string;
   filename: string;
   uploadDate: string;
   content: string;
-  uploader: User;
+  uploader: { name: string; role: string; };
 }
 
 export const modules: Module[] = [
