@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { LanguageSwitcher } from './language-switcher';
 import { useLanguage } from '@/contexts/language-context';
+import { Button } from '@/components/ui/button';
 
 export function AppHeader() {
   const pathname = usePathname();
@@ -13,6 +14,7 @@ export function AppHeader() {
 
   const navLinks = [
     { href: '/', label: dictionary.navigation.home },
+    { href: '/dashboard', label: dictionary.navigation.dashboard },
     { href: '/add-paste', label: dictionary.navigation.addPaste },
     { href: '/support', label: dictionary.navigation.support },
   ];

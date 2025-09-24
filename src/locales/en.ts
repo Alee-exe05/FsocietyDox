@@ -5,135 +5,13 @@ export const en = {
   },
   navigation: {
     home: 'Home',
+    dashboard: 'Dashboard',
     addPaste: 'Add Paste',
-    users: 'Users',
-    info_users: 'Info Users',
     support: 'Support',
-    admin: 'Admin'
-  },
-  admin: {
-    navigation: {
-      dashboard: 'Dashboard',
-      userManagement: 'User Management',
-      rolesPermissions: 'Roles & Permissions',
-      staffChat: 'Staff Chat',
-      adminChat: 'Admin Chat',
-      moderation: 'Moderation',
-      systemLogs: 'System Logs',
-    },
-    dashboard: {
-      title: 'Admin Dashboard',
-      description: 'Welcome to the staff control panel.',
-      userManagement: {
-        title: 'User Management',
-        description: 'View, edit, and manage all users on the platform.',
-        linkText: 'Manage Users',
-      },
-      staffChat: {
-        title: 'Staff Chat',
-        description: 'Communicate with other staff members in real-time.',
-        linkText: 'Open Chat',
-      },
-      rolesPermissions: {
-        title: 'Roles & Permissions',
-        description: 'Configure user roles and their specific permissions.',
-        linkText: 'Manage Roles',
-      },
-      systemLogs: {
-        title: 'System Logs',
-        description: 'Review important system and staff activity logs.',
-        linkText: 'View Logs',
-      },
-      platformAnalytics: {
-        title: 'Platform Analytics',
-        description: 'Monitor platform activity and user statistics.',
-        linkText: 'View Analytics',
-      },
-      quickSettings: {
-        title: 'Quick Settings',
-        description: 'Quickly access important platform settings.',
-        generalSettings: 'General Settings',
-        systemStatus: 'System Status',
-      }
-    },
-    userManagement: {
-      title: 'User Management',
-      description: 'View, manage, and edit user accounts.',
-      searchPlaceholder: 'Search by name or email...',
-      addUserButton: 'Add User',
-      userCount: 'Users',
-      table: {
-        user: 'User',
-        role: 'Role',
-        stats: 'Stats',
-        joined: 'Joined',
-        actions: 'Actions',
-        pastes: 'Pastes',
-        comments: 'Comments',
-      },
-      actions: {
-        toggle: 'Toggle menu',
-        edit: 'Edit',
-        changeRole: 'Change Role',
-        delete: 'Delete',
-      },
-      deleteDialog: {
-        title: 'Are you sure?',
-        description: 'This action cannot be undone. This will permanently delete the user account and remove their data from our servers.',
-        cancel: 'Cancel',
-        continue: 'Continue',
-      },
-      toast: {
-        userDeleted: 'User Deleted',
-        userDeletedDesc: 'The user has been removed from the list.',
-      },
-      noUsersFound: 'No users found.',
-    },
-    rolesPermissions: {
-        title: 'Roles & Permissions',
-        description: 'Configure user roles and their specific permissions. Super Admins have all permissions by default.',
-        newRolePlaceholder: 'New role name...',
-        addRoleButton: 'Add Role',
-        saveButton: 'Save Changes',
-        lockedBadge: 'Locked',
-        table: {
-            role: 'Role',
-            actions: 'Actions',
-        },
-        permissions: {
-            createUser: 'Create Users',
-            editUser: 'Edit Users',
-            deleteUser: 'Delete Users',
-            viewLogs: 'View System Logs',
-            manageRoles: 'Manage Roles',
-            moderateContent: 'Moderate Content',
-        }
-    },
-    systemLogs: {
-        title: 'System Logs',
-        description: 'Review important system and staff activity logs. This feature is under construction.',
-        underConstruction: 'System Logs functionality will be implemented here.',
-    },
-    staffChat: {
-        title: 'Staff Chat',
-        description: 'Real-time communication channel for all staff members.',
-        placeholder: 'Type a message...',
-        empty: {
-            title: 'Chat is empty',
-            description: 'Be the first to send a message!',
-        }
-    },
-    adminChat: {
-        title: 'Admin Chat',
-        description: 'Private communication for Admins and Super Admins.',
-        placeholder: 'Type a private message...',
-        empty: {
-            title: 'Admin chat is empty',
-            description: 'Send a message to start a private conversation.',
-        }
-    }
   },
   dashboard: {
+    title: 'Dashboard',
+    description: 'Welcome to the control panel.',
     stats: {
       modules: 'Total Modules',
       moderated: 'Moderated',
@@ -166,32 +44,6 @@ export const en = {
     noModules: {
       title: 'No Modules Found',
       description: 'Go to the "Add Paste" page to upload a new module.',
-    }
-  },
-  users: {
-    title: 'Users',
-    description: '',
-  },
-  info_users: {
-    title: 'Users Information',
-    description: 'Overview of user statistics and activity.',
-    stats: {
-      total_users: 'Total Users',
-      total_users_desc: 'The total number of registered users.',
-      online_users: 'Online Users',
-      online_users_desc: 'Users currently active on the platform.',
-      new_users: 'New Users (24h)',
-      new_users_desc: 'New users in the last 24 hours.',
-      banned_users: 'Banned Users',
-      banned_users_desc: 'Users who have been banned from the platform.',
-    },
-    chart: {
-      title: 'User Activity',
-      description: 'Monthly user registration trends.',
-      legend: 'Users'
-    },
-    recent_activity: {
-      title: 'Recent Activity'
     }
   },
   moderation: {
@@ -267,7 +119,7 @@ export const en = {
       },
       {
         title: "The Veil of Secrecy",
-        content: "We don't share your information with anyone outside our circle. The data you see on this platform is for members' eyes only. We are the guardians of this information, and we operate with the understanding that what happens here, stays here. We are FSociety. We are finally free. We are finally awake."
+        content: "We don't share your information with anyone outside our circle. The data that you see on this platform is for members' eyes only. We are the guardians of this information, and we operate with the understanding that what happens here, stays here. We are FSociety. We are finally free. We are finally awake."
       }
     ]
   }
