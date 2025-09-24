@@ -40,7 +40,7 @@ export function InfoUsers() {
         ];
         setStats(initialStats);
         
-    }, [info_users.stats]);
+    }, [info_users.stats, allUsers]);
 
 
     return (

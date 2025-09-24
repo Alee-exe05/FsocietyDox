@@ -8,18 +8,15 @@ import { useLanguage } from "@/contexts/language-context"
 
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-const generateInitialData = () => {
-    return monthNames.map(month => ({
-        name: month,
-        users: 0
-    }));
-};
-
-
 export function UserActivityChart() {
     const { dictionary } = useLanguage();
     const { chart } = dictionary.info_users;
-    const [data] = useState(generateInitialData());
+    
+    const [data, setData] = useState(() => monthNames.map(month => ({
+        name: month,
+        users: 0
+    })));
+
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
