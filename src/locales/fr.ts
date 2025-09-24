@@ -13,7 +13,7 @@ export const fr: Dictionary = {
     staff: 'Staff',
   },
   hero: {
-    description: 'Une plateforme pour le partage sécurisé d\'informations et la collaboration. Vos données, vos règles.'
+    description: 'Bienvenue sur FSociety Dox. Une plateforme pour le partage sécurisé d\'informations et la collaboration. Vos données, vos règles.'
   },
   dashboard: {
     title: 'Tableau de Bord',

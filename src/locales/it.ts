@@ -13,7 +13,7 @@ export const it: Dictionary = {
     staff: 'Staff',
   },
   hero: {
-    description: 'Una piattaforma per la condivisione sicura delle informazioni e la collaborazione. I tuoi dati, le tue regole.'
+    description: 'Benvenuto su FSociety Dox. Una piattaforma per la condivisione sicura delle informazioni e la collaborazione. I tuoi dati, le tue regole.'
   },
   dashboard: {
     title: 'Dashboard',

@@ -11,7 +11,7 @@ export const en = {
     staff: 'Staff',
   },
   hero: {
-    description: 'A platform for secure information sharing and collaboration. Your data, your rules.'
+    description: 'Welcome to FSociety Dox. A platform for secure information sharing and collaboration. Your data, your rules.'
   },
   dashboard: {
     title: 'Dashboard',
