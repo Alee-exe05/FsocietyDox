@@ -41,6 +41,8 @@ export function AdminSidebar() {
 
     if (!currentUser) return null;
 
+    const visibleLinks = navLinks.filter(link => link.roles.includes(currentUser.role));
+
   return (
     <>
       <SidebarHeader>
@@ -48,7 +50,7 @@ export function AdminSidebar() {
       </SidebarHeader>
       <SidebarContent className="p-2">
         <SidebarMenu>
-            {navLinks.filter(link => link.roles.includes(currentUser.role)).map(link => (
+            {visibleLinks.map(link => (
                 <SidebarMenuItem key={link.href}>
                     <SidebarMenuButton 
                         asChild
