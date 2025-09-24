@@ -19,8 +19,8 @@ export function AdminChat() {
     return (
         <Card className="h-full flex flex-col">
             <CardHeader>
-                <CardTitle>Admin Chat</CardTitle>
-                <CardDescription>Top-level strategic communication.</CardDescription>
+                <CardTitle>{dictionary.staff.adminChat.title}</CardTitle>
+                <CardDescription>{dictionary.staff.adminChat.description}</CardDescription>
             </CardHeader>
             <CardContent className="flex-1 flex flex-col justify-center items-center">
                 {!isUnlocked ? (
@@ -39,7 +39,7 @@ export function AdminChat() {
                         <div className="p-4 border-t">
                             <input
                                 className="w-full bg-input px-3 py-2 rounded-md text-sm placeholder:text-muted-foreground"
-                                placeholder="Type a message..."
+                                placeholder={dictionary.staff.chat.placeholder}
                             />
                         </div>
                     </div>

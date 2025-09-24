@@ -33,8 +33,8 @@ export default function StaffPage() {
             <AppHeader />
             <main className="flex-1 p-4 md:p-10">
                 <div className="text-center mb-8">
-                    <h1 className="text-4xl font-bold font-headline">Staff Area</h1>
-                    <p className="text-muted-foreground">Access restricted to authorized personnel.</p>
+                    <h1 className="text-4xl font-bold font-headline">{dictionary.staff.title}</h1>
+                    <p className="text-muted-foreground">{dictionary.staff.description}</p>
                 </div>
 
                 {!isAuthenticated ? (
@@ -54,20 +54,20 @@ export default function StaffPage() {
                         </div>
                         <div className="lg:hidden">
                             <div className="flex justify-between items-center mb-4 px-2">
-                                <h2 className="text-xl font-semibold capitalize">{activeChat} Chat</h2>
+                                <h2 className="text-xl font-semibold capitalize">{activeChat === 'staff' ? dictionary.staff.staffChat.title : dictionary.staff.adminChat.title}</h2>
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
                                         <Button variant="ghost" size="icon">
                                             <MoreVertical className="h-5 w-5" />
-                                            <span className="sr-only">Select Chat</span>
+                                            <span className="sr-only">{dictionary.staff.selectChat}</span>
                                         </Button>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent align="end">
                                         <DropdownMenuItem onSelect={() => setActiveChat('staff')}>
-                                            Staff Chat
+                                            {dictionary.staff.staffChat.title}
                                         </DropdownMenuItem>
                                         <DropdownMenuItem onSelect={() => setActiveChat('admin')}>
-                                            Admin Chat
+                                            {dictionary.staff.adminChat.title}
                                         </DropdownMenuItem>
                                     </DropdownMenuContent>
                                 </DropdownMenu>

@@ -125,6 +125,9 @@ export const en = {
     ]
   },
    staff: {
+    title: 'Staff Area',
+    description: 'Access restricted to authorized personnel.',
+    selectChat: 'Select Chat',
     mainPin: {
       title: 'Staff Access',
       description: 'Enter the general access PIN to view staff channels.'
@@ -132,6 +135,17 @@ export const en = {
     adminPin: {
       title: 'Admin Channel Verification',
       description: 'A dynamic PIN is required for this secure channel. Transcribe the code below to proceed.'
+    },
+    staffChat: {
+      title: 'Staff Chat',
+      description: 'General communication channel.'
+    },
+    adminChat: {
+      title: 'Admin Chat',
+      description: 'Top-level strategic communication.'
+    },
+    chat: {
+        placeholder: 'Type a message...'
     }
   }
 };

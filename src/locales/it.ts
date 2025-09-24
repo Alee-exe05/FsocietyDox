@@ -127,6 +127,9 @@ export const it: Dictionary = {
     ]
   },
   staff: {
+    title: 'Area Staff',
+    description: 'Accesso limitato al personale autorizzato.',
+    selectChat: 'Seleziona Chat',
     mainPin: {
       title: 'Accesso Staff',
       description: 'Inserisci il PIN di accesso generale per visualizzare i canali dello staff.'
@@ -134,6 +137,17 @@ export const it: Dictionary = {
     adminPin: {
       title: 'Verifica Canale Admin',
       description: 'È richiesto un PIN dinamico per questo canale sicuro. Trascrivi il codice qui sotto per procedere.'
+    },
+    staffChat: {
+        title: 'Chat Staff',
+        description: 'Canale di comunicazione generale.'
+    },
+    adminChat: {
+        title: 'Chat Admin',
+        description: 'Comunicazione strategica di alto livello.'
+    },
+    chat: {
+        placeholder: 'Scrivi un messaggio...'
     }
   }
 };
