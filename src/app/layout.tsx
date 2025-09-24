@@ -5,6 +5,7 @@ import './globals.css';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { PasteProvider } from '@/contexts/paste-context';
+import { FirebaseClientProvider } from '@/firebase/client-provider';
 
 const fontBody = Inter({
   subsets: ['latin'],
@@ -30,12 +31,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={cn("font-body antialiased", fontBody.variable, fontHeadline.variable)}>
-        <LanguageProvider>
-          <PasteProvider>
-            {children}
-            <Toaster />
-          </PasteProvider>
-        </LanguageProvider>
+        <FirebaseClientProvider>
+          <LanguageProvider>
+            <PasteProvider>
+              {children}
+              <Toaster />
+            </PasteProvider>
+          </LanguageProvider>
+        </FirebaseClientProvider>
       </body>
     </html>
   );

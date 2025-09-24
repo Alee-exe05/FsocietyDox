@@ -1,0 +1,82 @@
+{
+  "entities": {
+    "userProfile": {
+      "title": "User Profile",
+      "description": "Represents a user's public profile information.",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "The user's unique ID."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The user's display name."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The user's email address."
+        },
+        "photoURL": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the user's profile picture."
+        },
+        "role": {
+          "type": "string",
+          "description": "The user's role in the system.",
+          "enum": ["Admin", "Member", "Moderator"]
+        }
+      },
+      "required": ["uid", "displayName", "email"]
+    },
+    "paste": {
+      "title": "Paste",
+      "description": "A single text paste entry.",
+      "type": "object",
+      "properties": {
+        "filename": {
+          "type": "string",
+          "description": "The title or filename of the paste."
+        },
+        "content": {
+          "type": "string",
+          "description": "The main content of the paste."
+        },
+        "uploader": {
+          "type": "object",
+          "properties": {
+              "uid": { "type": "string" },
+              "name": { "type": "string" },
+              "role": { "type": "string" }
+          },
+          "required": ["uid", "name"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the paste was created."
+        }
+      },
+      "required": ["filename", "content", "uploader", "createdAt"]
+    }
+  },
+  "auth": {
+    "providers": ["google.com"]
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/userProfile"
+      },
+      "description": "Stores public information for each user."
+    },
+    "/pastes": {
+      "schema": {
+        "$ref": "#/entities/paste"
+      },
+      "description": "A collection of all pastes submitted by users."
+    }
+  }
+}

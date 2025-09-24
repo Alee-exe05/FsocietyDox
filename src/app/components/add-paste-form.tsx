@@ -34,13 +34,11 @@ export function AddPasteForm() {
     const { dictionary } = useLanguage();
     const { addPaste } = usePaste();
 
-    const handleSubmit = () => {
-        addPaste(title, content);
+    const handleSubmit = async () => {
+        await addPaste(title, content);
         // Reset state after submission if addPaste doesn't throw
-        if (title.trim() && content.trim()) {
-            setTitle('');
-            setContent('');
-        }
+        setTitle('');
+        setContent('');
     };
 
     return (

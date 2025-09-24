@@ -8,7 +8,7 @@ import { initializeApp, getApps, getApp } from "firebase/app";
 // IMPORTANT: Replace this with your actual Firebase config object
 const firebaseConfig = {
   "projectId": "studio-6984305609-5d454",
-  "appId": "1:476557699883:web:261750ecc2dd54206ab36e",
+  "appId": "1:476557699883:web:0ce0601acaf5df576ab36e",
   "apiKey": "AIzaSyA5RIn_oG_hybHmLRfRpSONBP7KTXE0HWk",
   "authDomain": "studio-6984305609-5d454.firebaseapp.com",
   "measurementId": "",

@@ -20,6 +20,7 @@ import { useLanguage } from '@/contexts/language-context';
 import { FileWarning } from 'lucide-react';
 import { usePaste } from '@/contexts/paste-context';
 import type { Module } from '@/lib/types';
+import { format } from 'date-fns';
 
 
 const getRoleClass = (role: string) => {
@@ -71,7 +72,7 @@ export function ModulesTable() {
                         </Badge>
                     </TableCell>
                     <TableCell className="text-right text-muted-foreground">
-                    {module.uploadDate}
+                    {module.createdAt ? format(module.createdAt.toDate(), 'PPP') : '...'}
                     </TableCell>
                 </TableRow>
                 ))}

@@ -16,12 +16,31 @@ import {
   Settings,
   LogOut,
   BarChart,
+  FilePlus,
+  LifeBuoy,
+  Users
 } from 'lucide-react';
 import { FsocietyLogo } from '@/app/components/FsocietyLogo';
 import { LanguageSwitcher } from './language-switcher';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { useAuth, useUser } from '@/firebase';
+import { usePathname } from 'next/navigation';
+import { useLanguage } from '@/contexts/language-context';
 
 export function AppSidebar() {
+  const { user } = useUser();
+  const { signOut } = useAuth();
+  const pathname = usePathname();
+  const { dictionary } = useLanguage();
+
+  const navLinks = [
+    { href: '/', label: dictionary.navigation.home, icon: Home },
+    { href: '/dashboard', label: dictionary.navigation.dashboard, icon: BarChart },
+    { href: '/add-paste', label: dictionary.navigation.addPaste, icon: FilePlus },
+    { href: '/staff', label: dictionary.navigation.staff, icon: Users },
+    { href: '/support', label: dictionary.navigation.support, icon: LifeBuoy },
+  ];
+
   return (
     <>
       <SidebarHeader>
@@ -29,18 +48,14 @@ export function AppSidebar() {
       </SidebarHeader>
       <SidebarContent className="p-2">
         <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton href="#" tooltip="Dashboard" isActive>
-              <Home />
-              Dashboard
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <SidebarMenuItem>
-            <SidebarMenuButton href="#" tooltip="Analytics">
-              <BarChart />
-              Analytics
-            </SidebarMenuButton>
-          </SidebarMenuItem>
+          {navLinks.map((link) => (
+             <SidebarMenuItem key={link.href}>
+                <SidebarMenuButton href={link.href} tooltip={link.label} isActive={pathname === link.href}>
+                  <link.icon />
+                  {link.label}
+                </SidebarMenuButton>
+            </SidebarMenuItem>
+          ))}
           <SidebarMenuItem>
             <SidebarMenuButton href="#" tooltip="Moderation">
               <Shield />
@@ -57,21 +72,23 @@ export function AppSidebar() {
       </SidebarContent>
       <SidebarSeparator />
       <SidebarFooter className="p-2">
-        <div className="flex items-center gap-3">
-            <Avatar className="h-10 w-10 border-2 border-primary">
-                <AvatarImage src="https://picsum.photos/seed/fsociety/100/100" data-ai-hint="hacker avatar" />
-                <AvatarFallback>EA</AvatarFallback>
-            </Avatar>
-            <div className="flex-1 overflow-hidden">
-                <p className="truncate font-semibold">Elliot Alderson</p>
-                <p className="truncate text-sm text-muted-foreground">elliot@fsociety.com</p>
+        {user && (
+            <div className="flex items-center gap-3">
+                <Avatar className="h-10 w-10 border-2 border-primary">
+                    {user.photoURL && <AvatarImage src={user.photoURL} alt={user.displayName || 'User'} data-ai-hint="user avatar" />}
+                    <AvatarFallback>{user.displayName?.charAt(0) || user.email?.charAt(0) || 'U'}</AvatarFallback>
+                </Avatar>
+                <div className="flex-1 overflow-hidden">
+                    <p className="truncate font-semibold">{user.displayName || 'Anonymous'}</p>
+                    <p className="truncate text-sm text-muted-foreground">{user.email}</p>
+                </div>
+                <SidebarMenuButton asChild variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground" onClick={() => signOut()}>
+                    <Link href="#" aria-label="Log Out">
+                        <LogOut />
+                    </Link>
+                </SidebarMenuButton>
             </div>
-            <SidebarMenuButton asChild variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">
-                <Link href="#" aria-label="Log Out">
-                    <LogOut />
-                </Link>
-            </SidebarMenuButton>
-        </div>
+        )}
         <LanguageSwitcher />
       </SidebarFooter>
     </>
