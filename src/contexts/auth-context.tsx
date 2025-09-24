@@ -13,9 +13,13 @@ interface AuthContextType {
   loading: boolean;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthContext = createContext<AuthContextType>({
+  user: null,
+  userProfile: null,
+  loading: true,
+});
 
-export function AuthProvider({ children }: { children: ReactNode }) {
+function AuthProviderContent({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<FirebaseAuthUser | null>(null);
   const [userProfile, setUserProfile] = useState<DocumentData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -23,6 +27,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
       if (firebaseUser) {
+        // User is signed in, get their profile
         setUser(firebaseUser);
         try {
           const userRef = doc(db, `users/${firebaseUser.uid}`);
@@ -38,6 +43,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           setUserProfile(null);
         }
       } else {
+        // User is signed out
         setUser(null);
         setUserProfile(null);
       }
@@ -64,6 +70,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     </AuthContext.Provider>
   );
 }
+
+export function AuthProvider({ children }: { children: ReactNode }) {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+    
+    // Render the actual provider only on the client side
+    if (!isMounted) {
+        return (
+            <div className="flex min-h-screen w-full flex-col items-center justify-center">
+                <LoaderCircle className="h-12 w-12 animate-spin text-primary" />
+            </div>
+        );
+    }
+
+    return <AuthProviderContent>{children}</AuthProviderContent>;
+}
+
 
 export function useAuth() {
   const context = useContext(AuthContext);
