@@ -86,7 +86,7 @@ export function AppHeader() {
                 <Button asChild variant="ghost">
                   <Link href="/login" prefetch={true}>Login</Link>
                 </Button>
-                <Button asChild>
+                <Button asChild variant="secondary">
                   <Link href="/register" prefetch={true}>Register</Link>
                 </Button>
               </>
