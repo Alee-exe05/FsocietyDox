@@ -25,6 +25,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { users } from '@/lib/data/users';
+import { useMemo } from 'react';
 
 const navLinks = [
     { href: '/admin', label: 'Dashboard', icon: Home, roles: ['Admin', 'CEO'] },
@@ -34,14 +35,17 @@ const navLinks = [
     { href: '/admin/moderation', label: 'Moderation', icon: Shield, roles: ['Admin', 'CEO', 'VIP'] },
 ];
 
-const currentUser = users.find(u => u.name === 'Elliot Alderson');
-
 export function AdminSidebar() {
     const pathname = usePathname();
+    const currentUser = useMemo(() => users.find(u => u.name === 'Elliot Alderson'), []);
+
+    const visibleLinks = useMemo(() => {
+        if (!currentUser) return [];
+        return navLinks.filter(link => link.roles.includes(currentUser.role));
+    }, [currentUser]);
+
 
     if (!currentUser) return null;
-
-    const visibleLinks = navLinks.filter(link => link.roles.includes(currentUser.role));
 
   return (
     <>

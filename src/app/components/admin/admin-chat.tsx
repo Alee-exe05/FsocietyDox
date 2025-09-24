@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Input } from '@/components/ui/input';
@@ -10,9 +10,6 @@ import { Send, MessageCircle } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { users, User } from '@/lib/data/users';
 import { cn } from '@/lib/utils';
-
-const adminMembers = users.filter(u => u.role === 'Admin' || u.role === 'CEO');
-const currentUser = adminMembers.find(u => u.name === 'Elliot Alderson');
 
 interface Message {
     id: number;
@@ -25,6 +22,9 @@ export function AdminChat() {
     const [messages, setMessages] = useState<Message[]>([]);
     const [newMessage, setNewMessage] = useState('');
     const scrollAreaRef = useRef<HTMLDivElement>(null);
+
+    const adminMembers = useMemo(() => users.filter(u => u.role === 'Admin' || u.role === 'CEO'), []);
+    const currentUser = useMemo(() => adminMembers.find(u => u.name === 'Elliot Alderson'), [adminMembers]);
 
     const handleSendMessage = (e: React.FormEvent) => {
         e.preventDefault();
@@ -111,4 +111,3 @@ export function AdminChat() {
         </Card>
     );
 }
-
