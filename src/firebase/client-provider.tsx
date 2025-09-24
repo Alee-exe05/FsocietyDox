@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState, useEffect, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { FirebaseProvider } from './provider';
 import { initializeFirebase } from './index';
 
@@ -10,7 +10,7 @@ interface FirebaseClientProviderProps {
 }
 
 export function FirebaseClientProvider({ children }: FirebaseClientProviderProps) {
-  const [firebase, setFirebase] = useState(() => initializeFirebase());
+  const [firebase, setFirebase] = React.useState(() => initializeFirebase());
 
   // Firebase should only be initialized once.
   // The value is memoized in a state, so it persists across re-renders.
