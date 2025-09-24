@@ -7,6 +7,30 @@ import { Button } from '@/components/ui/button';
 import { Users, MessageSquare, Settings, Activity } from 'lucide-react';
 import Link from 'next/link';
 
+const dashboardCards = [
+    {
+        title: "User Management",
+        description: "View, edit, and manage all users on the platform.",
+        href: "/admin/user-management",
+        linkText: "Manage Users",
+        icon: Users
+    },
+    {
+        title: "Staff Chat",
+        description: "Communicate with other staff members in real-time.",
+        href: "/admin/chat",
+        linkText: "Open Chat",
+        icon: MessageSquare
+    },
+    {
+        title: "Platform Analytics",
+        description: "Monitor platform activity and user statistics.",
+        href: "/info-users",
+        linkText: "View Analytics",
+        icon: Activity
+    }
+];
+
 export function AdminDashboard() {
   return (
     <div className="space-y-8">
@@ -16,50 +40,22 @@ export function AdminDashboard() {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Users className="h-6 w-6" />
-              User Management
-            </CardTitle>
-            <CardDescription>View, edit, and manage all users on the platform.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button asChild>
-              <Link href="#">Manage Users</Link>
-            </Button>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <MessageSquare className="h-6 w-6" />
-              Staff Chat
-            </CardTitle>
-            <CardDescription>Communicate with other staff members in real-time.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button asChild>
-              <Link href="#">Open Chat</Link>
-            </Button>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Activity className="h-6 w-6" />
-              Platform Analytics
-            </CardTitle>
-            <CardDescription>Monitor platform activity and user statistics.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button asChild>
-              <Link href="/info-users">View Analytics</Link>
-            </Button>
-          </CardContent>
-        </Card>
+        {dashboardCards.map((card, index) => (
+            <Card key={index}>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                        <card.icon className="h-6 w-6" />
+                        {card.title}
+                    </CardTitle>
+                    <CardDescription>{card.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <Button asChild>
+                        <Link href={card.href}>{card.linkText}</Link>
+                    </Button>
+                </CardContent>
+            </Card>
+        ))}
       </div>
 
       <Card>
