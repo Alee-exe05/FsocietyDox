@@ -10,6 +10,7 @@ export const fr: Dictionary = {
     dashboard: 'Tableau de Bord',
     addPaste: 'Ajouter Paste',
     support: 'Support',
+    staff: 'Staff',
   },
   dashboard: {
     title: 'Tableau de Bord',
@@ -124,5 +125,15 @@ export const fr: Dictionary = {
         content: "Nous ne partageons vos informations avec personne en dehors de notre cercle. Les données que vous voyez sur cette plateforme sont réservées aux membres. Nous sommes les gardiens de ces informations, et nous agissons en sachant que ce qui se passe ici, reste ici. Nous sommes FSociety. Nous sommes enfin libres. Nous sommes enfin éveillés."
       }
     ]
+  },
+  staff: {
+    mainPin: {
+      title: 'Accès Staff',
+      description: 'Entrez le PIN d\'accès général pour voir les canaux du staff.'
+    },
+    adminPin: {
+      title: 'Canal Admin Verrouillé',
+      description: 'Entrez le PIN admin pour déverrouiller ce chat.'
+    }
   }
 };

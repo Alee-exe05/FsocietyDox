@@ -8,6 +8,7 @@ export const en = {
     dashboard: 'Dashboard',
     addPaste: 'Add Paste',
     support: 'Support',
+    staff: 'Staff',
   },
   dashboard: {
     title: 'Dashboard',
@@ -122,5 +123,15 @@ export const en = {
         content: "We don't share your information with anyone outside our circle. The data that you see on this platform is for members' eyes only. We are the guardians of this information, and we operate with the understanding that what happens here, stays here. We are FSociety. We are finally free. We are finally awake."
       }
     ]
+  },
+   staff: {
+    mainPin: {
+      title: 'Staff Access',
+      description: 'Enter the general access PIN to view staff channels.'
+    },
+    adminPin: {
+      title: 'Admin Channel Locked',
+      description: 'Enter the admin PIN to unlock this chat.'
+    }
   }
 };

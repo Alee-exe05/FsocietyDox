@@ -17,6 +17,7 @@ export function AppHeader() {
     { href: '/add-paste', label: dictionary.navigation.addPaste },
     { href: '/support', label: dictionary.navigation.support },
     { href: '/dashboard', label: dictionary.navigation.dashboard },
+    { href: '/staff', label: dictionary.navigation.staff },
   ];
 
   return (
