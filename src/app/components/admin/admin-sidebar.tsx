@@ -41,20 +41,19 @@ const navLinks: { href: string; label: string; icon: React.ElementType; roles: U
 export function AdminSidebar() {
     const pathname = usePathname();
     const [users, setUsers] = useState<User[]>([]);
+    const [currentUser, setCurrentUser] = useState<User | undefined>(undefined);
 
     useEffect(() => {
         setUsers(initialUsers);
+        // In a real app, you'd fetch the current logged-in user.
+        // For this example, we'll try to find a default user or leave it undefined.
+        setCurrentUser(initialUsers.find(u => u.name === 'Elliot Alderson'));
     }, []);
 
-    const currentUser = useMemo(() => users.find(u => u.name === 'Elliot Alderson'), [users]);
-
     const visibleLinks = useMemo(() => {
-        if (!currentUser) return [];
+        if (!currentUser) return []; // Return no links if no user is logged in
         return navLinks.filter(link => link.roles.includes(currentUser.role));
     }, [currentUser]);
-
-
-    if (!currentUser) return null;
 
   return (
     <>
@@ -76,26 +75,44 @@ export function AdminSidebar() {
                     </SidebarMenuButton>
                 </SidebarMenuItem>
             ))}
+             {/* Show all links if no user is defined for development/showcase */}
+             {!currentUser && navLinks.map(link => (
+                <SidebarMenuItem key={link.href}>
+                    <SidebarMenuButton 
+                        asChild
+                        isActive={pathname === link.href}
+                    >
+                        <Link href={link.href}>
+                            <link.icon />
+                            {link.label}
+                        </Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+            ))}
         </SidebarMenu>
       </SidebarContent>
-      <SidebarSeparator />
-      <SidebarFooter className="p-2">
-        <div className="flex items-center gap-3">
-            <Avatar className="h-10 w-10 border-2 border-primary">
-                <AvatarImage src="https://picsum.photos/seed/fsociety/100/100" data-ai-hint="hacker avatar" />
-                <AvatarFallback>EA</AvatarFallback>
-            </Avatar>
-            <div className="flex-1 overflow-hidden">
-                <p className="truncate font-semibold">{currentUser.name}</p>
-                <p className="truncate text-sm text-muted-foreground">{currentUser.email}</p>
+      {currentUser && (
+        <>
+          <SidebarSeparator />
+          <SidebarFooter className="p-2">
+            <div className="flex items-center gap-3">
+                <Avatar className="h-10 w-10 border-2 border-primary">
+                    <AvatarImage src={currentUser.avatar} data-ai-hint="hacker avatar" />
+                    <AvatarFallback>{currentUser.name.substring(0,2)}</AvatarFallback>
+                </Avatar>
+                <div className="flex-1 overflow-hidden">
+                    <p className="truncate font-semibold">{currentUser.name}</p>
+                    <p className="truncate text-sm text-muted-foreground">{currentUser.email}</p>
+                </div>
+                <SidebarMenuButton asChild variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">
+                    <Link href="#" aria-label="Log Out">
+                        <LogOut />
+                    </Link>
+                </SidebarMenuButton>
             </div>
-            <SidebarMenuButton asChild variant="ghost" size="icon" className="h-8 w-8 text-muted-foreground hover:text-foreground">
-                <Link href="#" aria-label="Log Out">
-                    <LogOut />
-                </Link>
-            </SidebarMenuButton>
-        </div>
-      </SidebarFooter>
+          </SidebarFooter>
+        </>
+      )}
     </>
   );
 }
