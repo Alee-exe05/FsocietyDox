@@ -9,7 +9,6 @@ import { ShieldAlert, Users } from 'lucide-react';
 import { useLanguage } from '@/contexts/language-context';
 
 const ADMIN_PIN = "fsociety";
-const ALLOWED_ADMINS = ['Elliot', 'Mr. Robot']; // Dummy check
 
 const messages = [
     { user: 'Whiterose', text: 'Stage 2 is proceeding as planned. Are there any obstacles?', time: '4:10 PM', avatar: 'W' },
@@ -21,17 +20,9 @@ const messages = [
 export function AdminChat() {
     const { dictionary } = useLanguage();
     const [isUnlocked, setIsUnlocked] = useState(false);
-    const [isAuthorized, setIsAuthorized] = useState(false);
-    const dummyCurrentUser = 'Elliot'; // In a real app this would come from auth context
 
     const handlePinSuccess = () => {
-        if (ALLOWED_ADMINS.includes(dummyCurrentUser)) {
-            setIsUnlocked(true);
-            setIsAuthorized(true);
-        } else {
-             setIsUnlocked(true);
-             setIsAuthorized(false);
-        }
+        setIsUnlocked(true);
     };
 
     return (
@@ -48,7 +39,7 @@ export function AdminChat() {
                         correctPin={ADMIN_PIN}
                         onSuccess={handlePinSuccess}
                      />
-                ) : isAuthorized ? (
+                ) : (
                     <div className="w-full h-full flex flex-col p-0">
                          <ScrollArea className="flex-1 p-4">
                             <div className="space-y-4">
@@ -74,12 +65,6 @@ export function AdminChat() {
                                 placeholder="Type a message..."
                             />
                         </div>
-                    </div>
-                ) : (
-                    <div className="text-center text-destructive">
-                        <ShieldAlert className="h-12 w-12 mx-auto mb-4" />
-                        <h3 className="text-xl font-bold">Access Denied</h3>
-                        <p className="text-muted-foreground">You do not have permission to view this chat.</p>
                     </div>
                 )}
             </CardContent>
