@@ -94,6 +94,24 @@ body {
   }
 }
 
+@layer utilities {
+  @keyframes glitter {
+    0%, 100% {
+      opacity: 1;
+      text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff;
+    }
+    50% {
+      opacity: 0.8;
+      text-shadow: 0 0 2px #fff, 0 0 5px #fff, 0 0 10px #fff;
+    }
+  }
+
+  .animate-glitter {
+    animation: glitter 2s ease-in-out infinite;
+  }
+}
+
+
 @layer components {
     .table-row-red {
         @apply border-l-2 border-red-500;

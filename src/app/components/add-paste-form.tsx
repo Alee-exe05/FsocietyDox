@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
 const FsocietyAsciiArt = () => (
-    <pre className="text-xs text-primary font-mono whitespace-pre-wrap break-words">
+    <pre className="text-xs text-white font-mono whitespace-pre-wrap break-words animate-glitter">
 {`
    /$$$$$$$$                            /$$             /$$              
   | $$_____/                           |__/            | $$              
