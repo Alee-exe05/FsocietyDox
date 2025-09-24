@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
@@ -16,16 +17,16 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true);
     const storedLanguage = localStorage.getItem('fsociety-dox-lang') as Language;
     if (storedLanguage && ['en', 'it', 'fr'].includes(storedLanguage)) {
       setLanguageState(storedLanguage);
     }
+    setIsMounted(true);
   }, []);
 
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
-    if (isMounted) {
+    if (typeof window !== 'undefined') {
       localStorage.setItem('fsociety-dox-lang', lang);
     }
   };
