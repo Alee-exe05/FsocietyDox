@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Send, MessageSquare } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { users, User } from '@/lib/data/users';
+import { users as initialUsers, User } from '@/lib/data/users';
 import { cn } from '@/lib/utils';
 
 interface Message {
@@ -22,8 +22,13 @@ export function StaffChat() {
     const [messages, setMessages] = useState<Message[]>([]);
     const [newMessage, setNewMessage] = useState('');
     const scrollAreaRef = useRef<HTMLDivElement>(null);
+    const [users, setUsers] = useState<User[]>([]);
 
-    const staffMembers = useMemo(() => users.filter(u => u.role === 'Admin' || u.role === 'CEO' || u.role === 'VIP'), []);
+    useEffect(() => {
+        setUsers(initialUsers);
+    }, []);
+
+    const staffMembers = useMemo(() => users.filter(u => u.role === 'Admin' || u.role === 'Super Admin' || u.role === 'Moderatore' || u.role === 'Utente Staff'), [users]);
     const currentUser = useMemo(() => staffMembers.find(u => u.name === 'Elliot Alderson'), [staffMembers]);
 
 
@@ -42,7 +47,6 @@ export function StaffChat() {
     }
 
     useEffect(() => {
-        // Auto-scroll to the bottom
         if (scrollAreaRef.current) {
             const scrollableView = scrollAreaRef.current.querySelector('div[data-radix-scroll-area-viewport]');
             if (scrollableView) {
@@ -113,3 +117,4 @@ export function StaffChat() {
         </Card>
     );
 }
+

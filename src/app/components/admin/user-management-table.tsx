@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Table,
   TableBody,
@@ -25,13 +25,13 @@ import { useToast } from '@/hooks/use-toast';
 
 const getRoleClass = (role: UserRole) => {
     switch (role) {
-      case 'CEO':
+      case 'Super Admin':
         return 'text-red-500 font-bold';
       case 'Admin':
         return 'text-violet-400 font-bold';
-      case 'VIP':
+      case 'Moderatore':
         return 'text-yellow-400 font-bold';
-      case 'Criminal':
+      case 'Utente Staff':
         return 'text-foreground font-bold';
       default:
         return 'text-foreground';
@@ -40,8 +40,12 @@ const getRoleClass = (role: UserRole) => {
 
 export function UserManagementTable() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [users, setUsers] = useState<User[]>(initialUsers);
+  const [users, setUsers] = useState<User[]>([]);
   const { toast } = useToast();
+
+  useEffect(() => {
+    setUsers(initialUsers);
+  }, []);
 
   const filteredUsers = users.filter(user =>
     user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -73,10 +77,15 @@ export function UserManagementTable() {
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
                 </div>
-                <div className="text-sm text-muted-foreground flex items-center gap-1">
-                    <Users className="h-4 w-4" />
-                    <span>{filteredUsers.length} Users</span>
-                </div>
+                <Button>
+                    <Users className="mr-2 h-4 w-4" />
+                    Add User
+                </Button>
+            </div>
+            
+            <div className="text-sm text-muted-foreground mb-4 flex items-center gap-1">
+                <Users className="h-4 w-4" />
+                <span>{filteredUsers.length} Users</span>
             </div>
 
             <div className="rounded-md border">
@@ -163,3 +172,4 @@ export function UserManagementTable() {
     </Card>
   );
 }
+

@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Send, MessageCircle } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { users, User } from '@/lib/data/users';
+import { users as initialUsers, User } from '@/lib/data/users';
 import { cn } from '@/lib/utils';
 
 interface Message {
@@ -22,8 +22,13 @@ export function AdminChat() {
     const [messages, setMessages] = useState<Message[]>([]);
     const [newMessage, setNewMessage] = useState('');
     const scrollAreaRef = useRef<HTMLDivElement>(null);
+    const [users, setUsers] = useState<User[]>([]);
 
-    const adminMembers = useMemo(() => users.filter(u => u.role === 'Admin' || u.role === 'CEO'), []);
+    useEffect(() => {
+        setUsers(initialUsers);
+    }, []);
+
+    const adminMembers = useMemo(() => users.filter(u => u.role === 'Admin' || u.role === 'Super Admin'), [users]);
     const currentUser = useMemo(() => adminMembers.find(u => u.name === 'Elliot Alderson'), [adminMembers]);
 
     const handleSendMessage = (e: React.FormEvent) => {
@@ -41,7 +46,6 @@ export function AdminChat() {
     }
 
      useEffect(() => {
-        // Auto-scroll to the bottom
         if (scrollAreaRef.current) {
             const scrollableView = scrollAreaRef.current.querySelector('div[data-radix-scroll-area-viewport]');
             if (scrollableView) {
@@ -58,7 +62,7 @@ export function AdminChat() {
                     <MessageCircle />
                     Admin Chat
                 </CardTitle>
-                <CardDescription>Private communication for Admins and CEO.</CardDescription>
+                <CardDescription>Private communication for Admins and Super Admins.</CardDescription>
             </CardHeader>
             <CardContent className="flex-1 flex flex-col gap-4 overflow-hidden">
                 <ScrollArea className="flex-1 pr-4" ref={scrollAreaRef}>
@@ -111,3 +115,4 @@ export function AdminChat() {
         </Card>
     );
 }
+

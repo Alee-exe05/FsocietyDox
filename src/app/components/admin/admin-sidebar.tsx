@@ -19,25 +19,34 @@ import {
   LogOut,
   Shield,
   MessageCircle,
+  FileText,
+  ShieldCheck,
 } from 'lucide-react';
 import { FsocietyLogo } from '@/app/components/FsocietyLogo';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
-import { users } from '@/lib/data/users';
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
+import { users as initialUsers, User, UserRole } from '@/lib/data/users';
 
-const navLinks = [
-    { href: '/admin', label: 'Dashboard', icon: Home, roles: ['Admin', 'CEO'] },
-    { href: '/admin/user-management', label: 'User Management', icon: Users, roles: ['Admin', 'CEO'] },
-    { href: '/admin/chat', label: 'Staff Chat', icon: MessageSquare, roles: ['Admin', 'CEO', 'VIP'] },
-    { href: '/admin/admin-chat', label: 'Admin Chat', icon: MessageCircle, roles: ['Admin', 'CEO'] },
-    { href: '/admin/moderation', label: 'Moderation', icon: Shield, roles: ['Admin', 'CEO', 'VIP'] },
+const navLinks: { href: string; label: string; icon: React.ElementType; roles: UserRole[] }[] = [
+    { href: '/admin', label: 'Dashboard', icon: Home, roles: ['Super Admin', 'Admin', 'Moderatore', 'Utente Staff'] },
+    { href: '/admin/user-management', label: 'User Management', icon: Users, roles: ['Super Admin', 'Admin'] },
+    { href: '/admin/roles', label: 'Roles & Permissions', icon: ShieldCheck, roles: ['Super Admin'] },
+    { href: '/admin/chat', label: 'Staff Chat', icon: MessageSquare, roles: ['Super Admin', 'Admin', 'Moderatore', 'Utente Staff'] },
+    { href: '/admin/admin-chat', label: 'Admin Chat', icon: MessageCircle, roles: ['Super Admin', 'Admin'] },
+    { href: '/admin/moderation', label: 'Moderation', icon: Shield, roles: ['Super Admin', 'Admin', 'Moderatore'] },
+    { href: '/admin/logs', label: 'System Logs', icon: FileText, roles: ['Super Admin'] },
 ];
 
 export function AdminSidebar() {
     const pathname = usePathname();
-    const currentUser = useMemo(() => users.find(u => u.name === 'Elliot Alderson'), []);
+    const [users, setUsers] = useState<User[]>([]);
+
+    useEffect(() => {
+        setUsers(initialUsers);
+    }, []);
+
+    const currentUser = useMemo(() => users.find(u => u.name === 'Elliot Alderson'), [users]);
 
     const visibleLinks = useMemo(() => {
         if (!currentUser) return [];

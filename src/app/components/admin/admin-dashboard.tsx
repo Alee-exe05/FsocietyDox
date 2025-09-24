@@ -4,7 +4,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Users, MessageSquare, Settings, Activity } from 'lucide-react';
+import { Users, MessageSquare, Settings, Activity, ShieldCheck, FileText } from 'lucide-react';
 import Link from 'next/link';
 
 const dashboardCards = [
@@ -21,6 +21,20 @@ const dashboardCards = [
         href: "/admin/chat",
         linkText: "Open Chat",
         icon: MessageSquare
+    },
+    {
+        title: "Roles & Permissions",
+        description: "Configure user roles and their specific permissions.",
+        href: "/admin/roles",
+        linkText: "Manage Roles",
+        icon: ShieldCheck
+    },
+    {
+        title: "System Logs",
+        description: "Review important system and staff activity logs.",
+        href: "/admin/logs",
+        linkText: "View Logs",
+        icon: FileText
     },
     {
         title: "Platform Analytics",
@@ -67,10 +81,6 @@ export function AdminDashboard() {
             <Button variant="outline">
                 <Settings className="mr-2 h-4 w-4" />
                 General Settings
-            </Button>
-            <Button variant="outline">
-                <Users className="mr-2 h-4 w-4" />
-                Roles & Permissions
             </Button>
             <Button variant="destructive">
                 <Activity className="mr-2 h-4 w-4" />
