@@ -13,6 +13,128 @@ export const fr: Dictionary = {
     support: 'Support',
     admin: 'Admin'
   },
+  admin: {
+    navigation: {
+      dashboard: 'Tableau de Bord',
+      userManagement: 'Gestion des Utilisateurs',
+      rolesPermissions: 'Rôles & Permissions',
+      staffChat: 'Chat du Personnel',
+      adminChat: 'Chat des Admins',
+      moderation: 'Modération',
+      systemLogs: 'Logs Système',
+    },
+    dashboard: {
+      title: 'Tableau de Bord Admin',
+      description: 'Bienvenue dans le panneau de contrôle du personnel.',
+      userManagement: {
+        title: 'Gestion des Utilisateurs',
+        description: 'Afficher, modifier et gérer tous les utilisateurs de la plateforme.',
+        linkText: 'Gérer les Utilisateurs',
+      },
+      staffChat: {
+        title: 'Chat du Personnel',
+        description: 'Communiquez avec les autres membres du personnel en temps réel.',
+        linkText: 'Ouvrir le Chat',
+      },
+      rolesPermissions: {
+        title: 'Rôles & Permissions',
+        description: 'Configurez les rôles des utilisateurs et leurs permissions spécifiques.',
+        linkText: 'Gérer les Rôles',
+      },
+      systemLogs: {
+        title: 'Logs Système',
+        description: 'Consultez les journaux d\'activité importants du système et du personnel.',
+        linkText: 'Voir les Logs',
+      },
+      platformAnalytics: {
+        title: 'Analyses de la Plateforme',
+        description: 'Surveillez l\'activité de la plateforme et les statistiques des utilisateurs.',
+        linkText: 'Voir les Analyses',
+      },
+      quickSettings: {
+        title: 'Paramètres Rapides',
+        description: 'Accédez rapidement aux paramètres importants de la plateforme.',
+        generalSettings: 'Paramètres Généraux',
+        systemStatus: 'État du Système',
+      }
+    },
+    userManagement: {
+      title: 'Gestion des Utilisateurs',
+      description: 'Afficher, gérer et modifier les comptes utilisateurs.',
+      searchPlaceholder: 'Rechercher par nom ou email...',
+      addUserButton: 'Ajouter Utilisateur',
+      userCount: 'Utilisateurs',
+      table: {
+        user: 'Utilisateur',
+        role: 'Rôle',
+        stats: 'Stats',
+        joined: 'Rejoint le',
+        actions: 'Actions',
+        pastes: 'Pastes',
+        comments: 'Commentaires',
+      },
+      actions: {
+        toggle: 'Basculer le menu',
+        edit: 'Modifier',
+        changeRole: 'Changer de Rôle',
+        delete: 'Supprimer',
+      },
+      deleteDialog: {
+        title: 'Êtes-vous sûr ?',
+        description: 'Cette action est irréversible. Elle supprimera définitivement le compte de l\'utilisateur et effacera ses données de nos serveurs.',
+        cancel: 'Annuler',
+        continue: 'Continuer',
+      },
+      toast: {
+        userDeleted: 'Utilisateur Supprimé',
+        userDeletedDesc: 'L\'utilisateur a été retiré de la liste.',
+      },
+      noUsersFound: 'Aucun utilisateur trouvé.',
+    },
+    rolesPermissions: {
+        title: 'Rôles & Permissions',
+        description: 'Configurez les rôles des utilisateurs et leurs permissions spécifiques. Les Super Admins ont toutes les permissions par défaut.',
+        newRolePlaceholder: 'Nom du nouveau rôle...',
+        addRoleButton: 'Ajouter Rôle',
+        saveButton: 'Enregistrer',
+        lockedBadge: 'Verrouillé',
+        table: {
+            role: 'Rôle',
+            actions: 'Actions',
+        },
+        permissions: {
+            createUser: 'Créer Utilisateurs',
+            editUser: 'Modifier Utilisateurs',
+            deleteUser: 'Supprimer Utilisateurs',
+            viewLogs: 'Voir Logs Système',
+            manageRoles: 'Gérer Rôles',
+            moderateContent: 'Modérer Contenu',
+        }
+    },
+    systemLogs: {
+        title: 'Logs Système',
+        description: 'Consultez les journaux d\'activité importants du système et du personnel. Cette fonctionnalité est en construction.',
+        underConstruction: 'La fonctionnalité des logs système sera implémentée ici.',
+    },
+    staffChat: {
+        title: 'Chat du Personnel',
+        description: 'Canal de communication en temps réel pour tous les membres du personnel.',
+        placeholder: 'Écrivez un message...',
+        empty: {
+            title: 'Le chat est vide',
+            description: 'Soyez le premier à envoyer un message !',
+        }
+    },
+    adminChat: {
+        title: 'Chat des Admins',
+        description: 'Communication privée pour les Admins et Super Admins.',
+        placeholder: 'Écrivez un message privé...',
+        empty: {
+            title: 'Le chat admin est vide',
+            description: 'Envoyez un message pour démarrer une conversation privée.',
+        }
+    }
+  },
   dashboard: {
     stats: {
       modules: 'Modules Totaux',
@@ -59,7 +181,7 @@ export const fr: Dictionary = {
       total_users: 'Utilisateurs Totaux',
       total_users_desc: 'Le nombre total d\'utilisateurs enregistrés.',
       online_users: 'Utilisateurs en Ligne',
-      online_users_desc: 'Utilisateurs actuellement actifs sur la plateforme.',
+      online_users_desc: 'Utilisateurs currently active on the platform.',
       new_users: 'Nouveaux Utilisateurs (24h)',
       new_users_desc: 'Nouveaux utilisateurs au cours des dernières 24 heures.',
       banned_users: 'Utilisateurs Bannis',
@@ -133,7 +255,7 @@ export const fr: Dictionary = {
       },
       {
         title: "5. Exactitude des matériaux",
-        content: "Les matériaux apparaissant sur FSociety Dox могут contenir des erreurs techniques, typographiques ou photographiques. Nous ne garantissons pas que les matériaux sur son site Web sont exacts, complets ou à jour. Nous pouvons apporter des modifications aux matériaux contenus sur son site Web à tout moment et sans préavis."
+        content: "Les matériaux apparaissant sur FSociety Dox peuvent contenir des erreurs techniques, typographiques ou photographiques. Nous ne garantissons pas que les matériaux sur son site Web sont exacts, complets ou à jour. Nous pouvons apporter des modifications aux matériaux contenus sur son site Web à tout moment et sans préavis."
       }
     ],
     privacy: [

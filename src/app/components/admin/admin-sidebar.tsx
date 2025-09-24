@@ -27,35 +27,36 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { usePathname } from 'next/navigation';
 import { useMemo, useState, useEffect } from 'react';
 import { users as initialUsers, User, UserRole } from '@/lib/data/users';
-
-const navLinks: { href: string; label: string; icon: React.ElementType; roles: UserRole[] }[] = [
-    { href: '/admin', label: 'Dashboard', icon: Home, roles: ['Super Admin', 'Admin', 'Moderatore', 'Utente Staff'] },
-    { href: '/admin/user-management', label: 'User Management', icon: Users, roles: ['Super Admin', 'Admin'] },
-    { href: '/admin/roles', label: 'Roles & Permissions', icon: ShieldCheck, roles: ['Super Admin'] },
-    { href: '/admin/chat', label: 'Staff Chat', icon: MessageSquare, roles: ['Super Admin', 'Admin', 'Moderatore', 'Utente Staff'] },
-    { href: '/admin/admin-chat', label: 'Admin Chat', icon: MessageCircle, roles: ['Super Admin', 'Admin'] },
-    { href: '/admin/moderation', label: 'Moderation', icon: Shield, roles: ['Super Admin', 'Admin', 'Moderatore'] },
-    { href: '/admin/logs', label: 'System Logs', icon: FileText, roles: ['Super Admin'] },
-];
+import { useLanguage } from '@/contexts/language-context';
 
 export function AdminSidebar() {
     const pathname = usePathname();
     const [users, setUsers] = useState<User[]>([]);
-    
+    const { dictionary } = useLanguage();
+    const { navigation: navDict } = dictionary.admin;
+
     useEffect(() => {
         setUsers(initialUsers);
     }, []);
-
-    // In a real app, you'd fetch the current logged-in user.
-    // For this example, we find a user from our static data.
+    
     const currentUser = useMemo(() => {
         return users.find(u => u.name === 'Elliot Alderson');
     }, [users]);
 
+    const navLinks: { href: string; label: string; icon: React.ElementType; roles: UserRole[] }[] = useMemo(() => [
+        { href: '/admin', label: navDict.dashboard, icon: Home, roles: ['Super Admin', 'Admin', 'Moderatore', 'Utente Staff'] },
+        { href: '/admin/user-management', label: navDict.userManagement, icon: Users, roles: ['Super Admin', 'Admin'] },
+        { href: '/admin/roles', label: navDict.rolesPermissions, icon: ShieldCheck, roles: ['Super Admin'] },
+        { href: '/admin/chat', label: navDict.staffChat, icon: MessageSquare, roles: ['Super Admin', 'Admin', 'Moderatore', 'Utente Staff'] },
+        { href: '/admin/admin-chat', label: navDict.adminChat, icon: MessageCircle, roles: ['Super Admin', 'Admin'] },
+        { href: '/admin/moderation', label: navDict.moderation, icon: Shield, roles: ['Super Admin', 'Admin', 'Moderatore'] },
+        { href: '/admin/logs', label: navDict.systemLogs, icon: FileText, roles: ['Super Admin'] },
+    ], [navDict]);
+
     const visibleLinks = useMemo(() => {
         if (!currentUser) return [];
         return navLinks.filter(link => link.roles.includes(currentUser.role));
-    }, [currentUser]);
+    }, [currentUser, navLinks]);
 
   return (
     <>

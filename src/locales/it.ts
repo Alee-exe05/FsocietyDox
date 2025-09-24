@@ -13,6 +13,128 @@ export const it: Dictionary = {
     support: 'Supporto',
     admin: 'Admin'
   },
+  admin: {
+    navigation: {
+      dashboard: 'Dashboard',
+      userManagement: 'Gestione Utenti',
+      rolesPermissions: 'Ruoli e Permessi',
+      staffChat: 'Chat Staff',
+      adminChat: 'Chat Admin',
+      moderation: 'Moderazione',
+      systemLogs: 'Log di Sistema',
+    },
+    dashboard: {
+      title: 'Dashboard Admin',
+      description: 'Benvenuto nel pannello di controllo dello staff.',
+      userManagement: {
+        title: 'Gestione Utenti',
+        description: 'Visualizza, modifica e gestisci tutti gli utenti della piattaforma.',
+        linkText: 'Gestisci Utenti',
+      },
+      staffChat: {
+        title: 'Chat Staff',
+        description: 'Comunica con gli altri membri dello staff in tempo reale.',
+        linkText: 'Apri Chat',
+      },
+      rolesPermissions: {
+        title: 'Ruoli e Permessi',
+        description: 'Configura i ruoli utente e i loro permessi specifici.',
+        linkText: 'Gestisci Ruoli',
+      },
+      systemLogs: {
+        title: 'Log di Sistema',
+        description: 'Controlla i log di attività importanti del sistema e dello staff.',
+        linkText: 'Visualizza Log',
+      },
+      platformAnalytics: {
+        title: 'Analisi Piattaforma',
+        description: 'Monitora l\'attività della piattaforma e le statistiche degli utenti.',
+        linkText: 'Visualizza Analisi',
+      },
+      quickSettings: {
+        title: 'Impostazioni Rapide',
+        description: 'Accedi rapidamente alle impostazioni importanti della piattaforma.',
+        generalSettings: 'Impostazioni Generali',
+        systemStatus: 'Stato del Sistema',
+      }
+    },
+    userManagement: {
+      title: 'Gestione Utenti',
+      description: 'Visualizza, gestisci e modifica gli account utente.',
+      searchPlaceholder: 'Cerca per nome o email...',
+      addUserButton: 'Aggiungi Utente',
+      userCount: 'Utenti',
+      table: {
+        user: 'Utente',
+        role: 'Ruolo',
+        stats: 'Statistiche',
+        joined: 'Iscritto il',
+        actions: 'Azioni',
+        pastes: 'Paste',
+        comments: 'Commenti',
+      },
+      actions: {
+        toggle: 'Menu Azioni',
+        edit: 'Modifica',
+        changeRole: 'Cambia Ruolo',
+        delete: 'Elimina',
+      },
+      deleteDialog: {
+        title: 'Sei sicuro?',
+        description: 'Questa azione non può essere annullata. Eliminerà permanentemente l\'account dell\'utente e rimuoverà i suoi dati dai nostri server.',
+        cancel: 'Annulla',
+        continue: 'Continua',
+      },
+      toast: {
+        userDeleted: 'Utente Eliminato',
+        userDeletedDesc: 'L\'utente è stato rimosso dalla lista.',
+      },
+      noUsersFound: 'Nessun utente trovato.',
+    },
+    rolesPermissions: {
+        title: 'Ruoli e Permessi',
+        description: 'Configura i ruoli utente e i loro permessi specifici. I Super Admin hanno tutti i permessi per impostazione predefinita.',
+        newRolePlaceholder: 'Nome nuovo ruolo...',
+        addRoleButton: 'Aggiungi Ruolo',
+        saveButton: 'Salva Modifiche',
+        lockedBadge: 'Bloccato',
+        table: {
+            role: 'Ruolo',
+            actions: 'Azioni',
+        },
+        permissions: {
+            createUser: 'Crea Utenti',
+            editUser: 'Modifica Utenti',
+            deleteUser: 'Elimina Utenti',
+            viewLogs: 'Visualizza Log',
+            manageRoles: 'Gestisci Ruoli',
+            moderateContent: 'Modera Contenuti',
+        }
+    },
+    systemLogs: {
+        title: 'Log di Sistema',
+        description: 'Controlla i log di attività importanti del sistema e dello staff. Questa funzione è in costruzione.',
+        underConstruction: 'La funzionalità dei log di sistema sarà implementata qui.',
+    },
+    staffChat: {
+        title: 'Chat Staff',
+        description: 'Canale di comunicazione in tempo reale per tutti i membri dello staff.',
+        placeholder: 'Scrivi un messaggio...',
+        empty: {
+            title: 'La chat è vuota',
+            description: 'Sii il primo a mandare un messaggio!',
+        }
+    },
+    adminChat: {
+        title: 'Chat Admin',
+        description: 'Comunicazione privata per Amministratori e Super Amministratori.',
+        placeholder: 'Scrivi un messaggio privato...',
+        empty: {
+            title: 'La chat admin è vuota',
+            description: 'Invia un messaggio per avviare una conversazione privata.',
+        }
+    }
+  },
   dashboard: {
     stats: {
       modules: 'Moduli Totali',

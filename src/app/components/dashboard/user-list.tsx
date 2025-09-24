@@ -42,13 +42,22 @@ export function UserList() {
     user.name.toLowerCase().includes(searchTerm.toLowerCase())
   ), [searchTerm]);
 
-  const groupedUsers = useMemo(() => roleOrder.reduce((acc, role) => {
-    const usersInRole = filteredUsers.filter(user => user.role === role);
-    if (usersInRole.length > 0) {
-      acc[role] = usersInRole;
+  const groupedUsers = useMemo(() => {
+    const groups = roleOrder.reduce((acc, role) => {
+        const usersInRole = filteredUsers.filter(user => user.role === role);
+        if (usersInRole.length > 0) {
+            acc[role] = usersInRole;
+        }
+        return acc;
+    }, {} as Record<string, User[]>);
+
+    const otherUsers = filteredUsers.filter(user => !roleOrder.includes(user.role));
+    if (otherUsers.length > 0) {
+        groups['Other'] = otherUsers;
     }
-    return acc;
-  }, {} as Record<UserRole, User[]>), [filteredUsers]);
+
+    return groups;
+}, [filteredUsers]);
 
   const formatRoleDisplay = (role: string) => {
     if (role.toLowerCase() === 'ceo') return 'Ceo';

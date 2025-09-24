@@ -10,6 +10,7 @@ import { Send, MessageSquare } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { users as initialUsers, User } from '@/lib/data/users';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/contexts/language-context';
 
 interface Message {
     id: number;
@@ -23,6 +24,8 @@ export function StaffChat() {
     const [newMessage, setNewMessage] = useState('');
     const scrollAreaRef = useRef<HTMLDivElement>(null);
     const [users, setUsers] = useState<User[]>([]);
+    const { dictionary } = useLanguage();
+    const { staffChat: pageDict } = dictionary.admin;
 
     useEffect(() => {
         setUsers(initialUsers);
@@ -61,9 +64,9 @@ export function StaffChat() {
             <CardHeader>
                 <CardTitle className="flex items-center gap-2 font-headline">
                     <MessageSquare />
-                    Staff Chat
+                    {pageDict.title}
                 </CardTitle>
-                <CardDescription>Real-time communication channel for all staff members.</CardDescription>
+                <CardDescription>{pageDict.description}</CardDescription>
             </CardHeader>
             <CardContent className="flex-1 flex flex-col gap-4 overflow-hidden">
                 <ScrollArea className="flex-1 pr-4" ref={scrollAreaRef}>
@@ -71,8 +74,8 @@ export function StaffChat() {
                         {messages.length === 0 ? (
                             <div className="flex flex-col items-center justify-center h-full text-muted-foreground text-center p-8">
                                 <MessageSquare className="w-12 h-12 mb-4" />
-                                <h3 className="font-semibold">Chat is empty</h3>
-                                <p className="text-sm">Be the first to send a message!</p>
+                                <h3 className="font-semibold">{pageDict.empty.title}</h3>
+                                <p className="text-sm">{pageDict.empty.description}</p>
                             </div>
                         ) : (
                             messages.map((msg) => (
@@ -103,7 +106,7 @@ export function StaffChat() {
                 <form onSubmit={handleSendMessage} className="flex w-full items-center space-x-2">
                     <Input
                         type="text"
-                        placeholder="Type a message..."
+                        placeholder={pageDict.placeholder}
                         value={newMessage}
                         onChange={(e) => setNewMessage(e.target.value)}
                         className="flex-1"
@@ -117,4 +120,3 @@ export function StaffChat() {
         </Card>
     );
 }
-

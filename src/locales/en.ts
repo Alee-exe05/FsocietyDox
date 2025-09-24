@@ -11,6 +11,128 @@ export const en = {
     support: 'Support',
     admin: 'Admin'
   },
+  admin: {
+    navigation: {
+      dashboard: 'Dashboard',
+      userManagement: 'User Management',
+      rolesPermissions: 'Roles & Permissions',
+      staffChat: 'Staff Chat',
+      adminChat: 'Admin Chat',
+      moderation: 'Moderation',
+      systemLogs: 'System Logs',
+    },
+    dashboard: {
+      title: 'Admin Dashboard',
+      description: 'Welcome to the staff control panel.',
+      userManagement: {
+        title: 'User Management',
+        description: 'View, edit, and manage all users on the platform.',
+        linkText: 'Manage Users',
+      },
+      staffChat: {
+        title: 'Staff Chat',
+        description: 'Communicate with other staff members in real-time.',
+        linkText: 'Open Chat',
+      },
+      rolesPermissions: {
+        title: 'Roles & Permissions',
+        description: 'Configure user roles and their specific permissions.',
+        linkText: 'Manage Roles',
+      },
+      systemLogs: {
+        title: 'System Logs',
+        description: 'Review important system and staff activity logs.',
+        linkText: 'View Logs',
+      },
+      platformAnalytics: {
+        title: 'Platform Analytics',
+        description: 'Monitor platform activity and user statistics.',
+        linkText: 'View Analytics',
+      },
+      quickSettings: {
+        title: 'Quick Settings',
+        description: 'Quickly access important platform settings.',
+        generalSettings: 'General Settings',
+        systemStatus: 'System Status',
+      }
+    },
+    userManagement: {
+      title: 'User Management',
+      description: 'View, manage, and edit user accounts.',
+      searchPlaceholder: 'Search by name or email...',
+      addUserButton: 'Add User',
+      userCount: 'Users',
+      table: {
+        user: 'User',
+        role: 'Role',
+        stats: 'Stats',
+        joined: 'Joined',
+        actions: 'Actions',
+        pastes: 'Pastes',
+        comments: 'Comments',
+      },
+      actions: {
+        toggle: 'Toggle menu',
+        edit: 'Edit',
+        changeRole: 'Change Role',
+        delete: 'Delete',
+      },
+      deleteDialog: {
+        title: 'Are you sure?',
+        description: 'This action cannot be undone. This will permanently delete the user account and remove their data from our servers.',
+        cancel: 'Cancel',
+        continue: 'Continue',
+      },
+      toast: {
+        userDeleted: 'User Deleted',
+        userDeletedDesc: 'The user has been removed from the list.',
+      },
+      noUsersFound: 'No users found.',
+    },
+    rolesPermissions: {
+        title: 'Roles & Permissions',
+        description: 'Configure user roles and their specific permissions. Super Admins have all permissions by default.',
+        newRolePlaceholder: 'New role name...',
+        addRoleButton: 'Add Role',
+        saveButton: 'Save Changes',
+        lockedBadge: 'Locked',
+        table: {
+            role: 'Role',
+            actions: 'Actions',
+        },
+        permissions: {
+            createUser: 'Create Users',
+            editUser: 'Edit Users',
+            deleteUser: 'Delete Users',
+            viewLogs: 'View System Logs',
+            manageRoles: 'Manage Roles',
+            moderateContent: 'Moderate Content',
+        }
+    },
+    systemLogs: {
+        title: 'System Logs',
+        description: 'Review important system and staff activity logs. This feature is under construction.',
+        underConstruction: 'System Logs functionality will be implemented here.',
+    },
+    staffChat: {
+        title: 'Staff Chat',
+        description: 'Real-time communication channel for all staff members.',
+        placeholder: 'Type a message...',
+        empty: {
+            title: 'Chat is empty',
+            description: 'Be the first to send a message!',
+        }
+    },
+    adminChat: {
+        title: 'Admin Chat',
+        description: 'Private communication for Admins and Super Admins.',
+        placeholder: 'Type a private message...',
+        empty: {
+            title: 'Admin chat is empty',
+            description: 'Send a message to start a private conversation.',
+        }
+    }
+  },
   dashboard: {
     stats: {
       modules: 'Total Modules',

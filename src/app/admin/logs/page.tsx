@@ -2,23 +2,27 @@
 "use client";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { FileText } from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
 
 export default function SystemLogsPage() {
+    const { dictionary } = useLanguage();
+    const { systemLogs: pageDict } = dictionary.admin;
+
     return (
         <main className="p-4 md:p-8">
             <Card>
                 <CardHeader>
                     <CardTitle className="font-headline flex items-center gap-2">
                         <FileText />
-                        System Logs
+                        {pageDict.title}
                     </CardTitle>
                     <CardDescription>
-                        Review important system and staff activity logs. This feature is under construction.
+                        {pageDict.description}
                     </CardDescription>
                 </CardHeader>
                 <CardContent>
                     <div className="text-center text-muted-foreground py-12">
-                        <p>System Logs functionality will be implemented here.</p>
+                        <p>{pageDict.underConstruction}</p>
                     </div>
                 </CardContent>
             </Card>

@@ -10,6 +10,7 @@ import { Send, MessageCircle } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { users as initialUsers, User } from '@/lib/data/users';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/contexts/language-context';
 
 interface Message {
     id: number;
@@ -23,6 +24,9 @@ export function AdminChat() {
     const [newMessage, setNewMessage] = useState('');
     const scrollAreaRef = useRef<HTMLDivElement>(null);
     const [users, setUsers] = useState<User[]>([]);
+    const { dictionary } = useLanguage();
+    const { adminChat: pageDict } = dictionary.admin;
+
 
     useEffect(() => {
         setUsers(initialUsers);
@@ -60,9 +64,9 @@ export function AdminChat() {
             <CardHeader>
                 <CardTitle className="flex items-center gap-2 font-headline">
                     <MessageCircle />
-                    Admin Chat
+                    {pageDict.title}
                 </CardTitle>
-                <CardDescription>Private communication for Admins and Super Admins.</CardDescription>
+                <CardDescription>{pageDict.description}</CardDescription>
             </CardHeader>
             <CardContent className="flex-1 flex flex-col gap-4 overflow-hidden">
                 <ScrollArea className="flex-1 pr-4" ref={scrollAreaRef}>
@@ -70,8 +74,8 @@ export function AdminChat() {
                         {messages.length === 0 ? (
                             <div className="flex flex-col items-center justify-center h-full text-muted-foreground text-center p-8">
                                 <MessageCircle className="w-12 h-12 mb-4" />
-                                <h3 className="font-semibold">Admin chat is empty</h3>
-                                <p className="text-sm">Send a message to start a private conversation.</p>
+                                <h3 className="font-semibold">{pageDict.empty.title}</h3>
+                                <p className="text-sm">{pageDict.empty.description}</p>
                             </div>
                         ) : (
                             messages.map((msg) => (
@@ -101,7 +105,7 @@ export function AdminChat() {
                 <form onSubmit={handleSendMessage} className="flex w-full items-center space-x-2">
                     <Input
                         type="text"
-                        placeholder="Type a private message..."
+                        placeholder={pageDict.placeholder}
                         value={newMessage}
                         onChange={(e) => setNewMessage(e.target.value)}
                         className="flex-1"
@@ -115,4 +119,3 @@ export function AdminChat() {
         </Card>
     );
 }
-

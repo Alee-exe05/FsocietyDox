@@ -9,6 +9,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { ShieldCheck, PlusCircle, Trash2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
+import { useLanguage } from '@/contexts/language-context';
 
 type Permission = 'createUser' | 'editUser' | 'deleteUser' | 'viewLogs' | 'manageRoles' | 'moderateContent';
 type Role = {
@@ -25,18 +26,20 @@ const initialRoles: Role[] = [
   { id: 4, name: 'Utente Staff', permissions: [], isEditable: true },
 ];
 
-const allPermissions: { id: Permission; label: string }[] = [
-    { id: 'createUser', label: 'Create Users' },
-    { id: 'editUser', label: 'Edit Users' },
-    { id: 'deleteUser', label: 'Delete Users' },
-    { id: 'viewLogs', label: 'View System Logs' },
-    { id: 'manageRoles', label: 'Manage Roles' },
-    { id: 'moderateContent', label: 'Moderate Content' },
-];
-
 export function RolesPermissions() {
   const [roles, setRoles] = useState<Role[]>(initialRoles);
   const [newRoleName, setNewRoleName] = useState('');
+  const { dictionary } = useLanguage();
+  const { rolesPermissions: pageDict } = dictionary.admin;
+
+  const allPermissions: { id: Permission; label: string }[] = [
+    { id: 'createUser', label: pageDict.permissions.createUser },
+    { id: 'editUser', label: pageDict.permissions.editUser },
+    { id: 'deleteUser', label: pageDict.permissions.deleteUser },
+    { id: 'viewLogs', label: pageDict.permissions.viewLogs },
+    { id: 'manageRoles', label: pageDict.permissions.manageRoles },
+    { id: 'moderateContent', label: pageDict.permissions.moderateContent },
+];
 
   const handlePermissionChange = (roleId: number, permissionId: Permission) => {
     setRoles(roles.map(role => {
@@ -72,25 +75,23 @@ export function RolesPermissions() {
       <CardHeader>
         <CardTitle className="font-headline flex items-center gap-2">
           <ShieldCheck />
-          Roles & Permissions
+          {pageDict.title}
         </CardTitle>
-        <CardDescription>
-          Configure user roles and their specific permissions. Super Admins have all permissions by default.
-        </CardDescription>
+        <CardDescription>{pageDict.description}</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="mb-6 space-y-4">
             <div className="flex gap-2">
                 <Input
                     type="text"
-                    placeholder="New role name..."
+                    placeholder={pageDict.newRolePlaceholder}
                     value={newRoleName}
                     onChange={(e) => setNewRoleName(e.target.value)}
                     className="max-w-xs"
                 />
                 <Button onClick={handleAddRole}>
                     <PlusCircle className="mr-2 h-4 w-4" />
-                    Add Role
+                    {pageDict.addRoleButton}
                 </Button>
             </div>
         </div>
@@ -99,9 +100,9 @@ export function RolesPermissions() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Role</TableHead>
+                <TableHead>{pageDict.table.role}</TableHead>
                 {allPermissions.map(p => <TableHead key={p.id} className="text-center">{p.label}</TableHead>)}
-                <TableHead className="text-right">Actions</TableHead>
+                <TableHead className="text-right">{pageDict.table.actions}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -109,7 +110,7 @@ export function RolesPermissions() {
                 <TableRow key={role.id}>
                   <TableCell className="font-semibold">
                     {role.name}
-                    {!role.isEditable && <Badge variant="secondary" className="ml-2">Locked</Badge>}
+                    {!role.isEditable && <Badge variant="secondary" className="ml-2">{pageDict.lockedBadge}</Badge>}
                     </TableCell>
                   {allPermissions.map(permission => (
                     <TableCell key={permission.id} className="text-center">
@@ -134,7 +135,7 @@ export function RolesPermissions() {
         </div>
 
         <div className="flex justify-end mt-4">
-            <Button>Save Changes</Button>
+            <Button>{pageDict.saveButton}</Button>
         </div>
       </CardContent>
     </Card>

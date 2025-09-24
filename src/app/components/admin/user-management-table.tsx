@@ -21,6 +21,7 @@ import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog';
 import { useToast } from '@/hooks/use-toast';
+import { useLanguage } from '@/contexts/language-context';
 
 
 const getRoleClass = (role: UserRole) => {
@@ -42,6 +43,8 @@ export function UserManagementTable() {
   const [searchTerm, setSearchTerm] = useState('');
   const [users, setUsers] = useState<User[]>([]);
   const { toast } = useToast();
+  const { dictionary } = useLanguage();
+  const { userManagement: pageDict } = dictionary.admin;
 
   useEffect(() => {
     setUsers(initialUsers);
@@ -55,23 +58,23 @@ export function UserManagementTable() {
   const deleteUser = (userId: number) => {
     setUsers(currentUsers => currentUsers.filter(user => user.id !== userId));
     toast({
-        title: "User Deleted",
-        description: `The user has been removed from the list.`
+        title: pageDict.toast.userDeleted,
+        description: pageDict.toast.userDeletedDesc,
     });
   };
 
   return (
     <Card>
         <CardHeader>
-            <CardTitle className="font-headline text-2xl">User Management</CardTitle>
-            <CardDescription>View, manage, and edit user accounts.</CardDescription>
+            <CardTitle className="font-headline text-2xl">{pageDict.title}</CardTitle>
+            <CardDescription>{pageDict.description}</CardDescription>
         </CardHeader>
         <CardContent>
             <div className="flex items-center justify-between gap-4 mb-4">
                 <div className="relative w-full max-w-sm">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                     <Input 
-                        placeholder="Search by name or email..."
+                        placeholder={pageDict.searchPlaceholder}
                         className="pl-10"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
@@ -79,24 +82,24 @@ export function UserManagementTable() {
                 </div>
                 <Button>
                     <Users className="mr-2 h-4 w-4" />
-                    Add User
+                    {pageDict.addUserButton}
                 </Button>
             </div>
             
             <div className="text-sm text-muted-foreground mb-4 flex items-center gap-1">
                 <Users className="h-4 w-4" />
-                <span>{filteredUsers.length} Users</span>
+                <span>{filteredUsers.length} {pageDict.userCount}</span>
             </div>
 
             <div className="rounded-md border">
                 <Table>
                 <TableHeader>
                     <TableRow>
-                    <TableHead>User</TableHead>
-                    <TableHead>Role</TableHead>
-                    <TableHead>Stats</TableHead>
-                    <TableHead>Joined</TableHead>
-                    <TableHead><span className="sr-only">Actions</span></TableHead>
+                    <TableHead>{pageDict.table.user}</TableHead>
+                    <TableHead>{pageDict.table.role}</TableHead>
+                    <TableHead>{pageDict.table.stats}</TableHead>
+                    <TableHead>{pageDict.table.joined}</TableHead>
+                    <TableHead><span className="sr-only">{pageDict.table.actions}</span></TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -120,8 +123,8 @@ export function UserManagementTable() {
                             </Badge>
                         </TableCell>
                         <TableCell className="text-muted-foreground">
-                            <div className="text-xs">Pastes: {user.pastes}</div>
-                            <div className="text-xs">Comments: {user.comments}</div>
+                            <div className="text-xs">{pageDict.table.pastes}: {user.pastes}</div>
+                            <div className="text-xs">{pageDict.table.comments}: {user.comments}</div>
                         </TableCell>
                         <TableCell className="text-muted-foreground">{user.joined}</TableCell>
                         <TableCell>
@@ -130,29 +133,28 @@ export function UserManagementTable() {
                                     <DropdownMenuTrigger asChild>
                                     <Button aria-haspopup="true" size="icon" variant="ghost">
                                         <MoreHorizontal className="h-4 w-4" />
-                                        <span className="sr-only">Toggle menu</span>
+                                        <span className="sr-only">{pageDict.actions.toggle}</span>
                                     </Button>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent align="end">
-                                        <DropdownMenuItem onSelect={(e) => e.preventDefault()}><Edit className="mr-2 h-4 w-4" />Edit</DropdownMenuItem>
-                                        <DropdownMenuItem onSelect={(e) => e.preventDefault()}><Shield className="mr-2 h-4 w-4" />Change Role</DropdownMenuItem>
+                                        <DropdownMenuItem onSelect={(e) => e.preventDefault()}><Edit className="mr-2 h-4 w-4" />{pageDict.actions.edit}</DropdownMenuItem>
+                                        <DropdownMenuItem onSelect={(e) => e.preventDefault()}><Shield className="mr-2 h-4 w-4" />{pageDict.actions.changeRole}</DropdownMenuItem>
                                         <DropdownMenuSeparator />
                                         <AlertDialogTrigger asChild>
-                                            <DropdownMenuItem className="text-red-500 focus:text-red-500"><Trash2 className="mr-2 h-4 w-4" />Delete</DropdownMenuItem>
+                                            <DropdownMenuItem className="text-red-500 focus:text-red-500"><Trash2 className="mr-2 h-4 w-4" />{pageDict.actions.delete}</DropdownMenuItem>
                                         </AlertDialogTrigger>
                                     </DropdownMenuContent>
                                 </DropdownMenu>
                                 <AlertDialogContent>
                                     <AlertDialogHeader>
-                                        <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+                                        <AlertDialogTitle>{pageDict.deleteDialog.title}</AlertDialogTitle>
                                         <AlertDialogDescription>
-                                            This action cannot be undone. This will permanently delete the user
-                                            account and remove their data from our servers.
+                                            {pageDict.deleteDialog.description}
                                         </AlertDialogDescription>
                                     </AlertDialogHeader>
                                     <AlertDialogFooter>
-                                        <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                        <AlertDialogAction onClick={() => deleteUser(user.id)}>Continue</AlertDialogAction>
+                                        <AlertDialogCancel>{pageDict.deleteDialog.cancel}</AlertDialogCancel>
+                                        <AlertDialogAction onClick={() => deleteUser(user.id)}>{pageDict.deleteDialog.continue}</AlertDialogAction>
                                     </AlertDialogFooter>
                                 </AlertDialogContent>
                             </AlertDialog>
@@ -161,7 +163,7 @@ export function UserManagementTable() {
                     )) : (
                         <TableRow>
                             <TableCell colSpan={5} className="h-24 text-center">
-                            No users found.
+                            {pageDict.noUsersFound}
                             </TableCell>
                         </TableRow>
                     )}
@@ -172,4 +174,3 @@ export function UserManagementTable() {
     </Card>
   );
 }
-
