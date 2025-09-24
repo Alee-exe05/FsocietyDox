@@ -120,12 +120,18 @@ export function RegisterForm() {
       }
 
     } catch (error: any) {
-      console.error("Registration Error:", error);
-      toast({
-        title: "Registration Failed",
-        description: error.message || "An unexpected error occurred.",
-        variant: "destructive",
-      });
+        console.error("Registration Error:", error);
+        let description = "An unexpected error occurred.";
+        if (error.code === 'auth/email-already-in-use') {
+            description = "This email is already in use. Try logging in instead.";
+        } else {
+            description = error.message;
+        }
+        toast({
+            title: "Registration Failed",
+            description: description,
+            variant: "destructive",
+        });
     } finally {
         setIsLoading(false);
     }
