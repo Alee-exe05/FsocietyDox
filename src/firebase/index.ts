@@ -4,7 +4,12 @@ import { getFirestore, Firestore } from 'firebase/firestore';
 import { firebaseConfig } from '@/lib/firebase/config';
 
 // Initialize Firebase
-const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+let app: FirebaseApp;
+if (!getApps().length) {
+    app = initializeApp(firebaseConfig);
+} else {
+    app = getApp();
+}
 
 function initializeFirebase(): { app: FirebaseApp; auth: Auth; firestore: Firestore } {
   const firestore = getFirestore(app);
