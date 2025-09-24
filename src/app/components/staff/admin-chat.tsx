@@ -7,12 +7,6 @@ import { Avatar } from '@/components/ui/avatar';
 import { PinGenerator } from './pin-generator';
 import { useLanguage } from '@/contexts/language-context';
 
-const messages = [
-    { user: 'Whiterose', text: 'Stage 2 is proceeding as planned. Are there any obstacles?', time: '4:10 PM', avatar: 'W' },
-    { user: 'Mr. Robot', text: 'None. Alderson is handling the final piece.', time: '4:12 PM', avatar: 'MR' },
-    { user: 'Elliot', text: 'The firmware is almost ready.', time: '4:13 PM', avatar: 'E' },
-    { user: 'Whiterose', text: 'Failure is not an option. Remember what is at stake.', time: '4:15 PM', avatar: 'W' },
-];
 
 export function AdminChat() {
     const { dictionary } = useLanguage();
@@ -39,20 +33,7 @@ export function AdminChat() {
                     <div className="w-full h-full flex flex-col p-0">
                          <ScrollArea className="flex-1 p-4">
                             <div className="space-y-4">
-                                {messages.map((msg, index) => (
-                                    <div key={index} className="flex items-start gap-3">
-                                        <Avatar>
-                                            {msg.avatar}
-                                        </Avatar>
-                                        <div className="flex-1">
-                                            <div className="flex items-center gap-2">
-                                                <span className="font-bold text-red-400">{msg.user}</span>
-                                                <span className="text-xs text-muted-foreground">{msg.time}</span>
-                                            </div>
-                                            <p className="text-sm">{msg.text}</p>
-                                        </div>
-                                    </div>
-                                ))}
+                                
                             </div>
                         </ScrollArea>
                         <div className="p-4 border-t">
