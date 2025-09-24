@@ -10,6 +10,9 @@ export const en = {
     support: 'Support',
     staff: 'Staff',
   },
+  hero: {
+    description: 'A platform for secure information sharing and collaboration. Your data, your rules.'
+  },
   dashboard: {
     title: 'Dashboard',
     description: 'Welcome to the control panel.',

@@ -12,6 +12,9 @@ export const it: Dictionary = {
     support: 'Supporto',
     staff: 'Staff',
   },
+  hero: {
+    description: 'Una piattaforma per la condivisione sicura delle informazioni e la collaborazione. I tuoi dati, le tue regole.'
+  },
   dashboard: {
     title: 'Dashboard',
     description: 'Benvenuto nel pannello di controllo.',
