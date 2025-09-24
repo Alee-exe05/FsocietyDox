@@ -18,6 +18,7 @@ import { Sidebar, SidebarContent, SidebarInset, SidebarProvider, SidebarTrigger 
 import { AppSidebar } from "@/app/components/layout/app-sidebar";
 import { useRouter } from 'next/navigation';
 import { useUser } from '@/firebase';
+import { cn } from '@/lib/utils';
 
 
 const STAFF_PIN = "666";
@@ -96,8 +97,12 @@ export default function StaffPage() {
                                         </DropdownMenuContent>
                                     </DropdownMenu>
                                 </div>
-                                {activeChat === 'staff' && <StaffChat />}
-                                {activeChat === 'admin' && <AdminChat />}
+                                <div className={cn({ 'hidden': activeChat !== 'staff' })}>
+                                    <StaffChat />
+                                </div>
+                                <div className={cn({ 'hidden': activeChat !== 'admin' })}>
+                                    <AdminChat />
+                                </div>
                             </div>
                         </>
                     )}
