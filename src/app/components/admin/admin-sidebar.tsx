@@ -40,7 +40,9 @@ export function AdminSidebar() {
     }, []);
     
     const currentUser = useMemo(() => {
-        return users.find(u => u.name === 'Elliot Alderson');
+        // In a real app, you would get the current user from your auth system
+        // For this example, we'll find a Super Admin to show all links.
+        return users.find(u => u.role === 'Super Admin');
     }, [users]);
 
     const navLinks: { href: string; label: string; icon: React.ElementType; roles: UserRole[] }[] = useMemo(() => [
