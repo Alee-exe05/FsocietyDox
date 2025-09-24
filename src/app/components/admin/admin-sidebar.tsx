@@ -41,17 +41,19 @@ const navLinks: { href: string; label: string; icon: React.ElementType; roles: U
 export function AdminSidebar() {
     const pathname = usePathname();
     const [users, setUsers] = useState<User[]>([]);
-    const [currentUser, setCurrentUser] = useState<User | undefined>(undefined);
-
+    
     useEffect(() => {
         setUsers(initialUsers);
-        // In a real app, you'd fetch the current logged-in user.
-        // For this example, we'll try to find a default user or leave it undefined.
-        setCurrentUser(initialUsers.find(u => u.name === 'Elliot Alderson'));
     }, []);
 
+    // In a real app, you'd fetch the current logged-in user.
+    // For this example, we find a user from our static data.
+    const currentUser = useMemo(() => {
+        return users.find(u => u.name === 'Elliot Alderson');
+    }, [users]);
+
     const visibleLinks = useMemo(() => {
-        if (!currentUser) return []; // Return no links if no user is logged in
+        if (!currentUser) return [];
         return navLinks.filter(link => link.roles.includes(currentUser.role));
     }, [currentUser]);
 
@@ -63,20 +65,6 @@ export function AdminSidebar() {
       <SidebarContent className="p-2">
         <SidebarMenu>
             {visibleLinks.map(link => (
-                <SidebarMenuItem key={link.href}>
-                    <SidebarMenuButton 
-                        asChild
-                        isActive={pathname === link.href}
-                    >
-                        <Link href={link.href}>
-                            <link.icon />
-                            {link.label}
-                        </Link>
-                    </SidebarMenuButton>
-                </SidebarMenuItem>
-            ))}
-             {/* Show all links if no user is defined for development/showcase */}
-             {!currentUser && navLinks.map(link => (
                 <SidebarMenuItem key={link.href}>
                     <SidebarMenuButton 
                         asChild
