@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { AppHeader } from '@/app/components/layout/app-header';
-import { ModulesTable } from '@/app/components/dashboard/modules-table';
 import { Hero } from '@/app/components/layout/hero';
 import { useLanguage } from '@/contexts/language-context';
 
@@ -14,7 +13,6 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <div className="px-4 md:px-10 pb-4 md:pb-10 space-y-8">
-            <ModulesTable />
         </div>
       </main>
     </div>
