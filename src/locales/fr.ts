@@ -132,8 +132,8 @@ export const fr: Dictionary = {
       description: 'Entrez le PIN d\'accès général pour voir les canaux du staff.'
     },
     adminPin: {
-      title: 'Canal Admin Verrouillé',
-      description: 'Entrez le PIN admin pour déverrouiller ce chat.'
+      title: 'Vérification du Canal Admin',
+      description: 'Un PIN dynamique est requis pour ce canal sécurisé. Transcrivez le code ci-dessous pour continuer.'
     }
   }
 };

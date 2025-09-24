@@ -130,8 +130,8 @@ export const en = {
       description: 'Enter the general access PIN to view staff channels.'
     },
     adminPin: {
-      title: 'Admin Channel Locked',
-      description: 'Enter the admin PIN to unlock this chat.'
+      title: 'Admin Channel Verification',
+      description: 'A dynamic PIN is required for this secure channel. Transcribe the code below to proceed.'
     }
   }
 };

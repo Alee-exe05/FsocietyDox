@@ -132,8 +132,8 @@ export const it: Dictionary = {
       description: 'Inserisci il PIN di accesso generale per visualizzare i canali dello staff.'
     },
     adminPin: {
-      title: 'Canale Admin Bloccato',
-      description: 'Inserisci il PIN admin per sbloccare questa chat.'
+      title: 'Verifica Canale Admin',
+      description: 'È richiesto un PIN dinamico per questo canale sicuro. Trascrivi il codice qui sotto per procedere.'
     }
   }
 };

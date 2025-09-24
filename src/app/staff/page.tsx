@@ -6,12 +6,9 @@ import { AppHeader } from "@/app/components/layout/app-header";
 import { PinInput } from '@/app/components/staff/pin-input';
 import { StaffChat } from '@/app/components/staff/staff-chat';
 import { AdminChat } from '@/app/components/staff/admin-chat';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Shield, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '@/contexts/language-context';
 
-const STAFF_PIN = "1337";
+const STAFF_PIN = "666";
 
 export default function StaffPage() {
     const { dictionary } = useLanguage();

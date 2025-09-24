@@ -3,12 +3,9 @@
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { PinInput } from './pin-input';
-import { ShieldAlert, Users } from 'lucide-react';
+import { Avatar } from '@/components/ui/avatar';
+import { PinGenerator } from './pin-generator';
 import { useLanguage } from '@/contexts/language-context';
-
-const ADMIN_PIN = "fsociety";
 
 const messages = [
     { user: 'Whiterose', text: 'Stage 2 is proceeding as planned. Are there any obstacles?', time: '4:10 PM', avatar: 'W' },
@@ -33,10 +30,9 @@ export function AdminChat() {
             </CardHeader>
             <CardContent className="flex-1 flex flex-col justify-center items-center">
                 {!isUnlocked ? (
-                     <PinInput
+                     <PinGenerator
                         title={dictionary.staff.adminPin.title}
                         description={dictionary.staff.adminPin.description}
-                        correctPin={ADMIN_PIN}
                         onSuccess={handlePinSuccess}
                      />
                 ) : (
@@ -46,7 +42,7 @@ export function AdminChat() {
                                 {messages.map((msg, index) => (
                                     <div key={index} className="flex items-start gap-3">
                                         <Avatar>
-                                            <AvatarFallback>{msg.avatar}</AvatarFallback>
+                                            {msg.avatar}
                                         </Avatar>
                                         <div className="flex-1">
                                             <div className="flex items-center gap-2">
