@@ -24,11 +24,12 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { auth } from "@/lib/firebase/config";
-import { createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithRedirect, getRedirectResult } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithRedirect, getRedirectResult, updateProfile } from "firebase/auth";
 import { useToast } from "@/hooks/use-toast";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { LoaderCircle } from "lucide-react";
+import { createUserProfileDocument } from "@/lib/firebase/users";
 
 const GoogleIcon = () => (
     <svg className="h-5 w-5" viewBox="0 0 24 24">
@@ -69,6 +70,7 @@ export function RegisterForm() {
         try {
             const result = await getRedirectResult(auth);
             if (result) {
+                await createUserProfileDocument(result.user);
                 toast({
                     title: "Registration Successful",
                     description: "You have been successfully registered with Google.",
@@ -106,7 +108,10 @@ export function RegisterForm() {
       const user = userCredential.user;
 
       if (user) {
+        await updateProfile(user, { displayName: values.username });
+        await createUserProfileDocument(user, { username: values.username });
         await sendEmailVerification(user);
+
         toast({
           title: "Registration Successful",
           description: "A verification email has been sent. Please check your inbox.",
