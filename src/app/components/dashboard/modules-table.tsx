@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Card,
   CardContent,
@@ -15,10 +15,12 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { modules as initialModules, Module } from '@/lib/data/modules';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/language-context';
 import { FileWarning } from 'lucide-react';
+import { usePaste } from '@/contexts/paste-context';
+import type { Module } from '@/lib/types';
+
 
 const getRoleClass = (role: string) => {
   switch (role) {
@@ -34,13 +36,14 @@ const getRoleClass = (role: string) => {
 };
 
 const getRowClass = (index: number) => {
+    // Example classes, can be adjusted
     if (index === 1 || index === 2) return 'table-row-red';
     if (index === 0) return 'table-row-blue';
     return ''
 }
 
 export function ModulesTable() {
-  const [modules] = useState<Module[]>(initialModules);
+  const { modules } = usePaste();
   const { dictionary } = useLanguage();
 
 

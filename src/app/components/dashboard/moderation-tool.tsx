@@ -10,10 +10,12 @@ import { ShieldCheck, ShieldAlert, LoaderCircle, Info } from 'lucide-react';
 import { moderateSensitiveData, ModerateSensitiveDataOutput } from '@/ai/flows/moderate-sensitive-data';
 import { useLanguage } from '@/contexts/language-context';
 import { useToast } from '@/hooks/use-toast';
+import { usePaste } from '@/contexts/paste-context';
 
 export function ModerationTool() {
   const { dictionary } = useLanguage();
   const { toast } = useToast();
+  const { incrementModerated, incrementFlagged } = usePaste();
   const [text, setText] = useState('');
   const [region, setRegion] = useState('US');
   const [result, setResult] = useState<ModerateSensitiveDataOutput | null>(null);
@@ -33,6 +35,10 @@ export function ModerationTool() {
     try {
       const moderationResult = await moderateSensitiveData({ text, region });
       setResult(moderationResult);
+      incrementModerated();
+      if (moderationResult.hasSensitiveData) {
+        incrementFlagged();
+      }
     } catch (error) {
       console.error("Moderation failed:", error);
       toast({

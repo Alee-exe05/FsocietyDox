@@ -3,11 +3,11 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/contexts/language-context';
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { usePaste } from '@/contexts/paste-context';
 
 const FsocietyAsciiArt = () => (
     <pre className="text-xs text-white font-mono whitespace-pre-wrap break-words animate-glitter">
@@ -31,27 +31,16 @@ const FsocietyAsciiArt = () => (
 export function AddPasteForm() {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const { toast } = useToast();
     const { dictionary } = useLanguage();
+    const { addPaste } = usePaste();
 
     const handleSubmit = () => {
-        if (!title.trim() || !content.trim()) {
-            toast({
-                title: "Submission Failed",
-                description: "Title and content cannot be empty.",
-                variant: "destructive",
-            });
-            return;
+        addPaste(title, content);
+        // Reset state after submission if addPaste doesn't throw
+        if (title.trim() && content.trim()) {
+            setTitle('');
+            setContent('');
         }
-        
-        toast({
-            title: "Paste Submitted",
-            description: `Your paste "${title}" has been successfully submitted.`,
-        });
-        
-        // Reset state after submission
-        setTitle('');
-        setContent('');
     };
 
     return (

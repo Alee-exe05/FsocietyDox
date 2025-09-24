@@ -4,6 +4,7 @@ import {Toaster} from '@/components/ui/toaster';
 import './globals.css';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import { cn } from '@/lib/utils';
+import { PasteProvider } from '@/contexts/paste-context';
 
 const fontBody = Inter({
   subsets: ['latin'],
@@ -30,8 +31,10 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={cn("font-body antialiased", fontBody.variable, fontHeadline.variable)}>
         <LanguageProvider>
-          {children}
-          <Toaster />
+          <PasteProvider>
+            {children}
+            <Toaster />
+          </PasteProvider>
         </LanguageProvider>
       </body>
     </html>

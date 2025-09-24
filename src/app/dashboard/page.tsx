@@ -5,12 +5,12 @@ import React from 'react';
 import { AppHeader } from '@/app/components/layout/app-header';
 import { useLanguage } from '@/contexts/language-context';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import { Activity, ShieldCheck, Users, FileWarning } from 'lucide-react';
+import { Activity, ShieldCheck, FileText } from 'lucide-react';
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
-import { chartData } from '@/lib/data/modules';
 import { ModerationTool } from '@/app/components/dashboard/moderation-tool';
+import { usePaste } from '@/contexts/paste-context';
 
-function StatCard({ title, value, icon: Icon }: { title: string, value: string, icon: React.ElementType }) {
+function StatCard({ title, value, icon: Icon }: { title: string, value: string | number, icon: React.ElementType }) {
     return (
         <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -24,17 +24,27 @@ function StatCard({ title, value, icon: Icon }: { title: string, value: string, 
     )
 }
 
+const chartData = [
+  { month: "January", uploads: 186, moderations: 80 },
+  { month: "February", uploads: 305, moderations: 200 },
+  { month: "March", uploads: 237, moderations: 120 },
+  { month: "April", uploads: 73, moderations: 190 },
+  { month: "May", uploads: 209, moderations: 130 },
+  { month: "June", uploads: 214, moderations: 140 },
+];
+
 export default function DashboardPage() {
   const { dictionary } = useLanguage();
+  const { stats } = usePaste();
+
   return (
     <div className="flex min-h-screen w-full flex-col">
       <AppHeader />
       <main className="flex-1 p-4 md:p-10 space-y-8">
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-                <StatCard title={dictionary.dashboard.stats.modules} value="12" icon={FileWarning} />
-                <StatCard title={dictionary.dashboard.stats.moderated} value="345" icon={ShieldCheck} />
-                <StatCard title={dictionary.dashboard.stats.users} value="0" icon={Users} />
-                <StatCard title={dictionary.dashboard.stats.flagged} value="12" icon={Activity} />
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                <StatCard title={dictionary.dashboard.stats.modules} value={stats.totalModules} icon={FileText} />
+                <StatCard title={dictionary.dashboard.stats.moderated} value={stats.moderated} icon={ShieldCheck} />
+                <StatCard title={dictionary.dashboard.stats.flagged} value={stats.flagged} icon={Activity} />
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
