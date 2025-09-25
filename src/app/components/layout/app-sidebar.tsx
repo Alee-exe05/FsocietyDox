@@ -57,18 +57,6 @@ export function AppSidebar() {
                 </SidebarMenuButton>
             </SidebarMenuItem>
           ))}
-          <SidebarMenuItem>
-            <SidebarMenuButton href="#" tooltip="Moderation">
-              <Shield />
-              Moderation
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <SidebarMenuItem>
-            <SidebarMenuButton href="#" tooltip="Settings">
-              <Settings />
-              Settings
-            </SidebarMenuButton>
-          </SidebarMenuItem>
         </SidebarMenu>
       </SidebarContent>
       <SidebarSeparator />
